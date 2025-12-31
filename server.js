@@ -8,7 +8,6 @@ const { exec } = require('child_process');
 
 const app = express();
 app.use(cors());
-// CHANGED: Serve from docs instead of public
 app.use(express.static('docs'));
 
 const PORT = 3001;
@@ -57,13 +56,24 @@ function pushToGitHub() {
                     console.error("Git Commit Failed:", stderr);
                     return resolve({ success: false, error: "Git Commit Failed" });
                 }
-                exec('git push origin main', (err, stdout, stderr) => {
+
+                // PULL first to avoid conflicts (Rebase strategy)
+                console.log("Pulling changes...");
+                exec('git pull --rebase origin main', (err, stdout, stderr) => {
                     if (err) {
-                        console.error("Git Push Failed:", stderr);
-                        return resolve({ success: false, error: "Git Push Failed. Check Internet or Auth." });
+                        console.error("Git Pull Failed:", stderr);
+                        // Try pushing anyway? No, fail safe.
+                        return resolve({ success: false, error: "Git Pull Failed" });
                     }
-                    console.log("Git Push Successful");
-                    resolve({ success: true });
+
+                    exec('git push origin main', (err, stdout, stderr) => {
+                        if (err) {
+                            console.error("Git Push Failed:", stderr);
+                            return resolve({ success: false, error: "Git Push Failed. Check Internet/Auth." });
+                        }
+                        console.log("Git Push Successful");
+                        resolve({ success: true });
+                    });
                 });
             });
         });
@@ -103,25 +113,53 @@ async function fetchList(accountType) {
     return msgs;
 }
 
-async function fetchClosingBalances(groupName) {
-    const xml = `<ENVELOPE><HEADER><TALLYREQUEST>Export Data</TALLYREQUEST></HEADER><BODY><EXPORTDATA><REQUESTDESC><REPORTNAME>Group Summary</REPORTNAME><STATICVARIABLES><SVEXPORTFORMAT>$$SysName:XML</SVEXPORTFORMAT><GROUPNAME>${groupName}</GROUPNAME><EXPLODEFLAG>Yes</EXPLODEFLAG></STATICVARIABLES></REQUESTDESC></EXPORTDATA></BODY></ENVELOPE>`;
+// CHANGED: Use Trial Balance with ExplodeFlag to ensure all ledgers are captured
+async function fetchClosingBalances() {
+    console.log("Fetching Trial Balance...");
+    const xml = `<ENVELOPE><HEADER><TALLYREQUEST>Export Data</TALLYREQUEST></HEADER><BODY><EXPORTDATA><REQUESTDESC><REPORTNAME>Trial Balance</REPORTNAME><STATICVARIABLES><SVEXPORTFORMAT>$$SysName:XML</SVEXPORTFORMAT><EXPLODEFLAG>Yes</EXPLODEFLAG><DSPSHOWOPENING>Yes</DSPSHOWOPENING><DSPSHOWTRANS>Yes</DSPSHOWTRANS><DSPSHOWCLOSING>Yes</DSPSHOWCLOSING></STATICVARIABLES></REQUESTDESC></EXPORTDATA></BODY></ENVELOPE>`;
     const data = await postTally(xml);
     const envelope = data?.ENVELOPE || {};
     let names = envelope.DSPACCNAME || [];
     let infos = envelope.DSPACCINFO || [];
     if (!Array.isArray(names)) names = [names];
     if (!Array.isArray(infos)) infos = [infos];
+
     const balanceMap = new Map();
-    for (let i = 0; i < Math.min(names.length, infos.length); i++) {
+    const count = Math.min(names.length, infos.length);
+    console.log(`Parsed ${count} entries from Trial Balance.`);
+
+    for (let i = 0; i < count; i++) {
         const name = names[i]?.DSPDISPNAME;
         if (!name) continue;
         const info = infos[i];
+
+        // Trial Balance might have different field names for Closing Balance
+        // Usually DSPCLDRAMT / DSPCLCRAMT for Debit/Credit Closing
         const debit = info.DSPCLDRAMT?.DSPCLDRAMTA;
         const credit = info.DSPCLCRAMT?.DSPCLCRAMTA;
+
         let val = 0;
-        if (debit) val = parseFloat(debit.replace(/,/g, ''));
-        else if (credit) val = parseFloat(credit.replace(/,/g, ''));
-        balanceMap.set(name, val);
+        if (debit && typeof debit === 'string') val = parseFloat(debit.replace(/,/g, '')); // Debit is positive in our logic? No wait.
+        else if (credit && typeof credit === 'string') val = parseFloat(credit.replace(/,/g, ''));
+
+        // Determine Sign: Valid Tally XML usually puts Dr in one field and Cr in another.
+        // We need to know if it's Dr or Cr. 
+        // If it came from DSPCLDRAMT, it's Dr. If DSPCLCRAMT, it's Cr.
+        // Let's store signed value: Dr = Negative, Cr = Positive (or vice versa, let's stick to standard)
+        // In our app: Dr means Debtor (Owes us), Cr means Creditor (We owe).
+        // Let's store Absolute Amount and Type separately or Signed.
+        // Our existing logic uses signed diff check.
+
+        let signedVal = 0;
+        if (debit) signedVal = -Math.abs(val); // Dr is Negative usually in my logic? 
+        // Wait, check performSync logic: 
+        // let localSigned = (newItem.type === 'Dr' ? -newItem.amount : newItem.amount);
+        // So Dr is Negative.
+
+        if (debit) signedVal = -Math.abs(parseFloat(debit.replace(/,/g, '')));
+        else if (credit) signedVal = Math.abs(parseFloat(credit.replace(/,/g, '')));
+
+        balanceMap.set(name, signedVal);
     }
     return balanceMap;
 }
@@ -168,6 +206,7 @@ async function performSync() {
     console.log("--- STARTING SMART SYNC ---");
     const isTallyUp = await checkTallyConnection();
     if (!isTallyUp) throw new Error("Tally Prime is NOT RUNNING or NOT ON PORT 9000. Please start Tally and enable HTTP Server.");
+
     const startTime = Date.now();
     const localData = loadData();
     const oldDebtors = localData.debtors || {};
@@ -176,15 +215,17 @@ async function performSync() {
     const flatten = (list) => { if (Array.isArray(list)) return list; let flat = []; Object.values(list).forEach(arr => flat.push(...arr)); return flat; };
     [...flatten(oldDebtors), ...oldCreditors].forEach(item => { localMap.set(item.name, item); });
 
+    // 1. Fetch Hierarchy & Structure
     const groupsRaw = await fetchList('Groups');
     const ledgersRaw = await fetchList('Ledgers');
     const parentMap = new Map();
     groupsRaw.forEach(m => { if (m.GROUP) parentMap.set(m.GROUP.$.NAME, m.GROUP.PARENT); });
     ledgersRaw.forEach(m => { if (m.LEDGER) parentMap.set(m.LEDGER.$.NAME, m.LEDGER.PARENT); });
-    const debtorBals = await fetchClosingBalances('Sundry Debtors');
-    const creditorBals = await fetchClosingBalances('Sundry Creditors');
-    const tallyBalances = new Map([...debtorBals, ...creditorBals]);
 
+    // 2. Fetch ALL Active Closing Balances using Trial Balance
+    const tallyBalances = await fetchClosingBalances();
+
+    // 3. Bucket and Classify
     const debtorBuckets = {};
     KNOWN_GROUPS.forEach(g => debtorBuckets[g] = []);
     debtorBuckets["No-Group"] = [];
@@ -226,11 +267,24 @@ async function performSync() {
             newItem.type = v < 0 ? 'Dr' : 'Cr';
         }
 
-        let tallyBal = tallyBalances.get(name) || 0;
+        // Tally Balance Check
+        let tallyBalSigned = tallyBalances.get(name);
+
+        // If Tally returns undefined, it might be 0 OR it wasn't fetched. 
+        // With Trial Balance Exploded, it should be there if non-zero. 
+        // If undefined, we assume 0.
+        if (tallyBalSigned === undefined) tallyBalSigned = 0;
+
         let localSigned = (newItem.type === 'Dr' ? -newItem.amount : newItem.amount);
-        const diff = Math.abs(tallyBal - localSigned);
+        const diff = Math.abs(tallyBalSigned - localSigned);
 
         let needsSync = (diff > 0.1);
+
+        // FORCE SYNC if transactions are empty but balance is non-zero (first run fix)
+        if (!needsSync && Math.abs(tallyBalSigned) > 0.1 && (!newItem.transactions || newItem.transactions.length === 0)) {
+            needsSync = true;
+        }
+
         if (needsSync) {
             newItem._shouldSync = true;
             ledgersToFetch.push(newItem);
@@ -245,19 +299,29 @@ async function performSync() {
         }
     });
 
+    console.log(`Identified ${ledgersToFetch.length} ledgers needing sync.`);
+
+    // 4. Batch Fetch
     let processed = 0;
     for (let i = 0; i < ledgersToFetch.length; i += SYNC_CONFIG.batchSize) {
         const batch = ledgersToFetch.slice(i, i + SYNC_CONFIG.batchSize);
         await Promise.all(batch.map(async (ledger) => {
             const txns = await fetchVouchers(ledger.name);
             ledger.transactions = txns;
-            let finalBal = tallyBalances.get(ledger.name) || 0;
-            ledger.amount = Math.abs(finalBal);
-            ledger.type = finalBal < 0 ? 'Dr' : 'Cr';
+
+            // Update amount to match Tally's closing balance
+            let finalBalSigned = tallyBalances.get(ledger.name) || 0;
+
+            ledger.amount = Math.abs(finalBalSigned);
+            ledger.type = finalBalSigned < 0 ? 'Dr' : (finalBalSigned > 0 ? 'Cr' : 'Dr');
+            // Note: If 0, default to Dr? or keep existing. If new, Dr.
+
             delete ledger._shouldSync;
         }));
         processed += batch.length;
+        process.stdout.write(`\rSyncing: ${processed}/${ledgersToFetch.length}`);
     }
+    console.log("\n");
 
     const finalData = {
         updatedAt: new Date().toISOString(),
