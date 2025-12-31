@@ -71,57 +71,14 @@ export const calculateAging = (transactions, openingBalanceStr) => {
         else if (diffDays <= 90) buckets['60-90'] += item.amount;
         else buckets['90+'] += item.amount;
     });
-    // ... existing calculateAging ...
-    // Note: This logic assumes 'Dr' (Debit) decreases the accumulated credits needed to pay off.
-    // However, standard FIFO matching usually matches Credits against Debits.
-    // The previous implementation seems to treat Opening Balance < 0 as a Debit to be paid.
-
-    // Existing logic seems fine for aging.
     return buckets;
 };
 
-export const determineRiskCategory = (agingBuckets) => {
-    if (agingBuckets['90+'] > 0) return '90+';
-    if (agingBuckets['60-90'] > 0) return '60-90';
-    if (agingBuckets['30-60'] > 0) return '30-60';
+export const determineRiskCategory = (aging) => {
+    if (aging['90+'] > 0) return '90+';
+    if (aging['60-90'] > 0) return '60-90';
+    if (aging['30-60'] > 0) return '30-60';
     return '0-30';
-};
-
-export const calculateCurrentBalance = (ledger) => {
-    let balance = 0;
-
-    // 1. Process Opening Balance
-    if (ledger.openingBalance) {
-        const raw = parseFloat(ledger.openingBalance.replace(/,/g, ''));
-        if (!isNaN(raw)) {
-            balance = raw;
-        }
-    }
-
-    // 2. Process Transactions
-    if (ledger.transactions && Array.isArray(ledger.transactions)) {
-        // Sort by date to be safe, though mainly sum matters for final balance
-        // We use the same sign logic as the original App.jsx:
-        // Dr -> Subtract (-), Cr -> Add (+)
-        // Assuming OpeningBalance follows the same sign convention (Neg = Dr, Pos = Cr)
-        ledger.transactions.forEach(t => {
-            const amt = parseFloat(t.amount);
-            if (t.sign === 'Dr') {
-                balance -= amt;
-            } else {
-                balance += amt;
-            }
-        });
-    }
-
-    // 3. Determine Final Type and Absolute Amount
-    // If balance is negative -> Dr (Debit)
-    // If balance is positive -> Cr (Credit)
-    return {
-        amount: Math.abs(balance),
-        type: balance < 0 ? 'Dr' : 'Cr',
-        rawBalance: balance
-    };
 };
 
 // --- API CONFIGURATION ---
