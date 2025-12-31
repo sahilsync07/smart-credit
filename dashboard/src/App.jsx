@@ -6,7 +6,15 @@ import {
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { PieChart, Pie, Cell, ResponsiveContainer, Tooltip } from 'recharts';
-import { formatCurrency, formatDate, calculateAging, getEndpoints, parseDate, determineRiskCategory } from './utils';
+import { formatCurrency, formatDate, calculateAging, getEndpoints, parseDate } from './utils';
+
+// Define locally to prevent ReferenceError if import fails during build optimization
+const determineRiskCategory = (aging) => {
+  if (aging['90+'] > 0) return '90+';
+  if (aging['60-90'] > 0) return '60-90';
+  if (aging['30-60'] > 0) return '30-60';
+  return '0-30';
+};
 
 // --- SHARED COMPONENTS ---
 const Card = ({ children, className = "" }) => (
@@ -29,24 +37,40 @@ const Toast = ({ message, type, onClose }) => {
 const processLedgerData = (ledger) => {
   let opAmt = 0;
   let opType = 'Dr';
-  if (ledger.openingBalance) {
-    let raw = parseFloat(ledger.openingBalance.replace(/,/g, ''));
-    if (!isNaN(raw)) {
-      opAmt = Math.abs(raw);
-      opType = raw < 0 ? 'Dr' : 'Cr';
+  let runningVal = 0;
+
+  // Robust Opening Balance Parsing
+  if (ledger.openingBalance !== undefined && ledger.openingBalance !== null && ledger.openingBalance !== '') {
+    try {
+      const valStr = String(ledger.openingBalance);
+      // Remove commas
+      const raw = parseFloat(valStr.replace(/,/g, ''));
+      if (!isNaN(raw)) {
+        opAmt = Math.abs(raw);
+        // If raw is negative, it's a Debit balance (e.g. -47714)
+        opType = raw < 0 ? 'Dr' : 'Cr';
+      }
+    } catch (e) {
+      console.warn("Error parsing OpBal", e);
     }
   }
+
+  // Tally Logic:
+  // If Op is Dr, it's a Debit Balance (Negative in our signed logic)
+  runningVal = opType === 'Dr' ? -opAmt : opAmt;
+
   const txns = [...(ledger.transactions || [])].sort((a, b) => parseDate(a.date) - parseDate(b.date));
-  let runningVal = opType === 'Dr' ? -opAmt : opAmt;
-  if (ledger.openingBalance) {
-    let raw = parseFloat(ledger.openingBalance.replace(/,/g, ''));
-    if (!isNaN(raw)) runningVal = raw;
-  }
+
   const rows = txns.map(t => {
     let move = 0;
+    // Dr transaction (Invoice) adds to Debt (Negative direction)
+    // Cr transaction (Receipt) adds to Credit (Positive direction)
+    // Existing logic: Dr is negative.
     if (t.sign === 'Dr') move = -t.amount;
     else move = t.amount;
+
     runningVal += move;
+
     return {
       ...t,
       runningVal: runningVal,
@@ -54,9 +78,10 @@ const processLedgerData = (ledger) => {
       runningBalType: runningVal < 0 ? 'Dr' : 'Cr'
     };
   });
+
   return {
-    opAmt: Math.abs(parseFloat(ledger.openingBalance?.replace(/,/g, '') || 0)),
-    opType: (parseFloat(ledger.openingBalance?.replace(/,/g, '') || 0) < 0) ? 'Dr' : 'Cr',
+    opAmt,
+    opType,
     rows: rows,
     closingAmt: Math.abs(runningVal),
     closingType: runningVal < 0 ? 'Dr' : 'Cr'
@@ -66,7 +91,7 @@ const processLedgerData = (ledger) => {
 const LedgerDetail = ({ ledger, onBack }) => {
   if (!ledger) return null;
   const { opAmt, opType, rows, closingAmt, closingType } = useMemo(() => processLedgerData(ledger), [ledger]);
-  const aging = calculateAging(ledger.transactions || [], ledger.openingBalance);
+  const aging = useMemo(() => calculateAging(ledger.transactions || [], ledger.openingBalance), [ledger]);
 
   return (
     <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: 10 }} className="h-full flex flex-col max-w-7xl mx-auto p-4 md:p-6">
@@ -129,7 +154,20 @@ const LedgerList = ({ groupName, ledgers, onSelect, onBack }) => {
 
 const AgingView = ({ data, onSelectLedger }) => {
   const [subTab, setSubTab] = useState('0-30');
-  const processedData = useMemo(() => { if (!data) return {}; const buckets = { '0-30': [], '30-60': [], '60-90': [], '90+': [] }; const allParties = [...Object.values(data.debtors).flat(), ...data.creditors]; allParties.forEach(l => { const aging = calculateAging(l.transactions || [], l.openingBalance); const cat = determineRiskCategory(aging); if (l.amount > 1) buckets[cat].push({ ...l, category: cat }); }); return buckets; }, [data]);
+  const processedData = useMemo(() => {
+    if (!data) return {};
+    const buckets = { '0-30': [], '30-60': [], '60-90': [], '90+': [] };
+    if (data.debtors) {
+      const allParties = [...Object.values(data.debtors).flat(), ...(data.creditors || [])];
+      allParties.forEach(l => {
+        const aging = calculateAging(l.transactions || [], l.openingBalance);
+        const cat = determineRiskCategory(aging);
+        if (l.amount > 1) buckets[cat].push({ ...l, category: cat });
+      });
+    }
+    return buckets;
+  }, [data]);
+
   const currentList = processedData[subTab] || [];
   const tabs = [{ id: '0-30', label: '< 30 Days', color: 'blue' }, { id: '30-60', label: '30 - 60 Days', color: 'yellow' }, { id: '60-90', label: '60 - 90 Days', color: 'orange' }, { id: '90+', label: '> 90 Days', color: 'red' }];
   const getColor = (c) => { if (c === 'blue') return 'text-blue-400 bg-blue-500/10 border-blue-500/50'; if (c === 'yellow') return 'text-yellow-400 bg-yellow-500/10 border-yellow-500/50'; if (c === 'orange') return 'text-orange-400 bg-orange-500/10 border-orange-500/50'; return 'text-red-400 bg-red-500/10 border-red-500/50'; };
@@ -160,18 +198,25 @@ function App() {
         const json = await res.json();
 
         // RECALCULATE BALANCES FOR ALL LEDGERS TO FIX DISCREPANCIES
-        // Fix for "Outer categories shows zeros, but inside valid balance"
+        // This runs the logic on the client side to propagate closing balances to the top level JSON
         const recalcInfo = (l) => {
-          const { closingAmt, closingType } = processLedgerData(l);
-          return { ...l, amount: closingAmt, type: closingType };
+          try {
+            const { closingAmt, closingType } = processLedgerData(l);
+            return { ...l, amount: closingAmt, type: closingType };
+          } catch (err) {
+            console.error(err);
+            return l;
+          }
         };
 
         if (json.debtors) {
           Object.keys(json.debtors).forEach(group => {
-            json.debtors[group] = json.debtors[group].map(recalcInfo);
+            if (Array.isArray(json.debtors[group])) {
+              json.debtors[group] = json.debtors[group].map(recalcInfo);
+            }
           });
         }
-        if (json.creditors) {
+        if (json.creditors && Array.isArray(json.creditors)) {
           json.creditors = json.creditors.map(recalcInfo);
         }
 
@@ -210,13 +255,13 @@ function App() {
 
   const stats = useMemo(() => {
     if (!data) return { dr: 0, cr: 0, count: 0 };
-    const dr = Object.values(data.debtors).flat().reduce((s, l) => s + (l.type === 'Dr' ? l.amount : -l.amount), 0);
-    const cr = data.creditors.reduce((s, l) => s + (l.type === 'Cr' ? l.amount : -l.amount), 0);
-    return { dr, cr, count: Object.values(data.debtors).flat().length };
+    const dr = Object.values(data.debtors || {}).flat().reduce((s, l) => s + (l.type === 'Dr' ? l.amount : -l.amount), 0);
+    const cr = (data.creditors || []).reduce((s, l) => s + (l.type === 'Cr' ? l.amount : -l.amount), 0);
+    return { dr, cr, count: Object.values(data.debtors || {}).flat().length };
   }, [data]);
 
   const filteredGroups = useMemo(() => {
-    if (!data) return {};
+    if (!data || !data.debtors) return {};
     if (!searchTerm) return data.debtors;
     const res = {};
     Object.entries(data.debtors).forEach(([g, list]) => {
