@@ -8,6 +8,13 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { PieChart, Pie, Cell, ResponsiveContainer, Tooltip } from 'recharts';
 import { formatCurrency, formatDate, calculateAging, getEndpoints, parseDate } from './utils';
 
+// --- SHARED COMPONENTS ---
+const Card = ({ children, className = "" }) => (
+  <div className={`glass-panel rounded-2xl p-5 relative overflow-hidden ${className}`}>
+    {children}
+  </div>
+);
+
 const Toast = ({ message, type, onClose }) => {
   useEffect(() => { const timer = setTimeout(onClose, 5000); return () => clearTimeout(timer); }, [onClose]);
   const bg = type === 'error' ? 'bg-red-500' : type === 'warning' ? 'bg-orange-500' : 'bg-green-500';
@@ -20,62 +27,26 @@ const Toast = ({ message, type, onClose }) => {
 
 // --- DATA PROCESSING FOR TALLY STYLE LEDGER ---
 const processLedgerData = (ledger) => {
-  // 1. Parse Opening Balance
   let opAmt = 0;
-  let opType = 'Dr'; // Default
+  let opType = 'Dr';
   if (ledger.openingBalance) {
     let raw = parseFloat(ledger.openingBalance.replace(/,/g, ''));
     if (!isNaN(raw)) {
       opAmt = Math.abs(raw);
-      opType = raw < 0 ? 'Dr' : 'Cr'; // Tally Convention: Negative usually Dr, Positive Cr in XML? Or vice versa.
-      // Let's rely on standard: Debit is asset (+), Credit is liability (-).
-      // Actually in Tally XML export: 
-      // -1000 often means Debit 1000. 1000 means Credit 1000.
-      // Let's assume Negative = Dr.
+      opType = raw < 0 ? 'Dr' : 'Cr';
     }
   }
-
-  // 2. Sort Transactions Chronologically (Oldest First)
   const txns = [...(ledger.transactions || [])].sort((a, b) => parseDate(a.date) - parseDate(b.date));
-
-  // 3. Calculate Running Balance
-  // Initial Balance (Signed)
-  let currentBal = opType === 'Dr' ? -opAmt : opAmt; // Dr is negative for calculation? 
-  // Wait, let's stick to standard: Dr = Positive (Receivable), Cr = Negative (Payable).
-  // If "Sundry Debtor", usually Positive.
-  // Let's flip the logic to match visuals: Dr = Positive Number, Cr = Negative Number.
-  // If opBal is "-1000" in Tally XML, that usually means Dr.
-
-  // REVISED LOGIC:
-  // If XML string is negative (e.g. -400), Tally treats it as Debit.
-  // If XML string is positive (e.g. 400), Tally treats it as Credit.
-  // We want Dr to be displayed as "Dr" and Cr as "Cr".
-
-  let runningVal = 0;
+  let runningVal = opType === 'Dr' ? -opAmt : opAmt;
   if (ledger.openingBalance) {
     let raw = parseFloat(ledger.openingBalance.replace(/,/g, ''));
-    if (!isNaN(raw)) {
-      // Raw: -100 => Dr 100.  Raw: 100 => Cr 100.
-      runningVal = raw;
-    }
+    if (!isNaN(raw)) runningVal = raw;
   }
-
-
   const rows = txns.map(t => {
-    // Transaction Amount: t.amount (Always absolute)
-    // t.sign: 'Dr' or 'Cr'
-
     let move = 0;
-    // In Tally: Dr reduces Credit balance. Dr increases Debit balance.
-    // Since we map: Negative = Dr, Positive = Cr.
-    // A Debit transaction (Dr 500) means we add -500.
-    // A Credit transaction (Cr 500) means we add +500.
-
     if (t.sign === 'Dr') move = -t.amount;
     else move = t.amount;
-
     runningVal += move;
-
     return {
       ...t,
       runningVal: runningVal,
@@ -83,7 +54,6 @@ const processLedgerData = (ledger) => {
       runningBalType: runningVal < 0 ? 'Dr' : 'Cr'
     };
   });
-
   return {
     opAmt: Math.abs(parseFloat(ledger.openingBalance?.replace(/,/g, '') || 0)),
     opType: (parseFloat(ledger.openingBalance?.replace(/,/g, '') || 0) < 0) ? 'Dr' : 'Cr',
@@ -100,7 +70,6 @@ const LedgerDetail = ({ ledger, onBack }) => {
 
   return (
     <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: 10 }} className="h-full flex flex-col max-w-7xl mx-auto p-4 md:p-6">
-      {/* HEADER */}
       <div className="flex flex-col md:flex-row justify-between gap-6 mb-6">
         <div className="flex items-center gap-4">
           <button onClick={onBack} className="p-3 bg-gray-800 hover:bg-gray-700 rounded-xl transition-colors"><ArrowLeft className="text-gray-400" size={20} /></button>
@@ -116,8 +85,6 @@ const LedgerDetail = ({ ledger, onBack }) => {
           </span>
         </div>
       </div>
-
-      {/* AGING SUMMARY */}
       <div className="grid grid-cols-4 gap-4 mb-6">
         {[{ L: '<30 Days', V: aging['0-30'] }, { L: '30-60 Days', V: aging['30-60'] }, { L: '60-90 Days', V: aging['60-90'] }, { L: '>90 Days', V: aging['90+'] }].map((x, i) => (
           <div key={i} className="bg-[#1a1d29] border border-gray-800 p-3 rounded-lg">
@@ -126,55 +93,18 @@ const LedgerDetail = ({ ledger, onBack }) => {
           </div>
         ))}
       </div>
-
-      {/* TABLE */}
       <div className="bg-[#1a1d29] rounded-xl border border-gray-800 flex-1 flex flex-col overflow-hidden shadow-xl">
         <div className="overflow-auto flex-1 custom-scrollbar">
           <table className="w-full text-left text-sm border-collapse">
             <thead className="sticky top-0 bg-[#0f111a] border-b border-gray-700 z-10 text-gray-400 font-medium">
-              <tr>
-                <th className="p-4 w-32">Date</th>
-                <th className="p-4 w-1/3">Particulars</th>
-                <th className="p-4 w-24">Vch Type</th>
-                <th className="p-4 w-24">Vch No.</th>
-                <th className="p-4 text-right text-orange-400/80">Debit</th>
-                <th className="p-4 text-right text-emerald-400/80">Credit</th>
-                <th className="p-4 text-right bg-[#161822]">Balance</th>
-              </tr>
+              <tr><th className="p-4 w-32">Date</th><th className="p-4 w-1/3">Particulars</th><th className="p-4 w-24">Vch Type</th><th className="p-4 w-24">Vch No.</th><th className="p-4 text-right text-orange-400/80">Debit</th><th className="p-4 text-right text-emerald-400/80">Credit</th><th className="p-4 text-right bg-[#161822]">Balance</th></tr>
             </thead>
             <tbody className="divide-y divide-gray-800/50">
-              {/* OPENING BALANCE ROW */}
-              <tr className="bg-[#161822]/50 italic">
-                <td className="p-4 text-gray-500"></td>
-                <td className="p-4 text-gray-300 font-medium">Opening Balance</td>
-                <td colSpan="2"></td>
-                <td className="p-4 text-right font-mono text-gray-400">{opType === 'Dr' ? formatCurrency(opAmt) : ''}</td>
-                <td className="p-4 text-right font-mono text-gray-400">{opType === 'Cr' ? formatCurrency(opAmt) : ''}</td>
-                <td className="p-4 text-right font-mono font-bold text-white bg-[#161822]">{formatCurrency(opAmt)} {opType}</td>
-              </tr>
-
-              {/* TRANSACTIONS */}
+              <tr className="bg-[#161822]/50 italic"><td className="p-4 text-gray-500"></td><td className="p-4 text-gray-300 font-medium">Opening Balance</td><td colSpan="2"></td><td className="p-4 text-right font-mono text-gray-400">{opType === 'Dr' ? formatCurrency(opAmt) : ''}</td><td className="p-4 text-right font-mono text-gray-400">{opType === 'Cr' ? formatCurrency(opAmt) : ''}</td><td className="p-4 text-right font-mono font-bold text-white bg-[#161822]">{formatCurrency(opAmt)} {opType}</td></tr>
               {rows.map((row, i) => (
-                <tr key={i} className="hover:bg-white/5 transition-colors group">
-                  <td className="p-4 text-gray-400 font-mono text-xs">{formatDate(row.date)}</td>
-                  <td className="p-4 text-gray-300">{row.account || 'As per details'}</td>
-                  <td className="p-4 text-gray-500 text-xs">{row.type}</td>
-                  <td className="p-4 text-gray-500 text-xs">{row.no}</td>
-                  <td className="p-4 text-right font-mono text-orange-400">{row.sign === 'Dr' ? formatCurrency(row.amount) : '-'}</td>
-                  <td className="p-4 text-right font-mono text-emerald-400">{row.sign === 'Cr' ? formatCurrency(row.amount) : '-'}</td>
-                  <td className="p-4 text-right font-mono font-semibold text-white bg-[#161822] group-hover:bg-[#1f222e]">
-                    {formatCurrency(row.runningBalAbs)} <span className="text-[10px] text-gray-500">{row.runningBalType}</span>
-                  </td>
-                </tr>
+                <tr key={i} className="hover:bg-white/5 transition-colors group"><td className="p-4 text-gray-400 font-mono text-xs">{formatDate(row.date)}</td><td className="p-4 text-gray-300">{row.account || 'As per details'}</td><td className="p-4 text-gray-500 text-xs">{row.type}</td><td className="p-4 text-gray-500 text-xs">{row.no}</td><td className="p-4 text-right font-mono text-orange-400">{row.sign === 'Dr' ? formatCurrency(row.amount) : '-'}</td><td className="p-4 text-right font-mono text-emerald-400">{row.sign === 'Cr' ? formatCurrency(row.amount) : '-'}</td><td className="p-4 text-right font-mono font-semibold text-white bg-[#161822] group-hover:bg-[#1f222e]">{formatCurrency(row.runningBalAbs)} <span className="text-[10px] text-gray-500">{row.runningBalType}</span></td></tr>
               ))}
-
-              {/* CLOSING TOTAL ROW */}
-              <tr className="bg-[#161822] border-t-2 border-gray-700 font-bold">
-                <td colSpan="4" className="p-4 text-right uppercase text-xs tracking-wider text-gray-400">Closing Balance</td>
-                <td className="p-4 text-right font-mono text-orange-400">{closingType === 'Dr' ? formatCurrency(closingAmt) : ''}</td>
-                <td className="p-4 text-right font-mono text-emerald-400">{closingType === 'Cr' ? formatCurrency(closingAmt) : ''}</td>
-                <td className="p-4 bg-[#0f111a]"></td>
-              </tr>
+              <tr className="bg-[#161822] border-t-2 border-gray-700 font-bold"><td colSpan="4" className="p-4 text-right uppercase text-xs tracking-wider text-gray-400">Closing Balance</td><td className="p-4 text-right font-mono text-orange-400">{closingType === 'Dr' ? formatCurrency(closingAmt) : ''}</td><td className="p-4 text-right font-mono text-emerald-400">{closingType === 'Cr' ? formatCurrency(closingAmt) : ''}</td><td className="p-4 bg-[#0f111a]"></td></tr>
             </tbody>
           </table>
         </div>
@@ -183,9 +113,6 @@ const LedgerDetail = ({ ledger, onBack }) => {
   );
 };
 
-// ... Rest of the components (GroupCard, LedgerList, AgingView) remain similar but used in App
-// I will include them to ensure the file is complete.
-
 const GroupCard = ({ name, ledgers, onClick }) => {
   const total = ledgers.reduce((sum, l) => sum + (l.type === 'Dr' ? l.amount : -l.amount), 0);
   const isPos = total > 0;
@@ -193,11 +120,13 @@ const GroupCard = ({ name, ledgers, onClick }) => {
     <motion.div whileHover={{ y: -5 }} onClick={onClick} className="glass-panel p-5 rounded-xl cursor-pointer hover:border-blue-500/30 transition-all flex flex-col justify-between h-40 relative group overflow-hidden"><div className={`absolute top-0 left-0 w-1 h-full ${isPos ? 'bg-orange-500' : 'bg-emerald-500'} opacity-50`}></div><div className="flex justify-between items-start"><div className="p-2.5 bg-gray-800 rounded-lg group-hover:bg-blue-600 group-hover:text-white transition-colors text-gray-400"><Users size={20} /></div><div className="px-2 py-1 bg-gray-900 rounded text-[10px] text-gray-500 border border-gray-800">{ledgers.length} ACCOUNTS</div></div><div><h3 className="font-semibold text-gray-200 text-lg truncate mb-1">{name}</h3><p className={`font-mono text-xl font-bold ${isPos ? 'text-orange-400' : 'text-emerald-400'}`}>{formatCurrency(Math.abs(total))} <span className="text-sm text-gray-500 ml-1">{isPos ? 'Dr' : 'Cr'}</span></p></div></motion.div>
   );
 };
+
 const LedgerList = ({ groupName, ledgers, onSelect, onBack }) => {
   return (
     <div className="p-6 max-w-7xl mx-auto h-full flex flex-col"><div className="mb-6"><button onClick={onBack} className="flex items-center text-gray-400 hover:text-white gap-2 transition-colors text-sm mb-4"><ArrowLeft size={16} /> Back to Dashboard</button><h2 className="text-2xl font-bold text-white"><span className="text-gray-500 font-normal">Group / </span> {groupName}</h2></div><div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 overflow-y-auto pb-10">{ledgers.map((l, i) => (<div key={i} onClick={() => onSelect(l)} className="bg-[#1a1d29] border border-gray-800 hover:border-blue-500/50 p-4 rounded-xl cursor-pointer hover:shadow-lg transition-all flex items-center justify-between group"><div><h4 className="font-medium text-gray-300 group-hover:text-white truncate max-w-[180px]">{l.name}</h4><p className="text-xs text-gray-500 mt-1">{l.transactions?.length || 0} Txns</p></div><div className={`text-right font-mono font-semibold ${l.type === 'Dr' ? 'text-orange-400' : 'text-emerald-400'}`}>{formatCurrency(l.amount)}</div></div>))}</div></div>
   );
 };
+
 const AgingView = ({ data, onSelectLedger }) => {
   const [subTab, setSubTab] = useState('0-30');
   const processedData = useMemo(() => { if (!data) return {}; const buckets = { '0-30': [], '30-60': [], '60-90': [], '90+': [] }; const allParties = [...Object.values(data.debtors).flat(), ...data.creditors]; allParties.forEach(l => { const aging = calculateAging(l.transactions || [], l.openingBalance); const cat = determineRiskCategory(aging); if (l.amount > 1) buckets[cat].push({ ...l, category: cat }); }); return buckets; }, [data]);
