@@ -1,0 +1,14 @@
+node_modules/
+dist/
+.env
+.DS_Store
+*.log
+tally_raw.json
+tally_groups.json
+tally_ledgers.json
+temp_*.xml
+nbproject/
+.idea/
+.vscode/
+dashboard/node_modules/
+dashboard/dist/
