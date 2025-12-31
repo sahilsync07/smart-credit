@@ -6,7 +6,7 @@ import {
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { PieChart, Pie, Cell, ResponsiveContainer, Tooltip } from 'recharts';
-import { formatCurrency, formatDate, calculateAging, getEndpoints, parseDate } from './utils';
+import { formatCurrency, formatDate, calculateAging, getEndpoints, parseDate, determineRiskCategory, calculateCurrentBalance } from './utils';
 
 // --- SHARED COMPONENTS ---
 const Card = ({ children, className = "" }) => (
@@ -122,8 +122,36 @@ const GroupCard = ({ name, ledgers, onClick }) => {
 };
 
 const LedgerList = ({ groupName, ledgers, onSelect, onBack }) => {
+  const total = ledgers.reduce((sum, l) => sum + (l.type === 'Dr' ? l.amount : -l.amount), 0);
+  const isPos = total > 0;
   return (
-    <div className="p-6 max-w-7xl mx-auto h-full flex flex-col"><div className="mb-6"><button onClick={onBack} className="flex items-center text-gray-400 hover:text-white gap-2 transition-colors text-sm mb-4"><ArrowLeft size={16} /> Back to Dashboard</button><h2 className="text-2xl font-bold text-white"><span className="text-gray-500 font-normal">Group / </span> {groupName}</h2></div><div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 overflow-y-auto pb-10">{ledgers.map((l, i) => (<div key={i} onClick={() => onSelect(l)} className="bg-[#1a1d29] border border-gray-800 hover:border-blue-500/50 p-4 rounded-xl cursor-pointer hover:shadow-lg transition-all flex items-center justify-between group"><div><h4 className="font-medium text-gray-300 group-hover:text-white truncate max-w-[180px]">{l.name}</h4><p className="text-xs text-gray-500 mt-1">{l.transactions?.length || 0} Txns</p></div><div className={`text-right font-mono font-semibold ${l.type === 'Dr' ? 'text-orange-400' : 'text-emerald-400'}`}>{formatCurrency(l.amount)}</div></div>))}</div></div>
+    <div className="p-6 max-w-7xl mx-auto h-full flex flex-col">
+      <div className="mb-6 flex flex-col md:flex-row md:items-end justify-between gap-4">
+        <div>
+          <button onClick={onBack} className="flex items-center text-gray-400 hover:text-white gap-2 transition-colors text-sm mb-4"><ArrowLeft size={16} /> Back to Dashboard</button>
+          <h2 className="text-2xl font-bold text-white"><span className="text-gray-500 font-normal">Group / </span> {groupName}</h2>
+        </div>
+        <div className="bg-[#1a1d29] px-5 py-3 rounded-xl border border-gray-800 text-right">
+          <p className="text-xs text-gray-500 uppercase font-semibold">Group Total</p>
+          <p className={`text-xl font-mono font-bold ${isPos ? 'text-orange-400' : 'text-emerald-400'}`}>
+            {formatCurrency(Math.abs(total))} <span className="text-sm">{isPos ? 'Dr' : 'Cr'}</span>
+          </p>
+        </div>
+      </div>
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 overflow-y-auto pb-10">
+        {ledgers.map((l, i) => (
+          <div key={i} onClick={() => onSelect(l)} className="bg-[#1a1d29] border border-gray-800 hover:border-blue-500/50 p-4 rounded-xl cursor-pointer hover:shadow-lg transition-all flex items-center justify-between group">
+            <div>
+              <h4 className="font-medium text-gray-300 group-hover:text-white truncate max-w-[180px]">{l.name}</h4>
+              <p className="text-xs text-gray-500 mt-1">{l.transactions?.length || 0} Txns</p>
+            </div>
+            <div className={`text-right font-mono font-semibold ${l.type === 'Dr' ? 'text-orange-400' : 'text-emerald-400'}`}>
+              {formatCurrency(l.amount)}
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
   );
 };
 
@@ -153,7 +181,43 @@ function App() {
   const endpoints = getEndpoints();
 
   useEffect(() => { fetchData(); }, []);
-  const fetchData = async () => { try { const res = await fetch(endpoints.data); if (res.ok) setData(await res.json()); } catch (e) { addToast("Connect Failed", "error"); console.error(e); } finally { setLoading(false); } };
+  const fetchData = async () => {
+    try {
+      const res = await fetch(endpoints.data);
+      if (res.ok) {
+        const rawData = await res.json();
+
+        // --- FIX: Recalculate Balances (Fixes Zero Issues) ---
+        // The raw JSON often has 'amount': 0. We must calculate current balance
+        // from Opening Balance + Transactions.
+
+        // 1. Process Debtors (grouped)
+        if (rawData.debtors) {
+          Object.keys(rawData.debtors).forEach(groupName => {
+            rawData.debtors[groupName] = rawData.debtors[groupName].map(ledger => {
+              const res = calculateCurrentBalance(ledger);
+              return { ...ledger, amount: res.amount, type: res.type };
+            });
+          });
+        }
+
+        // 2. Process Creditors (array)
+        if (rawData.creditors) {
+          rawData.creditors = rawData.creditors.map(ledger => {
+            const res = calculateCurrentBalance(ledger);
+            return { ...ledger, amount: res.amount, type: res.type };
+          });
+        }
+
+        setData(rawData);
+      }
+    } catch (e) {
+      addToast("Connect Failed", "error");
+      console.error(e);
+    } finally {
+      setLoading(false);
+    }
+  };
 
   const addToast = (msg, type = 'success') => {
     const id = Date.now();
