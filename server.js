@@ -23,7 +23,7 @@ const KNOWN_GROUPS = new Set([
 
 const SYNC_CONFIG = {
     batchSize: 20,
-    startDate: '20210401', // Ensure this covers all relevant history or opening balance will be off if calculation needed
+    startDate: '20210401',
     endDate: '20260331',
     timeout: 30000
 };
@@ -69,7 +69,6 @@ function pushToGitHub() {
 }
 
 // --- FETCHING ---
-
 async function fetchList(accountType) {
     const xml = `<ENVELOPE><HEADER><TALLYREQUEST>Export Data</TALLYREQUEST></HEADER><BODY><EXPORTDATA><REQUESTDESC><REPORTNAME>List of Accounts</REPORTNAME><STATICVARIABLES><SVEXPORTFORMAT>$$SysName:XML</SVEXPORTFORMAT><ACCOUNTTYPE>${accountType}</ACCOUNTTYPE></STATICVARIABLES></REQUESTDESC></EXPORTDATA></BODY></ENVELOPE>`;
     const data = await postTally(xml);
@@ -78,73 +77,39 @@ async function fetchList(accountType) {
     return msgs;
 }
 
-// RELIABLE BALANCE FETCH: Uses "List of Accounts" with dynamic mix of Opening + Closing
-// But since "Closing Balance" is a calculated field in Tally, we use Group Summary again but deeply exploded.
+// RELIABLE BALANCE FETCH: Uses "Trial Balance" exploded
 async function fetchBalancesImproved() {
     console.log("Fetching Closing Balances...");
-    // We fetch "Trial Balance" but we iterate carefully.
     const xml = `<ENVELOPE><HEADER><TALLYREQUEST>Export Data</TALLYREQUEST></HEADER><BODY><EXPORTDATA><REQUESTDESC><REPORTNAME>Trial Balance</REPORTNAME><STATICVARIABLES><SVEXPORTFORMAT>$$SysName:XML</SVEXPORTFORMAT><EXPLODEFLAG>Yes</EXPLODEFLAG><DSPSHOWOPENING>Yes</DSPSHOWOPENING><DSPSHOWTRANS>Yes</DSPSHOWTRANS><DSPSHOWCLOSING>Yes</DSPSHOWCLOSING></STATICVARIABLES></REQUESTDESC></EXPORTDATA></BODY></ENVELOPE>`;
-
-    // Note: Trial Balance XML structure is complex. 
-    // DSPACCINFO > DSPCLDRAMT / DSPCLCRAMT
     try {
         const response = await axios.post(TALLY_URL, xml, { headers: { 'Content-Type': 'text/xml' } });
-        const parser = new xml2js.Parser({ explicitArray: true }); // Array true is safer for lists
+        const parser = new xml2js.Parser({ explicitArray: true });
         const data = await parser.parseStringPromise(response.data);
-
         const envelope = data?.ENVELOPE;
         if (!envelope) return new Map();
-
         const names = envelope.DSPACCNAME || [];
         const infos = envelope.DSPACCINFO || [];
-
         const map = new Map();
-
         for (let i = 0; i < names.length; i++) {
             const nameObj = names[i];
             const infoObj = infos[i];
-
             const name = nameObj?.DSPDISPNAME?.[0];
             if (!name) continue;
-
-            // Extract Closing Balance
-            // Tally sends separate fields for Dr and Cr Closing Balance
-            // DSPCLDRAMT = Debit Closing Amount
-            // DSPCLCRAMT = Credit Closing Amount
-            // Inside them, there is usually DSPCLDRAMTA (formatted) or raw value.
-
             const clDrObj = infoObj.DSPCLDRAMT?.[0];
             const clCrObj = infoObj.DSPCLCRAMT?.[0];
-
-            let amount = 0;
-            let type = '';
-
-            // Check Debit Side
+            let amount = 0, type = '';
             if (clDrObj) {
-                const val = clDrObj.DSPCLDRAMTA?.[0]; // Amount field
-                if (val) {
-                    amount = parseFloat(val.replace(/,/g, ''));
-                    type = 'Dr';
-                }
+                const val = clDrObj.DSPCLDRAMTA?.[0];
+                if (val) { amount = parseFloat(val.replace(/,/g, '')); type = 'Dr'; }
             }
-
-            // Check Credit Side (Overwrite if exists, usually mutually exclusive)
             if (clCrObj) {
                 const val = clCrObj.DSPCLCRAMTA?.[0];
-                if (val) {
-                    amount = parseFloat(val.replace(/,/g, ''));
-                    type = 'Cr';
-                }
+                if (val) { amount = parseFloat(val.replace(/,/g, '')); type = 'Cr'; }
             }
-
-            // Map stores: { amount: 1000, type: 'Dr' }
-            if (type) {
-                map.set(name, { amount, type });
-            }
+            if (type) map.set(name, { amount, type });
         }
         console.log(`Parsed ${map.size} balances.`);
         return map;
-
     } catch (e) {
         console.error("Balance Fetch Error", e);
         return new Map();
@@ -155,76 +120,44 @@ async function fetchVouchers(ledgerName) {
     const xml = `<ENVELOPE><HEADER><TALLYREQUEST>Export Data</TALLYREQUEST></HEADER><BODY><EXPORTDATA><REQUESTDESC><REPORTNAME>Ledger Vouchers</REPORTNAME><STATICVARIABLES><SVEXPORTFORMAT>$$SysName:XML</SVEXPORTFORMAT><LEDGERNAME>${ledgerName}</LEDGERNAME><SVFROMDATE>${SYNC_CONFIG.startDate}</SVFROMDATE><SVTODATE>${SYNC_CONFIG.endDate}</SVTODATE></STATICVARIABLES></REQUESTDESC></EXPORTDATA></BODY></ENVELOPE>`;
     try {
         const result = await postTally(xml);
-        // XML2JS with explicitArray: false creates objects for single items, arrays for multiple.
-        // We need explicitArray: true logic or handle both.
-        // Let's re-parse for safety or just handle the object.
-        // The parser in postTally is explicitArray: false.
-
         const envelope = result?.ENVELOPE;
         if (!envelope) return [];
-
-        // Single transaction vs Multiple
         let dateArr = envelope.DSPVCHDATE;
         let typeArr = envelope.DSPVCHTYPE;
         let acctArr = envelope.DSPVCHLEDACCOUNT;
         let drArr = envelope.DSPVCHDRAMT;
         let crArr = envelope.DSPVCHCRAMT;
-        let noArr = envelope.DSPVCHNUMBER; // Vch No
-
+        let noArr = envelope.DSPVCHNUMBER;
         if (!dateArr) return [];
-
-        // Normalize to arrays
         if (!Array.isArray(dateArr)) dateArr = [dateArr];
         if (typeArr && !Array.isArray(typeArr)) typeArr = [typeArr];
         if (acctArr && !Array.isArray(acctArr)) acctArr = [acctArr];
         if (drArr && !Array.isArray(drArr)) drArr = [drArr];
         if (crArr && !Array.isArray(crArr)) crArr = [crArr];
         if (noArr && !Array.isArray(noArr)) noArr = [noArr];
-
         const txns = [];
         for (let i = 0; i < dateArr.length; i++) {
             const dr = drArr ? parseFloat((drArr[i] || '0').toString().replace(/,/g, '')) : 0;
             const cr = crArr ? parseFloat((crArr[i] || '0').toString().replace(/,/g, '')) : 0;
             let amt = 0, sign = '';
-
             if (dr > 0) { amt = dr; sign = 'Dr'; }
             else if (cr > 0) { amt = cr; sign = 'Cr'; }
-
             if (amt > 0) {
-                txns.push({
-                    date: dateArr[i],
-                    type: typeArr ? typeArr[i] : '',
-                    no: noArr ? noArr[i] : '',
-                    account: acctArr ? acctArr[i] : '',
-                    amount: amt,
-                    sign: sign
-                });
+                txns.push({ date: dateArr[i], type: typeArr ? typeArr[i] : '', no: noArr ? noArr[i] : '', account: acctArr ? acctArr[i] : '', amount: amt, sign: sign });
             }
         }
         return txns;
-    } catch (e) {
-        return [];
-    }
+    } catch (e) { return []; }
 }
-
-// --- SYNC ---
 
 async function performSync() {
     console.log("--- STARTING SYNC ---");
     if (!(await checkTallyConnection())) throw new Error("Tally Not Connected (Port 9000)");
-
     const startTime = Date.now();
-    const localData = loadData();
-    const oldDebtors = localData.debtors || {};
-    const oldCreditors = localData.creditors || [];
-
-    const localMap = new Map(); // Preserve existing transactions to avoid re-fetching everything if not needed? 
-    // Actually user wants FULL SYNC probably to ensure correctness.
 
     // 1. Fetch Structure
     const groupsRaw = await fetchList('Groups');
     const ledgersRaw = await fetchList('Ledgers');
-
     const parentMap = new Map();
     groupsRaw.forEach(m => { if (m.GROUP) parentMap.set(m.GROUP.$.NAME, m.GROUP.PARENT); });
     ledgersRaw.forEach(m => { if (m.LEDGER) parentMap.set(m.LEDGER.$.NAME, m.LEDGER.PARENT); });
@@ -264,27 +197,28 @@ async function performSync() {
         const parent = m.LEDGER.PARENT;
         const opBalStr = m.LEDGER.OPENINGBALANCE;
 
-        // Determine Category
         const isDebtor = traceParent(parent, "Sundry Debtors");
         const isCreditor = !isDebtor && traceParent(parent, "Sundry Creditors");
 
-        if (!isDebtor && !isCreditor) return; // Skip non-parties
+        if (!isDebtor && !isCreditor) return;
 
-        // Get Balance
+        // CRITICAL: Ensure 'amount' comes from the Balance Map (The "Outer" Balance)
+        // If not found in trial balance (e.g. 0 balance), default to 0.
         const balObj = balanceMap.get(name);
-        const balAmt = balObj ? balObj.amount : 0;
-        const balType = balObj ? balObj.type : (isDebtor ? 'Dr' : 'Cr');
+        let balAmt = balObj ? balObj.amount : 0;
+        // Fallback: If map misses it but OpBal exists and no transactions, use OpBal? 
+        // Better to trust map. If 0, it's 0.
+
+        let balType = balObj ? balObj.type : (isDebtor ? 'Dr' : 'Cr');
 
         let newItem = {
             name: name,
-            amount: balAmt,
+            amount: balAmt, // <--- This sets the "Outside" Card Value
             type: balType,
-            transactions: [], // Will fetch
-            openingBalance: opBalStr, // Store raw string usually
+            transactions: [],
+            openingBalance: opBalStr,
         };
 
-        // Add to fetch list
-        // We fetch ALL transactions for now to ensure "proper chronological view"
         ledgersToFetch.push(newItem);
 
         if (isDebtor) {
@@ -323,8 +257,6 @@ async function performSync() {
     return { data: finalData, gitResult: gitRes };
 }
 
-
-// --- API ---
 app.get('/api/data', (req, res) => {
     if (fs.existsSync(DATA_FILE)) res.json(loadData());
     else res.status(404).send('No Data');
