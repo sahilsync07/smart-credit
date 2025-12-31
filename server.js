@@ -8,7 +8,8 @@ const { exec } = require('child_process');
 
 const app = express();
 app.use(cors());
-app.use(express.static('public'));
+// CHANGED: Serve from docs instead of public
+app.use(express.static('docs'));
 
 const PORT = 3001;
 const TALLY_URL = 'http://localhost:9000';
@@ -45,23 +46,17 @@ function saveData(data) {
 function pushToGitHub() {
     return new Promise((resolve) => {
         console.log("Starting Git Push...");
-        // 1. Add
         exec('git add credit-data.json', (err, stdout, stderr) => {
             if (err) {
                 console.error("Git Add Failed:", stderr);
                 return resolve({ success: false, error: "Git Add Failed" });
             }
-
-            // 2. Commit
             const msg = `Auto Sync: ${new Date().toLocaleString()}`;
             exec(`git commit -m "${msg}"`, (err, stdout, stderr) => {
-                // Ignore "nothing to commit" error
                 if (err && !stdout.includes("nothing to commit")) {
                     console.error("Git Commit Failed:", stderr);
                     return resolve({ success: false, error: "Git Commit Failed" });
                 }
-
-                // 3. Push
                 exec('git push origin main', (err, stdout, stderr) => {
                     if (err) {
                         console.error("Git Push Failed:", stderr);
@@ -78,14 +73,10 @@ function pushToGitHub() {
 // --- TALLY HELPERS ---
 async function checkTallyConnection() {
     try {
-        await axios.get(TALLY_URL, { timeout: 2000 }); // Simple ping equivalent? Tally might not respond to GET / well but connection shouldn't timeout.
-        // Actually Tally HTTP Server usually responds to POST. GET might 404 or 405, that's fine. 
-        // We just want to know if PORT 9000 is open.
+        await axios.get(TALLY_URL, { timeout: 2000 });
         return true;
     } catch (e) {
-        // If connection refused, it's down.
         if (e.code === 'ECONNREFUSED') return false;
-        // 404/405/500 means server IS there.
         return true;
     }
 }
@@ -175,13 +166,8 @@ async function fetchVouchers(ledgerName) {
 
 async function performSync() {
     console.log("--- STARTING SMART SYNC ---");
-
-    // 0. Check Tally
     const isTallyUp = await checkTallyConnection();
-    if (!isTallyUp) {
-        throw new Error("Tally Prime is NOT RUNNING or NOT ON PORT 9000. Please start Tally and enable HTTP Server.");
-    }
-
+    if (!isTallyUp) throw new Error("Tally Prime is NOT RUNNING or NOT ON PORT 9000. Please start Tally and enable HTTP Server.");
     const startTime = Date.now();
     const localData = loadData();
     const oldDebtors = localData.debtors || {};
@@ -190,19 +176,15 @@ async function performSync() {
     const flatten = (list) => { if (Array.isArray(list)) return list; let flat = []; Object.values(list).forEach(arr => flat.push(...arr)); return flat; };
     [...flatten(oldDebtors), ...oldCreditors].forEach(item => { localMap.set(item.name, item); });
 
-    // 1. Fetch Hierarchy & Structure
     const groupsRaw = await fetchList('Groups');
     const ledgersRaw = await fetchList('Ledgers');
     const parentMap = new Map();
     groupsRaw.forEach(m => { if (m.GROUP) parentMap.set(m.GROUP.$.NAME, m.GROUP.PARENT); });
     ledgersRaw.forEach(m => { if (m.LEDGER) parentMap.set(m.LEDGER.$.NAME, m.LEDGER.PARENT); });
-
-    // 2. Fetch Active Closing Balances
     const debtorBals = await fetchClosingBalances('Sundry Debtors');
     const creditorBals = await fetchClosingBalances('Sundry Creditors');
     const tallyBalances = new Map([...debtorBals, ...creditorBals]);
 
-    // 3. Bucket and Classify
     const debtorBuckets = {};
     KNOWN_GROUPS.forEach(g => debtorBuckets[g] = []);
     debtorBuckets["No-Group"] = [];
@@ -263,7 +245,6 @@ async function performSync() {
         }
     });
 
-    // 4. Batch Fetch
     let processed = 0;
     for (let i = 0; i < ledgersToFetch.length; i += SYNC_CONFIG.batchSize) {
         const batch = ledgersToFetch.slice(i, i + SYNC_CONFIG.batchSize);
@@ -278,7 +259,6 @@ async function performSync() {
         processed += batch.length;
     }
 
-    // 5. Save
     const finalData = {
         updatedAt: new Date().toISOString(),
         debtors: debtorBuckets,
@@ -287,14 +267,9 @@ async function performSync() {
     saveData(finalData);
     console.log(`Sync Complete in ${((Date.now() - startTime) / 1000).toFixed(1)}s`);
 
-    // 6. Push to GitHub
     const gitResult = await pushToGitHub();
-
     return { data: finalData, gitResult };
 }
-
-
-// --- SERVER ENDPOINTS ---
 
 app.get('/api/data', (req, res) => {
     if (fs.existsSync(DATA_FILE)) {
@@ -303,21 +278,13 @@ app.get('/api/data', (req, res) => {
         res.status(404).send('Data not found. Run sync.');
     }
 });
-
 app.get('/api/sync', async (req, res) => {
     try {
         const result = await performSync();
         const data = result.data;
         let totalDebtors = 0;
         Object.values(data.debtors).forEach(arr => totalDebtors += arr.length);
-
-        res.json({
-            success: true,
-            debtors: totalDebtors,
-            creditors: data.creditors.length,
-            message: "Sync Successful",
-            gitResult: result.gitResult
-        });
+        res.json({ success: true, debtors: totalDebtors, creditors: data.creditors.length, message: "Sync Successful", gitResult: result.gitResult });
     } catch (e) {
         console.error("Sync Fatal Error:", e);
         res.status(500).json({ success: false, error: e.message });
