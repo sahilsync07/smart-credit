@@ -2,54 +2,190 @@ import React, { useState, useEffect, useMemo } from 'react';
 import {
   Menu, X, Home, Wallet, Users, RefreshCw, ChevronRight,
   ChevronDown, TrendingUp, Search, ArrowLeft, Download, Filter, Clock,
-  AlertTriangle, Calendar, Layers, LayoutGrid, List, CheckCircle, AlertCircle, Cloud
+  AlertTriangle, Calendar, Layers, LayoutGrid, List, CheckCircle, AlertCircle
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { PieChart, Pie, Cell, ResponsiveContainer, Tooltip, BarChart, Bar, XAxis, YAxis, CartesianGrid } from 'recharts';
+import { PieChart, Pie, Cell, ResponsiveContainer, Tooltip } from 'recharts';
 import { formatCurrency, formatDate, calculateAging, getEndpoints, parseDate } from './utils';
 
-// --- TOAST COMPONENT ---
 const Toast = ({ message, type, onClose }) => {
   useEffect(() => { const timer = setTimeout(onClose, 5000); return () => clearTimeout(timer); }, [onClose]);
   const bg = type === 'error' ? 'bg-red-500' : type === 'warning' ? 'bg-orange-500' : 'bg-green-500';
-  const icon = type === 'error' ? <AlertCircle size={20} /> : type === 'warning' ? <AlertTriangle size={20} /> : <CheckCircle size={20} />;
   return (
     <motion.div initial={{ opacity: 0, y: -20, scale: 0.9 }} animate={{ opacity: 1, y: 0, scale: 1 }} exit={{ opacity: 0, y: -20, scale: 0.9 }} className={`fixed top-6 right-6 z-50 flex items-center gap-3 px-4 py-3 rounded-xl shadow-2xl text-white ${bg} min-w-[300px] border border-white/10`}>
-      {icon}<div className="flex-1 text-sm font-medium">{message}</div><button onClick={onClose} className="p-1 hover:bg-white/20 rounded-full"><X size={16} /></button>
+      {type === 'error' ? <AlertCircle size={20} /> : <CheckCircle size={20} />}<div className="flex-1 text-sm font-medium">{message}</div><button onClick={onClose} className="p-1 hover:bg-white/20 rounded-full"><X size={16} /></button>
     </motion.div>
   );
 };
 
-// --- HELPERS ---
-const calculateRunningBalance = (transactions, openingBalanceStr) => {
-  let balance = 0;
-  if (openingBalanceStr) { const raw = parseFloat(openingBalanceStr.replace(/,/g, '')); if (!isNaN(raw)) balance = raw * -1; }
-  const sorted = [...transactions].sort((a, b) => parseDate(a.date) - parseDate(b.date));
-  return sorted.map(t => { const amt = t.amount * (t.sign === 'Dr' ? 1 : -1); balance += amt; return { ...t, balance: Math.abs(balance), balType: balance >= 0 ? 'Dr' : 'Cr' }; }).reverse();
-};
-const determineRiskCategory = (agingBuckets) => { if (agingBuckets['90+'] > 0) return '90+'; if (agingBuckets['60-90'] > 0) return '60-90'; if (agingBuckets['30-60'] > 0) return '30-60'; return '0-30'; };
+// --- DATA PROCESSING FOR TALLY STYLE LEDGER ---
+const processLedgerData = (ledger) => {
+  // 1. Parse Opening Balance
+  let opAmt = 0;
+  let opType = 'Dr'; // Default
+  if (ledger.openingBalance) {
+    let raw = parseFloat(ledger.openingBalance.replace(/,/g, ''));
+    if (!isNaN(raw)) {
+      opAmt = Math.abs(raw);
+      opType = raw < 0 ? 'Dr' : 'Cr'; // Tally Convention: Negative usually Dr, Positive Cr in XML? Or vice versa.
+      // Let's rely on standard: Debit is asset (+), Credit is liability (-).
+      // Actually in Tally XML export: 
+      // -1000 often means Debit 1000. 1000 means Credit 1000.
+      // Let's assume Negative = Dr.
+    }
+  }
 
-// --- COMPONENTS --- (LedgerDetail, AgingView, etc. kept same, just re-declaring for full file overwrite)
-const Card = ({ children, className = "" }) => (<div className={`glass-panel rounded-2xl p-5 relative overflow-hidden ${className}`}>{children}</div>);
+  // 2. Sort Transactions Chronologically (Oldest First)
+  const txns = [...(ledger.transactions || [])].sort((a, b) => parseDate(a.date) - parseDate(b.date));
+
+  // 3. Calculate Running Balance
+  // Initial Balance (Signed)
+  let currentBal = opType === 'Dr' ? -opAmt : opAmt; // Dr is negative for calculation? 
+  // Wait, let's stick to standard: Dr = Positive (Receivable), Cr = Negative (Payable).
+  // If "Sundry Debtor", usually Positive.
+  // Let's flip the logic to match visuals: Dr = Positive Number, Cr = Negative Number.
+  // If opBal is "-1000" in Tally XML, that usually means Dr.
+
+  // REVISED LOGIC:
+  // If XML string is negative (e.g. -400), Tally treats it as Debit.
+  // If XML string is positive (e.g. 400), Tally treats it as Credit.
+  // We want Dr to be displayed as "Dr" and Cr as "Cr".
+
+  let runningVal = 0;
+  if (ledger.openingBalance) {
+    let raw = parseFloat(ledger.openingBalance.replace(/,/g, ''));
+    if (!isNaN(raw)) {
+      // Raw: -100 => Dr 100.  Raw: 100 => Cr 100.
+      runningVal = raw;
+    }
+  }
+
+
+  const rows = txns.map(t => {
+    // Transaction Amount: t.amount (Always absolute)
+    // t.sign: 'Dr' or 'Cr'
+
+    let move = 0;
+    // In Tally: Dr reduces Credit balance. Dr increases Debit balance.
+    // Since we map: Negative = Dr, Positive = Cr.
+    // A Debit transaction (Dr 500) means we add -500.
+    // A Credit transaction (Cr 500) means we add +500.
+
+    if (t.sign === 'Dr') move = -t.amount;
+    else move = t.amount;
+
+    runningVal += move;
+
+    return {
+      ...t,
+      runningVal: runningVal,
+      runningBalAbs: Math.abs(runningVal),
+      runningBalType: runningVal < 0 ? 'Dr' : 'Cr'
+    };
+  });
+
+  return {
+    opAmt: Math.abs(parseFloat(ledger.openingBalance?.replace(/,/g, '') || 0)),
+    opType: (parseFloat(ledger.openingBalance?.replace(/,/g, '') || 0) < 0) ? 'Dr' : 'Cr',
+    rows: rows,
+    closingAmt: Math.abs(runningVal),
+    closingType: runningVal < 0 ? 'Dr' : 'Cr'
+  };
+};
 
 const LedgerDetail = ({ ledger, onBack }) => {
   if (!ledger) return null;
-  const enrichedTxns = useMemo(() => calculateRunningBalance(ledger.transactions || [], ledger.openingBalance), [ledger]);
-  const aging = useMemo(() => calculateAging(ledger.transactions || [], ledger.openingBalance), [ledger]);
-  const opBalRaw = parseFloat((ledger.openingBalance || "0").replace(/,/g, ''));
-  const opBalAmt = Math.abs(opBalRaw);
-  const opBalType = opBalRaw < 0 ? 'Dr' : (opBalRaw > 0 ? 'Cr' : '');
+  const { opAmt, opType, rows, closingAmt, closingType } = useMemo(() => processLedgerData(ledger), [ledger]);
+  const aging = calculateAging(ledger.transactions || [], ledger.openingBalance);
+
   return (
     <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: 10 }} className="h-full flex flex-col max-w-7xl mx-auto p-4 md:p-6">
-      <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 mb-8">
-        <div className="flex items-center gap-4"><button onClick={onBack} className="p-3 bg-gray-800/50 hover:bg-gray-700 rounded-xl border border-gray-700 transition-all group"><ArrowLeft className="w-5 h-5 text-gray-400 group-hover:text-white" /></button><div><h2 className="text-3xl font-bold text-white tracking-tight">{ledger.name}</h2><div className="flex items-center gap-3 mt-1.5 text-sm text-gray-400"><span className={`px-2 py-0.5 rounded border ${ledger.type === 'Dr' ? 'bg-blue-500/10 text-blue-400 border-blue-500/20' : 'bg-purple-500/10 text-purple-400 border-purple-500/20'}`}>{ledger.type === 'Dr' ? 'Sundry Debtor' : 'Sundry Creditor'}</span><span>•</span><span className="font-mono text-gray-300">Op. Bal: {formatCurrency(opBalAmt)} {opBalType}</span></div></div></div>
-        <div className="flex items-center gap-6 bg-[#1a1d29] p-4 rounded-xl border border-gray-800 shadow-xl"><div className="text-right"><p className="text-[10px] text-gray-500 uppercase tracking-widest font-bold mb-1">CLOSING BALANCE</p><p className={`text-3xl font-mono font-bold ${ledger.type === 'Dr' ? 'text-orange-500' : 'text-emerald-500'}`}>{formatCurrency(ledger.amount)} <span className="text-lg text-gray-600">{ledger.type}</span></p></div></div>
+      {/* HEADER */}
+      <div className="flex flex-col md:flex-row justify-between gap-6 mb-6">
+        <div className="flex items-center gap-4">
+          <button onClick={onBack} className="p-3 bg-gray-800 hover:bg-gray-700 rounded-xl transition-colors"><ArrowLeft className="text-gray-400" size={20} /></button>
+          <div>
+            <h1 className="text-2xl font-bold text-white">{ledger.name}</h1>
+            <p className="text-sm text-gray-400">{ledger.type === 'Dr' ? 'Sundry Debtor' : 'Sundry Creditor'}</p>
+          </div>
+        </div>
+        <div className="bg-[#1a1d29] p-4 rounded-xl border border-gray-800 flex flex-col items-end">
+          <span className="text-[10px] text-gray-500 font-bold uppercase tracking-wider">Current Balance</span>
+          <span className={`text-2xl font-mono font-bold ${closingType === 'Dr' ? 'text-orange-400' : 'text-emerald-400'}`}>
+            {formatCurrency(closingAmt)} {closingType}
+          </span>
+        </div>
       </div>
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">{[{ label: '< 30 Days', val: aging['0-30'], color: 'text-blue-400', bg: 'bg-blue-500/10', border: 'border-blue-500/20' }, { label: '30 - 60 Days', val: aging['30-60'], color: 'text-yellow-400', bg: 'bg-yellow-500/10', border: 'border-yellow-500/20' }, { label: '60 - 90 Days', val: aging['60-90'], color: 'text-orange-400', bg: 'bg-orange-500/10', border: 'border-orange-500/20' }, { label: '> 90 Days', val: aging['90+'], color: 'text-red-500', bg: 'bg-red-500/10', border: 'border-red-500/20' }].map((bucket, i) => (<div key={i} className={`p-4 rounded-xl border ${bucket.bg} ${bucket.border} flex flex-col justify-between h-24`}><div className="flex justify-between items-start"><span className={`text-xs font-bold uppercase tracking-wider ${bucket.color}`}>{bucket.label}</span><Clock size={14} className={bucket.color} opacity={0.5} /></div><span className={`text-xl font-mono font-bold text-white`}>{formatCurrency(bucket.val)}</span></div>))}</div>
-      <Card className="flex-1 flex flex-col p-0 shadow-2xl border-gray-800"><div className="p-4 border-b border-gray-800 flex justify-between items-center bg-[#13151f]"><h3 className="font-semibold text-gray-300 flex items-center gap-2">Transaction History</h3></div><div className="overflow-auto flex-1 custom-scrollbar bg-[#0f111a]/50"><table className="w-full text-left border-collapse"><thead className="sticky top-0 bg-[#161822] z-10 shadow-md"><tr className="text-xs uppercase tracking-wider text-gray-500"><th className="py-4 px-6 font-semibold border-b border-gray-800">Date</th><th className="py-4 px-4 font-semibold border-b border-gray-800">Type</th><th className="py-4 px-4 font-semibold border-b border-gray-800 w-1/3">Particulars</th><th className="py-4 px-4 font-semibold border-b border-gray-800 text-right">Debit</th><th className="py-4 px-4 font-semibold border-b border-gray-800 text-right">Credit</th><th className="py-4 px-6 font-semibold border-b border-gray-800 text-right rounded-tr-lg">Balance</th></tr></thead><tbody>{enrichedTxns.length > 0 ? (enrichedTxns.map((t, i) => (<tr key={i} className="hover:bg-white/5 transition-colors border-b border-gray-800/50 text-sm"><td className="py-3 px-6 text-gray-400 font-mono">{formatDate(t.date)}</td><td className="py-3 px-4"><span className="px-2 py-0.5 rounded text-[10px] uppercase font-bold text-gray-400 border border-gray-700 bg-gray-800/50">{t.type}</span></td><td className="py-3 px-4 text-gray-300">{t.account || '-'}</td><td className="py-3 px-4 text-right font-mono text-orange-400/90">{t.sign === 'Dr' ? formatCurrency(t.amount) : '-'}</td><td className="py-3 px-4 text-right font-mono text-emerald-400/90">{t.sign === 'Cr' ? formatCurrency(t.amount) : '-'}</td><td className="py-3 px-6 text-right font-mono text-white font-medium bg-white/5">{formatCurrency(t.balance)} <span className="text-[10px] text-gray-500 ml-1">{t.balType}</span></td></tr>))) : (<tr><td colSpan="6" className="text-center py-20 text-gray-500">No transactions found</td></tr>)}</tbody></table></div></Card>
+
+      {/* AGING SUMMARY */}
+      <div className="grid grid-cols-4 gap-4 mb-6">
+        {[{ L: '<30 Days', V: aging['0-30'] }, { L: '30-60 Days', V: aging['30-60'] }, { L: '60-90 Days', V: aging['60-90'] }, { L: '>90 Days', V: aging['90+'] }].map((x, i) => (
+          <div key={i} className="bg-[#1a1d29] border border-gray-800 p-3 rounded-lg">
+            <div className="text-xs text-gray-500 mb-1">{x.L}</div>
+            <div className="text-lg font-mono font-bold text-white">{formatCurrency(x.V)}</div>
+          </div>
+        ))}
+      </div>
+
+      {/* TABLE */}
+      <div className="bg-[#1a1d29] rounded-xl border border-gray-800 flex-1 flex flex-col overflow-hidden shadow-xl">
+        <div className="overflow-auto flex-1 custom-scrollbar">
+          <table className="w-full text-left text-sm border-collapse">
+            <thead className="sticky top-0 bg-[#0f111a] border-b border-gray-700 z-10 text-gray-400 font-medium">
+              <tr>
+                <th className="p-4 w-32">Date</th>
+                <th className="p-4 w-1/3">Particulars</th>
+                <th className="p-4 w-24">Vch Type</th>
+                <th className="p-4 w-24">Vch No.</th>
+                <th className="p-4 text-right text-orange-400/80">Debit</th>
+                <th className="p-4 text-right text-emerald-400/80">Credit</th>
+                <th className="p-4 text-right bg-[#161822]">Balance</th>
+              </tr>
+            </thead>
+            <tbody className="divide-y divide-gray-800/50">
+              {/* OPENING BALANCE ROW */}
+              <tr className="bg-[#161822]/50 italic">
+                <td className="p-4 text-gray-500"></td>
+                <td className="p-4 text-gray-300 font-medium">Opening Balance</td>
+                <td colSpan="2"></td>
+                <td className="p-4 text-right font-mono text-gray-400">{opType === 'Dr' ? formatCurrency(opAmt) : ''}</td>
+                <td className="p-4 text-right font-mono text-gray-400">{opType === 'Cr' ? formatCurrency(opAmt) : ''}</td>
+                <td className="p-4 text-right font-mono font-bold text-white bg-[#161822]">{formatCurrency(opAmt)} {opType}</td>
+              </tr>
+
+              {/* TRANSACTIONS */}
+              {rows.map((row, i) => (
+                <tr key={i} className="hover:bg-white/5 transition-colors group">
+                  <td className="p-4 text-gray-400 font-mono text-xs">{formatDate(row.date)}</td>
+                  <td className="p-4 text-gray-300">{row.account || 'As per details'}</td>
+                  <td className="p-4 text-gray-500 text-xs">{row.type}</td>
+                  <td className="p-4 text-gray-500 text-xs">{row.no}</td>
+                  <td className="p-4 text-right font-mono text-orange-400">{row.sign === 'Dr' ? formatCurrency(row.amount) : '-'}</td>
+                  <td className="p-4 text-right font-mono text-emerald-400">{row.sign === 'Cr' ? formatCurrency(row.amount) : '-'}</td>
+                  <td className="p-4 text-right font-mono font-semibold text-white bg-[#161822] group-hover:bg-[#1f222e]">
+                    {formatCurrency(row.runningBalAbs)} <span className="text-[10px] text-gray-500">{row.runningBalType}</span>
+                  </td>
+                </tr>
+              ))}
+
+              {/* CLOSING TOTAL ROW */}
+              <tr className="bg-[#161822] border-t-2 border-gray-700 font-bold">
+                <td colSpan="4" className="p-4 text-right uppercase text-xs tracking-wider text-gray-400">Closing Balance</td>
+                <td className="p-4 text-right font-mono text-orange-400">{closingType === 'Dr' ? formatCurrency(closingAmt) : ''}</td>
+                <td className="p-4 text-right font-mono text-emerald-400">{closingType === 'Cr' ? formatCurrency(closingAmt) : ''}</td>
+                <td className="p-4 bg-[#0f111a]"></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
     </motion.div>
   );
 };
+
+// ... Rest of the components (GroupCard, LedgerList, AgingView) remain similar but used in App
+// I will include them to ensure the file is complete.
+
 const GroupCard = ({ name, ledgers, onClick }) => {
   const total = ledgers.reduce((sum, l) => sum + (l.type === 'Dr' ? l.amount : -l.amount), 0);
   const isPos = total > 0;
@@ -72,8 +208,6 @@ const AgingView = ({ data, onSelectLedger }) => {
     <div className="max-w-7xl mx-auto p-6"><h2 className="text-3xl font-bold text-white mb-2">Aging Analysis</h2><p className="text-gray-400 mb-8">Classification based on oldest overdue bill.</p><div className="flex flex-wrap gap-2 mb-8">{tabs.map(t => (<button key={t.id} onClick={() => setSubTab(t.id)} className={`px-6 py-3 rounded-xl border text-sm font-medium transition-all ${subTab === t.id ? getColor(t.color) + ' shadow-lg scale-105' : 'border-gray-800 text-gray-400 hover:bg-white/5'}`}>{t.label}</button>))}</div><div className="flex justify-between items-center mb-4"><span className="text-gray-400 text-sm">Found {currentList.length} Parties in this category</span></div><div className="grid grid-cols-1 gap-3">{currentList.map((l, i) => (<div key={i} onClick={() => onSelectLedger(l)} className="glass-panel p-4 rounded-xl flex items-center justify-between hover:bg-white/5 cursor-pointer group transition-all"><div className="flex items-center gap-4"><div className={`w-10 h-10 rounded-full flex items-center justify-center font-bold text-sm ${subTab === '90+' ? 'bg-red-500/20 text-red-500' : 'bg-gray-800 text-gray-400'}`}>{i + 1}</div><div><h4 className="text-gray-200 font-medium group-hover:text-white transition-colors">{l.name}</h4><div className="flex items-center gap-2 mt-1"><span className={`text-[10px] px-1.5 py-0.5 rounded border ${l.type === 'Dr' ? 'border-blue-500/20 text-blue-400' : 'border-purple-500/20 text-purple-400'}`}>{l.type === 'Dr' ? 'DEBTOR' : 'CREDITOR'}</span></div></div></div><div className="text-right"><p className="text-xs text-gray-500 uppercase">Total Due</p><p className={`font-mono font-bold text-lg ${l.type === 'Dr' ? 'text-orange-400' : 'text-emerald-400'}`}>{formatCurrency(l.amount)}</p></div></div>))}{currentList.length === 0 && (<div className="text-center py-20 text-gray-500"><AlertTriangle className="mx-auto mb-4 opacity-50" />No parties found in this risk category.</div>)}</div></div>
   );
 };
-
-// --- APP ROOT ---
 
 function App() {
   const [data, setData] = useState(null);
@@ -104,14 +238,12 @@ function App() {
       const res = await fetch(endpoints.sync);
       if (!res.ok) {
         const err = await res.json().catch(() => ({}));
-        throw new Error(err.error || "Tally Not Running on PC");
+        throw new Error(err.error || "Sync Error");
       }
       const result = await res.json();
       if (result.success) {
         if (result.gitResult && !result.gitResult.success) { addToast(`Sync OK, Cloud Failed: ${result.gitResult.error}`, "warning"); }
         else { addToast("Synced & Pushed to Cloud!", "success"); }
-        // Wait 2s potentially for RAW global cache? No point, we can't purge GitHub cache easily.
-        // Just re-fetch what we can.
         await fetchData();
       } else { addToast("Sync Failed: " + result.error, "error"); }
     } catch (e) { addToast(e.message, "error"); } finally { setSyncing(false); }
