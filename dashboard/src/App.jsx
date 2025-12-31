@@ -29,7 +29,7 @@ const calculateRunningBalance = (transactions, openingBalanceStr) => {
 };
 const determineRiskCategory = (agingBuckets) => { if (agingBuckets['90+'] > 0) return '90+'; if (agingBuckets['60-90'] > 0) return '60-90'; if (agingBuckets['30-60'] > 0) return '30-60'; return '0-30'; };
 
-// --- COMPONENTS --- (LedgerDetail, AgingView, etc.)
+// --- COMPONENTS --- (LedgerDetail, AgingView, etc. kept same, just re-declaring for full file overwrite)
 const Card = ({ children, className = "" }) => (<div className={`glass-panel rounded-2xl p-5 relative overflow-hidden ${className}`}>{children}</div>);
 
 const LedgerDetail = ({ ledger, onBack }) => {
@@ -50,7 +50,6 @@ const LedgerDetail = ({ ledger, onBack }) => {
     </motion.div>
   );
 };
-
 const GroupCard = ({ name, ledgers, onClick }) => {
   const total = ledgers.reduce((sum, l) => sum + (l.type === 'Dr' ? l.amount : -l.amount), 0);
   const isPos = total > 0;
@@ -58,13 +57,11 @@ const GroupCard = ({ name, ledgers, onClick }) => {
     <motion.div whileHover={{ y: -5 }} onClick={onClick} className="glass-panel p-5 rounded-xl cursor-pointer hover:border-blue-500/30 transition-all flex flex-col justify-between h-40 relative group overflow-hidden"><div className={`absolute top-0 left-0 w-1 h-full ${isPos ? 'bg-orange-500' : 'bg-emerald-500'} opacity-50`}></div><div className="flex justify-between items-start"><div className="p-2.5 bg-gray-800 rounded-lg group-hover:bg-blue-600 group-hover:text-white transition-colors text-gray-400"><Users size={20} /></div><div className="px-2 py-1 bg-gray-900 rounded text-[10px] text-gray-500 border border-gray-800">{ledgers.length} ACCOUNTS</div></div><div><h3 className="font-semibold text-gray-200 text-lg truncate mb-1">{name}</h3><p className={`font-mono text-xl font-bold ${isPos ? 'text-orange-400' : 'text-emerald-400'}`}>{formatCurrency(Math.abs(total))} <span className="text-sm text-gray-500 ml-1">{isPos ? 'Dr' : 'Cr'}</span></p></div></motion.div>
   );
 };
-
 const LedgerList = ({ groupName, ledgers, onSelect, onBack }) => {
   return (
     <div className="p-6 max-w-7xl mx-auto h-full flex flex-col"><div className="mb-6"><button onClick={onBack} className="flex items-center text-gray-400 hover:text-white gap-2 transition-colors text-sm mb-4"><ArrowLeft size={16} /> Back to Dashboard</button><h2 className="text-2xl font-bold text-white"><span className="text-gray-500 font-normal">Group / </span> {groupName}</h2></div><div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 overflow-y-auto pb-10">{ledgers.map((l, i) => (<div key={i} onClick={() => onSelect(l)} className="bg-[#1a1d29] border border-gray-800 hover:border-blue-500/50 p-4 rounded-xl cursor-pointer hover:shadow-lg transition-all flex items-center justify-between group"><div><h4 className="font-medium text-gray-300 group-hover:text-white truncate max-w-[180px]">{l.name}</h4><p className="text-xs text-gray-500 mt-1">{l.transactions?.length || 0} Txns</p></div><div className={`text-right font-mono font-semibold ${l.type === 'Dr' ? 'text-orange-400' : 'text-emerald-400'}`}>{formatCurrency(l.amount)}</div></div>))}</div></div>
   );
 };
-
 const AgingView = ({ data, onSelectLedger }) => {
   const [subTab, setSubTab] = useState('0-30');
   const processedData = useMemo(() => { if (!data) return {}; const buckets = { '0-30': [], '30-60': [], '60-90': [], '90+': [] }; const allParties = [...Object.values(data.debtors).flat(), ...data.creditors]; allParties.forEach(l => { const aging = calculateAging(l.transactions || [], l.openingBalance); const cat = determineRiskCategory(aging); if (l.amount > 1) buckets[cat].push({ ...l, category: cat }); }); return buckets; }, [data]);
@@ -102,18 +99,19 @@ function App() {
   };
 
   const sync = async () => {
-    if (!endpoints.sync) {
-      addToast("Sync is only available on Local PC", "warning");
-      return;
-    }
     setSyncing(true);
     try {
       const res = await fetch(endpoints.sync);
-      if (!res.ok) { const err = await res.json(); throw new Error(err.error || "Server Error"); }
+      if (!res.ok) {
+        const err = await res.json().catch(() => ({}));
+        throw new Error(err.error || "Tally Not Running on PC");
+      }
       const result = await res.json();
       if (result.success) {
         if (result.gitResult && !result.gitResult.success) { addToast(`Sync OK, Cloud Failed: ${result.gitResult.error}`, "warning"); }
         else { addToast("Synced & Pushed to Cloud!", "success"); }
+        // Wait 2s potentially for RAW global cache? No point, we can't purge GitHub cache easily.
+        // Just re-fetch what we can.
         await fetchData();
       } else { addToast("Sync Failed: " + result.error, "error"); }
     } catch (e) { addToast(e.message, "error"); } finally { setSyncing(false); }

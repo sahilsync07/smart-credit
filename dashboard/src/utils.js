@@ -81,16 +81,13 @@ export const isLocal = () => {
 };
 
 export const getEndpoints = () => {
-    // If running locally (dev or synced viewer), use local server
-    if (isLocal()) {
-        return {
-            data: 'http://localhost:3001/api/data',
-            sync: 'http://localhost:3001/api/sync'
-        };
-    }
-    // If running on GitHub Pages or other cloud, use Raw GitHub Data
+    const local = isLocal();
     return {
-        data: 'https://raw.githubusercontent.com/sahilsync07/smart-credit/main/credit-data.json',
-        sync: null // Sync not supported in cloud view
+        // Data: If Local -> Local Server. If Cloud -> GitHub Raw
+        data: local ? 'http://localhost:3001/api/data' : 'https://raw.githubusercontent.com/sahilsync07/smart-credit/main/credit-data.json',
+        // Sync: Always try Localhost. 
+        // If on Cloud & User is on Accountant PC -> Works.
+        // If on Cloud & User is on Phone -> Fails (Network Error/Tally Not Found).
+        sync: 'http://localhost:3001/api/sync'
     };
 };
