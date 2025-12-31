@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2025-12-31T12:07:46.575Z",
+  "updatedAt": "2025-12-31T12:22:19.707Z",
   "debtors": {
     "TIKIRI & KASIPUR LINE": [
       {
@@ -70,7 +70,7 @@
         "type": "Cr",
         "transactions": [],
         "isGroup": false,
-        "openingBalance": ""
+        "openingBalance": "-1.00"
       },
       {
         "name": "A S Footwear, Rayagada",
@@ -136,7 +136,7 @@
         "type": "Cr",
         "transactions": [],
         "isGroup": false,
-        "openingBalance": ""
+        "openingBalance": "-21217.00"
       },
       {
         "name": "BAIKUNTHA NAYAK, KASIPUR",
@@ -144,7 +144,7 @@
         "type": "Cr",
         "transactions": [],
         "isGroup": false,
-        "openingBalance": ""
+        "openingBalance": "-784.00"
       },
       {
         "name": "Barun Nayak,Talopanka",
@@ -239,7 +239,7 @@
         "type": "Cr",
         "transactions": [],
         "isGroup": false,
-        "openingBalance": ""
+        "openingBalance": "-5175.00"
       },
       {
         "name": "CHANCHALA FOOTWEAR, BADAMARIBHATA",
@@ -330,7 +330,7 @@
           }
         ],
         "isGroup": false,
-        "openingBalance": ""
+        "openingBalance": "-16166.00"
       },
       {
         "name": "DELHI FOOTWEAR, TIKIRI",
@@ -357,32 +357,10 @@
         "openingBalance": "-71252.00"
       },
       {
-        "name": "DHUTIKA NAIK, SUGER (KASIPUR)",
+        "name": "DHUTIKA NAIK, SUNGER(KASIPUR)",
         "amount": 0,
-        "type": "Cr",
-        "transactions": [
-          {
-            "date": "9-Nov-25",
-            "type": "Sale",
-            "account": "SALE@GST",
-            "amount": 8637,
-            "sign": "Dr"
-          },
-          {
-            "date": "9-Nov-25",
-            "type": "Rcpt",
-            "account": "Cash",
-            "amount": 6500,
-            "sign": "Cr"
-          },
-          {
-            "date": "12-Nov-25",
-            "type": "Rcpt",
-            "account": "Cash",
-            "amount": 1000,
-            "sign": "Cr"
-          }
-        ],
+        "type": "Dr",
+        "transactions": [],
         "isGroup": false,
         "openingBalance": ""
       },
@@ -455,7 +433,7 @@
         "type": "Cr",
         "transactions": [],
         "isGroup": false,
-        "openingBalance": ""
+        "openingBalance": "-84.00"
       },
       {
         "name": "JAGADISH NAYAK, KASIPUR",
@@ -463,7 +441,7 @@
         "type": "Cr",
         "transactions": [],
         "isGroup": false,
-        "openingBalance": ""
+        "openingBalance": "-104.00"
       },
       {
         "name": "Jagannath Kumbhar, Kasipur",
@@ -487,7 +465,7 @@
         "type": "Cr",
         "transactions": [],
         "isGroup": false,
-        "openingBalance": ""
+        "openingBalance": "-19.00"
       },
       {
         "name": "KAPIL NAYAK, KASIPUR",
@@ -511,7 +489,7 @@
         "type": "Cr",
         "transactions": [],
         "isGroup": false,
-        "openingBalance": ""
+        "openingBalance": "-2133.00"
       },
       {
         "name": "Krunshno Gouda, Derokona(Kasipur)",
@@ -566,7 +544,7 @@
         "type": "Cr",
         "transactions": [],
         "isGroup": false,
-        "openingBalance": ""
+        "openingBalance": "-6046.00"
       },
       {
         "name": "Maha Laxmi Store, Kasipur",
@@ -622,7 +600,7 @@
         "type": "Cr",
         "transactions": [],
         "isGroup": false,
-        "openingBalance": ""
+        "openingBalance": "-9250.00"
       },
       {
         "name": "NARASINGH NAYAK, TIKIRI",
@@ -660,7 +638,7 @@
         "type": "Cr",
         "transactions": [],
         "isGroup": false,
-        "openingBalance": ""
+        "openingBalance": "-1.00"
       },
       {
         "name": "Puja Garment (Delhi Footwear), Tikiri",
@@ -716,7 +694,7 @@
         "type": "Cr",
         "transactions": [],
         "isGroup": false,
-        "openingBalance": ""
+        "openingBalance": "4.00"
       },
       {
         "name": "RAMESH NAYAK, KASIPUR",
@@ -842,6 +820,14 @@
         "type": "Cr",
         "transactions": [],
         "isGroup": false,
+        "openingBalance": "-5.00"
+      },
+      {
+        "name": "TIBU NAIK ,SIADIMAL SUNGER",
+        "amount": 0,
+        "type": "Dr",
+        "transactions": [],
+        "isGroup": false,
         "openingBalance": ""
       },
       {
@@ -850,7 +836,7 @@
         "type": "Cr",
         "transactions": [],
         "isGroup": false,
-        "openingBalance": ""
+        "openingBalance": "-8853.00"
       }
     ],
     "Balimela,Chitrokunda,Malkangiri": [
@@ -892,7 +878,7 @@
         "type": "Cr",
         "transactions": [],
         "isGroup": false,
-        "openingBalance": ""
+        "openingBalance": "-28.00"
       },
       {
         "name": "ALOK BOOT HOUSE,KORUKONDA",
@@ -931,7 +917,7 @@
         "type": "Cr",
         "transactions": [],
         "isGroup": false,
-        "openingBalance": ""
+        "openingBalance": "-16524.00"
       },
       {
         "name": "Anata Mandinga, Damanganda",
@@ -939,7 +925,7 @@
         "type": "Cr",
         "transactions": [],
         "isGroup": false,
-        "openingBalance": ""
+        "openingBalance": "-3.00"
       },
       {
         "name": "ANKIT FOOTWEAR, MV-88",
@@ -985,7 +971,7 @@
         "type": "Cr",
         "transactions": [],
         "isGroup": false,
-        "openingBalance": ""
+        "openingBalance": "-325.00"
       },
       {
         "name": "ARIHANT ENTERPRISES, JEYPORE",
@@ -1065,7 +1051,7 @@
         "type": "Cr",
         "transactions": [],
         "isGroup": false,
-        "openingBalance": ""
+        "openingBalance": "-214.00"
       },
       {
         "name": "B. LOKESWAR RAO, CHITROKUNDA",
@@ -1096,7 +1082,7 @@
         "type": "Cr",
         "transactions": [],
         "isGroup": false,
-        "openingBalance": ""
+        "openingBalance": "-1.00"
       },
       {
         "name": "DEBABRAT F/W,KALIMELA",
@@ -1222,7 +1208,7 @@
           }
         ],
         "isGroup": false,
-        "openingBalance": ""
+        "openingBalance": "-10471.00"
       },
       {
         "name": "Govinda Reddy, Balda",
@@ -1230,7 +1216,7 @@
         "type": "Cr",
         "transactions": [],
         "isGroup": false,
-        "openingBalance": ""
+        "openingBalance": "15.00"
       },
       {
         "name": "GUDU F/W, GOBINDAPALI",
@@ -1317,7 +1303,7 @@
         "type": "Cr",
         "transactions": [],
         "isGroup": false,
-        "openingBalance": ""
+        "openingBalance": "-22044.00"
       },
       {
         "name": "KANKAN KUMAR MONDAL, KALIMELA",
@@ -1357,7 +1343,7 @@
         "type": "Cr",
         "transactions": [],
         "isGroup": false,
-        "openingBalance": ""
+        "openingBalance": "-45.00"
       },
       {
         "name": "Lokanatha Footwear, Mv-72",
@@ -1381,7 +1367,7 @@
         "type": "Cr",
         "transactions": [],
         "isGroup": false,
-        "openingBalance": ""
+        "openingBalance": "-475.00"
       },
       {
         "name": "Maa Damaldei, Khairaput(Ajay Kumar Sahu)",
@@ -1395,6 +1381,14 @@
         "name": "Malik Boot House, Balimela",
         "amount": 0,
         "type": "Cr",
+        "transactions": [],
+        "isGroup": false,
+        "openingBalance": "-10381.00"
+      },
+      {
+        "name": "MANAS FOOTWEAR, KALIMELA",
+        "amount": 0,
+        "type": "Dr",
         "transactions": [],
         "isGroup": false,
         "openingBalance": ""
@@ -1421,7 +1415,7 @@
         "type": "Cr",
         "transactions": [],
         "isGroup": false,
-        "openingBalance": ""
+        "openingBalance": "-7.00"
       },
       {
         "name": "Mantosh Kumar, Koraput",
@@ -1429,7 +1423,7 @@
         "type": "Cr",
         "transactions": [],
         "isGroup": false,
-        "openingBalance": ""
+        "openingBalance": "-3006.00"
       },
       {
         "name": "M Ashok,Tangiliguda",
@@ -1555,7 +1549,7 @@
         "type": "Cr",
         "transactions": [],
         "isGroup": false,
-        "openingBalance": ""
+        "openingBalance": "-388.00"
       },
       {
         "name": "NALINI BIWAS , M.P.V-81",
@@ -1571,7 +1565,7 @@
           }
         ],
         "isGroup": false,
-        "openingBalance": ""
+        "openingBalance": "-27234.00"
       },
       {
         "name": "New Genration Footpoint, Umerkote",
@@ -1695,7 +1689,7 @@
         "type": "Cr",
         "transactions": [],
         "isGroup": false,
-        "openingBalance": ""
+        "openingBalance": "-3027.00"
       },
       {
         "name": "Puja Mahanty, Boipariguda",
@@ -1711,7 +1705,7 @@
         "type": "Cr",
         "transactions": [],
         "isGroup": false,
-        "openingBalance": ""
+        "openingBalance": "-1781.00"
       },
       {
         "name": "RAHUL F/W, KALIMELA",
@@ -1758,7 +1752,7 @@
         "type": "Cr",
         "transactions": [],
         "isGroup": false,
-        "openingBalance": ""
+        "openingBalance": "-1664.00"
       },
       {
         "name": "RAMAKRISHNA ,LAXMIPUR",
@@ -1782,6 +1776,14 @@
         ],
         "isGroup": false,
         "openingBalance": "-108262.00"
+      },
+      {
+        "name": "R K FOOTWEAR, KALIMELA",
+        "amount": 0,
+        "type": "Dr",
+        "transactions": [],
+        "isGroup": false,
+        "openingBalance": ""
       },
       {
         "name": "Rockteach Engineer Laxmipur",
@@ -1860,7 +1862,7 @@
         "type": "Cr",
         "transactions": [],
         "isGroup": false,
-        "openingBalance": ""
+        "openingBalance": "-416.00"
       },
       {
         "name": "SANTI ROY CHOUDHURY, KHAIRPUT",
@@ -1884,7 +1886,7 @@
         "type": "Cr",
         "transactions": [],
         "isGroup": false,
-        "openingBalance": ""
+        "openingBalance": "-98.00"
       },
       {
         "name": "SARADA PRASAD NANDI, KUDUMULUGUMA",
@@ -1908,7 +1910,7 @@
         "type": "Cr",
         "transactions": [],
         "isGroup": false,
-        "openingBalance": ""
+        "openingBalance": "-1453.00"
       },
       {
         "name": "Sing Footwear (Siba Shankara), Koraput",
@@ -1916,7 +1918,7 @@
         "type": "Cr",
         "transactions": [],
         "isGroup": false,
-        "openingBalance": ""
+        "openingBalance": "-16367.00"
       },
       {
         "name": "SMART BOOT HOUSE, MALKANGIRI",
@@ -2017,7 +2019,7 @@
         "type": "Cr",
         "transactions": [],
         "isGroup": false,
-        "openingBalance": ""
+        "openingBalance": "-2955.00"
       },
       {
         "name": "Suresh Baral, Kudumuluguma",
@@ -2033,7 +2035,7 @@
         "type": "Cr",
         "transactions": [],
         "isGroup": false,
-        "openingBalance": ""
+        "openingBalance": "-2.00"
       },
       {
         "name": "Swastik F/w, Kalimela",
@@ -2081,7 +2083,7 @@
         "type": "Cr",
         "transactions": [],
         "isGroup": false,
-        "openingBalance": ""
+        "openingBalance": "583.00"
       },
       {
         "name": "Zenul Ansari, Govidapali",
@@ -2159,7 +2161,7 @@
         "type": "Cr",
         "transactions": [],
         "isGroup": false,
-        "openingBalance": ""
+        "openingBalance": "-5.00"
       },
       {
         "name": "Chinna",
@@ -2245,7 +2247,7 @@
         "type": "Cr",
         "transactions": [],
         "isGroup": false,
-        "openingBalance": ""
+        "openingBalance": "-1029.00"
       },
       {
         "name": "JITU KAUSHALY, THERUBALI",
@@ -2253,7 +2255,7 @@
         "type": "Cr",
         "transactions": [],
         "isGroup": false,
-        "openingBalance": ""
+        "openingBalance": "-2070.00"
       },
       {
         "name": "Kanya Lal",
@@ -2277,7 +2279,7 @@
         "type": "Cr",
         "transactions": [],
         "isGroup": false,
-        "openingBalance": ""
+        "openingBalance": "-4.00"
       },
       {
         "name": "Maa Agni Ganga F/w Therubali ( Sujeet Saha )",
@@ -2285,7 +2287,7 @@
         "type": "Cr",
         "transactions": [],
         "isGroup": false,
-        "openingBalance": ""
+        "openingBalance": "-419.00"
       },
       {
         "name": "MAA MAJHIGOURI SPORTS & F/W, KOLNARA",
@@ -2293,7 +2295,7 @@
         "type": "Cr",
         "transactions": [],
         "isGroup": false,
-        "openingBalance": ""
+        "openingBalance": "-280.00"
       },
       {
         "name": "MAA MANGALA GENERAL STORE, DURGI",
@@ -2340,7 +2342,7 @@
         "type": "Cr",
         "transactions": [],
         "isGroup": false,
-        "openingBalance": ""
+        "openingBalance": "-2818.00"
       },
       {
         "name": "M Prakash Rao Therubali",
@@ -2585,7 +2587,7 @@
           }
         ],
         "isGroup": false,
-        "openingBalance": ""
+        "openingBalance": "-54526.00"
       },
       {
         "name": "SAROJ TRADERS, THERUBALI",
@@ -2601,7 +2603,7 @@
         "type": "Cr",
         "transactions": [],
         "isGroup": false,
-        "openingBalance": ""
+        "openingBalance": "-29.00"
       },
       {
         "name": "Somnath Kasi, Durgi",
@@ -2633,7 +2635,7 @@
         "type": "Cr",
         "transactions": [],
         "isGroup": false,
-        "openingBalance": ""
+        "openingBalance": "-397.00"
       },
       {
         "name": "SUSANT PANIGRAHI,KHEDAPADA",
@@ -2649,7 +2651,7 @@
         "type": "Cr",
         "transactions": [],
         "isGroup": false,
-        "openingBalance": ""
+        "openingBalance": "-131.00"
       },
       {
         "name": "TUKUNA GARMENT, DURGI",
@@ -2675,7 +2677,7 @@
         "type": "Cr",
         "transactions": [],
         "isGroup": false,
-        "openingBalance": ""
+        "openingBalance": "-3457.00"
       },
       {
         "name": "A. SUDHAKAR NILAMANI, GUMUDA",
@@ -2683,7 +2685,7 @@
         "type": "Cr",
         "transactions": [],
         "isGroup": false,
-        "openingBalance": ""
+        "openingBalance": "-3954.00"
       },
       {
         "name": "BANSADHARA F/W, GUNUPUR",
@@ -2691,7 +2693,7 @@
         "type": "Cr",
         "transactions": [],
         "isGroup": false,
-        "openingBalance": ""
+        "openingBalance": "-4214.00"
       },
       {
         "name": "B.CH. KHADANGA, GUMUDA",
@@ -2699,7 +2701,7 @@
         "type": "Cr",
         "transactions": [],
         "isGroup": false,
-        "openingBalance": ""
+        "openingBalance": "-507.00"
       },
       {
         "name": "BHAGIRATHI PANDA, RAMNAGUDA",
@@ -2739,7 +2741,7 @@
         "type": "Cr",
         "transactions": [],
         "isGroup": false,
-        "openingBalance": ""
+        "openingBalance": "-3.00"
       },
       {
         "name": "CHANDRA F/W, GUNUPUR",
@@ -2747,7 +2749,7 @@
         "type": "Cr",
         "transactions": [],
         "isGroup": false,
-        "openingBalance": ""
+        "openingBalance": "-5968.00"
       },
       {
         "name": "D. MADHABA RAO, GUDARI",
@@ -2755,7 +2757,7 @@
         "type": "Cr",
         "transactions": [],
         "isGroup": false,
-        "openingBalance": ""
+        "openingBalance": "-380.00"
       },
       {
         "name": "D.MINALU, GUDARI",
@@ -2855,7 +2857,7 @@
         "type": "Cr",
         "transactions": [],
         "isGroup": false,
-        "openingBalance": ""
+        "openingBalance": "-163.00"
       },
       {
         "name": "GUDULA NAGESWAR RAO, AKHUSING",
@@ -2894,7 +2896,7 @@
         "type": "Cr",
         "transactions": [],
         "isGroup": false,
-        "openingBalance": ""
+        "openingBalance": "-804.00"
       },
       {
         "name": "JAGILI F/W, PADAMPUR",
@@ -2902,7 +2904,7 @@
         "type": "Cr",
         "transactions": [],
         "isGroup": false,
-        "openingBalance": ""
+        "openingBalance": "-47.00"
       },
       {
         "name": "JAYADURGA ELECTRICALS, GUDARI",
@@ -2933,7 +2935,7 @@
         "type": "Cr",
         "transactions": [],
         "isGroup": false,
-        "openingBalance": ""
+        "openingBalance": "-1731.00"
       },
       {
         "name": "J. Kumar,Gunupur(Bikrampur)",
@@ -2949,7 +2951,7 @@
         "type": "Cr",
         "transactions": [],
         "isGroup": false,
-        "openingBalance": ""
+        "openingBalance": "-88.00"
       },
       {
         "name": "KALIA F/W, KENDUGUDA",
@@ -3011,7 +3013,7 @@
         "type": "Cr",
         "transactions": [],
         "isGroup": false,
-        "openingBalance": ""
+        "openingBalance": "-1213.00"
       },
       {
         "name": "Khadanga Xerox Gumuda",
@@ -3019,7 +3021,7 @@
         "type": "Cr",
         "transactions": [],
         "isGroup": false,
-        "openingBalance": ""
+        "openingBalance": "-35.00"
       },
       {
         "name": "KISHOR NAYAK, MUKUNDPUR",
@@ -3043,7 +3045,7 @@
           }
         ],
         "isGroup": false,
-        "openingBalance": ""
+        "openingBalance": "-10213.00"
       },
       {
         "name": "K . VISU F/W, UKUMBA",
@@ -3051,7 +3053,7 @@
         "type": "Cr",
         "transactions": [],
         "isGroup": false,
-        "openingBalance": ""
+        "openingBalance": "-1618.00"
       },
       {
         "name": "LAXMI F/W, GUMUDA( DEVI PRASAD PANIGRAHI)",
@@ -3059,7 +3061,7 @@
         "type": "Cr",
         "transactions": [],
         "isGroup": false,
-        "openingBalance": ""
+        "openingBalance": "-12891.00"
       },
       {
         "name": "LINGARAJ PANDA, GUNUPUR",
@@ -3097,7 +3099,7 @@
         "type": "Cr",
         "transactions": [],
         "isGroup": false,
-        "openingBalance": ""
+        "openingBalance": "-2620.00"
       },
       {
         "name": "Maa Majhi Gouri,Gudari",
@@ -3121,7 +3123,7 @@
         "type": "Cr",
         "transactions": [],
         "isGroup": false,
-        "openingBalance": ""
+        "openingBalance": "-552.00"
       },
       {
         "name": "MAA TARINI F/W, PADAMPUR",
@@ -3190,7 +3192,7 @@
         "type": "Cr",
         "transactions": [],
         "isGroup": false,
-        "openingBalance": ""
+        "openingBalance": "-1.00"
       },
       {
         "name": "M/S. RANJAN SHOES & HAWAI VARIETY STORE, PADAMPUR",
@@ -3230,7 +3232,7 @@
         "type": "Cr",
         "transactions": [],
         "isGroup": false,
-        "openingBalance": ""
+        "openingBalance": "-112.00"
       },
       {
         "name": "Purna Chandra Damodar",
@@ -3268,7 +3270,7 @@
         "type": "Cr",
         "transactions": [],
         "isGroup": false,
-        "openingBalance": ""
+        "openingBalance": "-344.98"
       },
       {
         "name": "RAJESH F/W, GUNUPUR",
@@ -3276,7 +3278,7 @@
         "type": "Cr",
         "transactions": [],
         "isGroup": false,
-        "openingBalance": ""
+        "openingBalance": "-297.00"
       },
       {
         "name": "Raj Kumar Behera, Ramanaguda",
@@ -3308,7 +3310,7 @@
         "type": "Cr",
         "transactions": [],
         "isGroup": false,
-        "openingBalance": ""
+        "openingBalance": "-803.00"
       },
       {
         "name": "RAMESH CHANDRA KHADANGA, GUMUDA",
@@ -3362,7 +3364,7 @@
         "type": "Cr",
         "transactions": [],
         "isGroup": false,
-        "openingBalance": ""
+        "openingBalance": "-49.00"
       },
       {
         "name": "RANJIT TULO, KENDUGUDA",
@@ -3370,7 +3372,7 @@
         "type": "Cr",
         "transactions": [],
         "isGroup": false,
-        "openingBalance": ""
+        "openingBalance": "-3054.00"
       },
       {
         "name": "RENUKA SHOE MART, GUNUPUR",
@@ -3378,7 +3380,7 @@
         "type": "Cr",
         "transactions": [],
         "isGroup": false,
-        "openingBalance": ""
+        "openingBalance": "-812.00"
       },
       {
         "name": "R K FOOTWEAR , PADAMPUR",
@@ -3386,7 +3388,7 @@
         "type": "Cr",
         "transactions": [],
         "isGroup": false,
-        "openingBalance": ""
+        "openingBalance": "-10699.00"
       },
       {
         "name": "R.L. F/W, GUDARI",
@@ -3494,7 +3496,7 @@
         "type": "Cr",
         "transactions": [],
         "isGroup": false,
-        "openingBalance": ""
+        "openingBalance": "-1784.00"
       },
       {
         "name": "SHIVASISH MALL, PADAMPUR",
@@ -3510,7 +3512,7 @@
           }
         ],
         "isGroup": false,
-        "openingBalance": ""
+        "openingBalance": "-11922.00"
       },
       {
         "name": "SIMADRI KALPANA(S. GOURI), GUNUPUR",
@@ -3548,7 +3550,7 @@
         "type": "Cr",
         "transactions": [],
         "isGroup": false,
-        "openingBalance": ""
+        "openingBalance": "-24677.00"
       },
       {
         "name": "S.J. F/W, KHAMBARIGUDA",
@@ -3556,7 +3558,7 @@
         "type": "Cr",
         "transactions": [],
         "isGroup": false,
-        "openingBalance": ""
+        "openingBalance": "-559.00"
       },
       {
         "name": "S.N.Panda, Gunupur",
@@ -3564,7 +3566,7 @@
         "type": "Cr",
         "transactions": [],
         "isGroup": false,
-        "openingBalance": ""
+        "openingBalance": "-53.00"
       },
       {
         "name": "Sri Nivas F/w, Khambhariguda",
@@ -3634,7 +3636,7 @@
         "type": "Cr",
         "transactions": [],
         "isGroup": false,
-        "openingBalance": ""
+        "openingBalance": "-786.00"
       },
       {
         "name": "Susant Kumar Sahu, Bhoiguda",
@@ -3642,7 +3644,7 @@
         "type": "Cr",
         "transactions": [],
         "isGroup": false,
-        "openingBalance": ""
+        "openingBalance": "-2.00"
       },
       {
         "name": "T ANAND RAO (ADITYA F/W), GUNUPUR",
@@ -3680,7 +3682,7 @@
         "type": "Cr",
         "transactions": [],
         "isGroup": false,
-        "openingBalance": ""
+        "openingBalance": "-1845.00"
       },
       {
         "name": "T Dharma Rao, Gumuda",
@@ -3696,7 +3698,7 @@
         "type": "Cr",
         "transactions": [],
         "isGroup": false,
-        "openingBalance": ""
+        "openingBalance": "-6.00"
       },
       {
         "name": "TUNA PAN SHOP, GUMUDA",
@@ -3712,7 +3714,7 @@
         "type": "Cr",
         "transactions": [],
         "isGroup": false,
-        "openingBalance": ""
+        "openingBalance": "-5044.00"
       },
       {
         "name": "Vijay Durga Footwear,Gunupur",
@@ -3743,7 +3745,7 @@
         "type": "Cr",
         "transactions": [],
         "isGroup": false,
-        "openingBalance": ""
+        "openingBalance": "-141.00"
       },
       {
         "name": "V. SARBESWER RAO, JALTAR",
@@ -3751,25 +3753,47 @@
         "type": "Cr",
         "transactions": [],
         "isGroup": false,
-        "openingBalance": ""
+        "openingBalance": "-1523.00"
       }
     ],
     "Jeypur": [
       {
         "name": "Durga Madhab Store(Shri Ashok Ku. Hota), Kumuli",
-        "amount": 0,
-        "type": "Cr",
+        "amount": 163258,
+        "type": "Dr",
         "transactions": [],
         "isGroup": false,
-        "openingBalance": ""
+        "openingBalance": "-163258.00"
+      },
+      {
+        "name": "G. GURUNATHA , NARAYANPATNA",
+        "amount": 13478,
+        "type": "Dr",
+        "transactions": [],
+        "isGroup": false,
+        "openingBalance": "-13478.00"
       },
       {
         "name": "G. SEETA RAM METRO SHOES, JEYPORE",
-        "amount": 98536,
+        "amount": 73036,
         "type": "Dr",
         "transactions": [
           {
-            "date": "8-Oct-25",
+            "date": "3-Dec-25",
+            "type": "Rcpt",
+            "account": "SBI(ADB)-CC A/C",
+            "amount": 10000,
+            "sign": "Cr"
+          },
+          {
+            "date": "5-Dec-25",
+            "type": "Sale",
+            "account": "SALE@GST",
+            "amount": 4500,
+            "sign": "Dr"
+          },
+          {
+            "date": "15-Dec-25",
             "type": "Rcpt",
             "account": "SBI(ADB)-CC A/C",
             "amount": 10000,
@@ -3781,22 +3805,36 @@
       },
       {
         "name": "K.CHANDRA RAO, JAYPORE",
-        "amount": 0,
-        "type": "Cr",
+        "amount": 6854,
+        "type": "Dr",
         "transactions": [],
         "isGroup": false,
-        "openingBalance": ""
+        "openingBalance": "-6854.00"
       },
       {
         "name": "MAA JAYA DURGA SHOE HOUSE, SIMILIGUDA",
-        "amount": 342349,
+        "amount": 192349,
         "type": "Dr",
         "transactions": [
           {
-            "date": "3-Nov-25",
+            "date": "12-Dec-25",
             "type": "Rcpt",
-            "account": "SBI(ADB)-CC A/C",
-            "amount": 30000,
+            "account": "Cash",
+            "amount": 47000,
+            "sign": "Cr"
+          },
+          {
+            "date": "12-Dec-25",
+            "type": "Rcpt",
+            "account": "Cash",
+            "amount": 3000,
+            "sign": "Cr"
+          },
+          {
+            "date": "26-Dec-25",
+            "type": "Rcpt",
+            "account": "Cash",
+            "amount": 50000,
             "sign": "Cr"
           }
         ],
@@ -3812,35 +3850,71 @@
         "openingBalance": ""
       },
       {
+        "name": "M/S YUSUF FOOT WEAR, KOTAPAD",
+        "amount": 21969,
+        "type": "Dr",
+        "transactions": [],
+        "isGroup": false,
+        "openingBalance": "-21969.00"
+      },
+      {
         "name": "Nayak Footwear,Phampuni.Jeypore",
-        "amount": 0,
+        "amount": 52264,
         "type": "Cr",
         "transactions": [],
         "isGroup": false,
-        "openingBalance": ""
+        "openingBalance": "52264.00"
       },
       {
         "name": "NAYAK TRADERS, JEYPORE",
-        "amount": 199066.61,
+        "amount": 381728.61,
         "type": "Dr",
         "transactions": [
           {
-            "date": "3-Nov-25",
+            "date": "10-Dec-25",
             "type": "Rcpt",
             "account": "SBI(ADB)-CC A/C",
             "amount": 50000,
             "sign": "Cr"
           },
           {
-            "date": "18-Nov-25",
+            "date": "19-Dec-25",
             "type": "Rcpt",
             "account": "SBI(ADB)-CC A/C",
-            "amount": 75000,
+            "amount": 100000,
             "sign": "Cr"
+          },
+          {
+            "date": "22-Dec-25",
+            "type": "Sale",
+            "account": "SALE@GST",
+            "amount": 86470,
+            "sign": "Dr"
+          },
+          {
+            "date": "22-Dec-25",
+            "type": "Sale",
+            "account": "SALE@GST",
+            "amount": 112508,
+            "sign": "Dr"
+          },
+          {
+            "date": "22-Dec-25",
+            "type": "Rcpt",
+            "account": "SBI(ADB)-CC A/C",
+            "amount": 50000,
+            "sign": "Cr"
+          },
+          {
+            "date": "29-Dec-25",
+            "type": "Sale",
+            "account": "SALE@GST",
+            "amount": 37635,
+            "sign": "Dr"
           }
         ],
         "isGroup": false,
-        "openingBalance": ""
+        "openingBalance": "-377392.00"
       },
       {
         "name": "Rajesh Traders,Similiguda",
@@ -3852,11 +3926,11 @@
       },
       {
         "name": "Raj Kumar Hantal, Jeypore",
-        "amount": 0,
-        "type": "Cr",
+        "amount": 10038,
+        "type": "Dr",
         "transactions": [],
         "isGroup": false,
-        "openingBalance": ""
+        "openingBalance": "-10038.00"
       },
       {
         "name": "Ramesh Pujari, Anta",
@@ -3868,11 +3942,11 @@
       },
       {
         "name": "R & G Enterprises",
-        "amount": 0,
+        "amount": 49981,
         "type": "Cr",
         "transactions": [],
         "isGroup": false,
-        "openingBalance": ""
+        "openingBalance": "49981.00"
       },
       {
         "name": "R & G ENTERPRISES, JEYPURE",
@@ -3884,11 +3958,11 @@
       },
       {
         "name": "R.K FOOTWEAR, JEYPORE",
-        "amount": 0,
-        "type": "Cr",
+        "amount": 238,
+        "type": "Dr",
         "transactions": [],
         "isGroup": false,
-        "openingBalance": ""
+        "openingBalance": "-238.00"
       },
       {
         "name": "ROYAL FOOWEAR, JEYPORE",
@@ -3900,21 +3974,35 @@
       },
       {
         "name": "SHREE GANESH TRADERS, JEYPORE",
-        "amount": 93346,
+        "amount": 2551,
         "type": "Dr",
         "transactions": [
           {
-            "date": "18-Nov-25",
+            "date": "4-Dec-25",
+            "type": "Rcpt",
+            "account": "SBI(ADB)-CC A/C",
+            "amount": 200000,
+            "sign": "Cr"
+          },
+          {
+            "date": "11-Dec-25",
             "type": "Sale",
             "account": "SALE@GST",
-            "amount": 38396,
+            "amount": 29592,
             "sign": "Dr"
           },
           {
-            "date": "22-Nov-25",
+            "date": "16-Dec-25",
             "type": "Sale",
             "account": "SALE@GST",
-            "amount": 26171,
+            "amount": 66811,
+            "sign": "Dr"
+          },
+          {
+            "date": "16-Dec-25",
+            "type": "Sale",
+            "account": "SALE@GST",
+            "amount": 32802,
             "sign": "Dr"
           }
         ],
@@ -3923,15 +4011,29 @@
       },
       {
         "name": "SHREE JAGANNATH TRADIING, JEYPORE",
-        "amount": 374794,
+        "amount": 118079,
         "type": "Dr",
         "transactions": [
           {
-            "date": "3-Nov-25",
+            "date": "2-Dec-25",
             "type": "Rcpt",
             "account": "SBI(ADB)-CC A/C",
-            "amount": 200000,
+            "amount": 300000,
             "sign": "Cr"
+          },
+          {
+            "date": "10-Dec-25",
+            "type": "Sale",
+            "account": "SALE@GST",
+            "amount": 78161,
+            "sign": "Dr"
+          },
+          {
+            "date": "10-Dec-25",
+            "type": "Sale",
+            "account": "SALE@GST",
+            "amount": 42462,
+            "sign": "Dr"
           }
         ],
         "isGroup": false,
@@ -4018,25 +4120,53 @@
       },
       {
         "name": "E.M.G. F/W, JK",
-        "amount": 35405,
+        "amount": 13549,
         "type": "Dr",
         "transactions": [
           {
-            "date": "2-Nov-25",
-            "type": "Sale",
-            "account": "SALE@GST",
-            "amount": 1382,
-            "sign": "Dr"
+            "date": "1-Dec-25",
+            "type": "Rcpt",
+            "account": "Cash",
+            "amount": 4000,
+            "sign": "Cr"
           },
           {
-            "date": "4-Nov-25",
+            "date": "9-Dec-25",
             "type": "Rcpt",
             "account": "Cash",
             "amount": 5000,
             "sign": "Cr"
           },
           {
-            "date": "17-Nov-25",
+            "date": "15-Dec-25",
+            "type": "Sale",
+            "account": "SALE@GST",
+            "amount": 20235,
+            "sign": "Dr"
+          },
+          {
+            "date": "15-Dec-25",
+            "type": "Rcpt",
+            "account": "Cash",
+            "amount": 6200,
+            "sign": "Cr"
+          },
+          {
+            "date": "22-Dec-25",
+            "type": "Sale",
+            "account": "SALE@GST",
+            "amount": 1040,
+            "sign": "Dr"
+          },
+          {
+            "date": "22-Dec-25",
+            "type": "Rcpt",
+            "account": "Cash",
+            "amount": 4000,
+            "sign": "Cr"
+          },
+          {
+            "date": "29-Dec-25",
             "type": "Rcpt",
             "account": "Cash",
             "amount": 5000,
@@ -4085,43 +4215,43 @@
       },
       {
         "name": "HIRA FOOTWEAR, JK",
-        "amount": 107870,
+        "amount": 2037,
         "type": "Dr",
         "transactions": [
           {
-            "date": "4-Nov-25",
+            "date": "3-Dec-25",
             "type": "Rcpt",
             "account": "Cash",
-            "amount": 5000,
+            "amount": 180000,
             "sign": "Cr"
           },
           {
-            "date": "8-Nov-25",
+            "date": "7-Dec-25",
             "type": "Sale",
             "account": "SALE@GST",
-            "amount": 17044,
+            "amount": 40149,
             "sign": "Dr"
           },
           {
-            "date": "11-Nov-25",
-            "type": "Rcpt",
-            "account": "Cash",
-            "amount": 7000,
-            "sign": "Cr"
-          },
-          {
-            "date": "16-Nov-25",
+            "date": "14-Dec-25",
             "type": "Sale",
             "account": "SALE@GST",
-            "amount": 25238,
+            "amount": 6216,
             "sign": "Dr"
           },
           {
-            "date": "17-Nov-25",
-            "type": "Rcpt",
-            "account": "Cash",
-            "amount": 7000,
-            "sign": "Cr"
+            "date": "15-Dec-25",
+            "type": "Sale",
+            "account": "SALE@GST",
+            "amount": 20035,
+            "sign": "Dr"
+          },
+          {
+            "date": "21-Dec-25",
+            "type": "Sale",
+            "account": "SALE@GST",
+            "amount": 39830,
+            "sign": "Dr"
           }
         ],
         "isGroup": false,
@@ -4129,23 +4259,37 @@
       },
       {
         "name": "K N RAO (MURLI BROTHER), KOLNARA",
-        "amount": 5,
-        "type": "Dr",
+        "amount": 0,
+        "type": "Cr",
         "transactions": [],
         "isGroup": false,
         "openingBalance": "-5.00"
       },
       {
         "name": "KUMAR FANCY, KOTTAPETA",
-        "amount": 15125,
+        "amount": 425,
         "type": "Dr",
         "transactions": [
           {
-            "date": "20-Nov-25",
-            "type": "Sale",
-            "account": "SALE@GST",
-            "amount": 14423,
-            "sign": "Dr"
+            "date": "1-Dec-25",
+            "type": "Rcpt",
+            "account": "Cash",
+            "amount": 2000,
+            "sign": "Cr"
+          },
+          {
+            "date": "3-Dec-25",
+            "type": "Rcpt",
+            "account": "Cash",
+            "amount": 10000,
+            "sign": "Cr"
+          },
+          {
+            "date": "22-Dec-25",
+            "type": "Rcpt",
+            "account": "Cash",
+            "amount": 2000,
+            "sign": "Cr"
           }
         ],
         "isGroup": false,
@@ -4161,93 +4305,79 @@
       },
       {
         "name": "MAA BANGARAMA F/W, JK",
-        "amount": 0,
-        "type": "Cr",
+        "amount": 1255,
+        "type": "Dr",
         "transactions": [],
         "isGroup": false,
-        "openingBalance": ""
+        "openingBalance": "-1255.00"
       },
       {
         "name": "MAA MAJHIGOURI F/W(SHYAMALA), JK",
-        "amount": 61167,
+        "amount": 65953,
         "type": "Dr",
         "transactions": [
           {
-            "date": "4-Nov-25",
+            "date": "1-Dec-25",
             "type": "Rcpt",
             "account": "Cash",
-            "amount": 6000,
+            "amount": 8000,
             "sign": "Cr"
           },
           {
-            "date": "6-Nov-25",
+            "date": "5-Dec-25",
             "type": "Sale",
             "account": "SALE@GST",
-            "amount": 7211,
+            "amount": 6571,
             "sign": "Dr"
           },
           {
-            "date": "6-Nov-25",
+            "date": "6-Dec-25",
             "type": "Sale",
             "account": "SALE@GST",
-            "amount": 255,
+            "amount": 1169,
             "sign": "Dr"
           },
           {
-            "date": "6-Nov-25",
-            "type": "Rcpt",
-            "account": "SBI(ADB)-CC A/C",
-            "amount": 6000,
-            "sign": "Cr"
-          },
-          {
-            "date": "11-Nov-25",
-            "type": "Rcpt",
-            "account": "Cash",
-            "amount": 6000,
-            "sign": "Cr"
-          },
-          {
-            "date": "13-Nov-25",
-            "type": "Sale",
-            "account": "SALE@GST",
-            "amount": 15114,
-            "sign": "Dr"
-          },
-          {
-            "date": "13-Nov-25",
-            "type": "Rcpt",
-            "account": "SBI(ADB)-CC A/C",
-            "amount": 6000,
-            "sign": "Cr"
-          },
-          {
-            "date": "15-Nov-25",
-            "type": "Sale",
-            "account": "SALE@GST",
-            "amount": 8483,
-            "sign": "Dr"
-          },
-          {
-            "date": "17-Nov-25",
+            "date": "15-Dec-25",
             "type": "Rcpt",
             "account": "Cash",
             "amount": 10000,
             "sign": "Cr"
           },
           {
-            "date": "20-Nov-25",
+            "date": "16-Dec-25",
             "type": "Sale",
             "account": "SALE@GST",
-            "amount": 6820,
+            "amount": 37420,
             "sign": "Dr"
           },
           {
-            "date": "21-Nov-25",
+            "date": "16-Dec-25",
+            "type": "Rcpt",
+            "account": "SBI(ADB)-CC A/C",
+            "amount": 15000,
+            "sign": "Cr"
+          },
+          {
+            "date": "22-Dec-25",
+            "type": "Rcpt",
+            "account": "SBI(ADB)-CC A/C",
+            "amount": 10000,
+            "sign": "Cr"
+          },
+          {
+            "date": "28-Dec-25",
             "type": "Sale",
             "account": "SALE@GST",
-            "amount": 1110,
+            "amount": 9722,
             "sign": "Dr"
+          },
+          {
+            "date": "29-Dec-25",
+            "type": "Rcpt",
+            "account": "SBI(ADB)-CC A/C",
+            "amount": 7000,
+            "sign": "Cr"
           }
         ],
         "isGroup": false,
@@ -4267,40 +4397,47 @@
           }
         ],
         "isGroup": false,
-        "openingBalance": ""
+        "openingBalance": "-798.00"
       },
       {
         "name": "M.D IBRAHIM KHAN,B.C ROAD,JK",
-        "amount": 2142,
+        "amount": 3331,
         "type": "Dr",
         "transactions": [
           {
-            "date": "6-Nov-25",
-            "type": "Sale",
-            "account": "SALE@GST",
-            "amount": 12430,
-            "sign": "Dr"
-          },
-          {
-            "date": "6-Nov-25",
+            "date": "1-Dec-25",
             "type": "Rcpt",
-            "account": "SBI(ADB)-CC A/C",
-            "amount": 10700,
+            "account": "Cash",
+            "amount": 500,
             "sign": "Cr"
           },
           {
-            "date": "8-Nov-25",
+            "date": "16-Dec-25",
+            "type": "Sale",
+            "account": "SALE@GST",
+            "amount": 14115,
+            "sign": "Dr"
+          },
+          {
+            "date": "21-Dec-25",
+            "type": "Sale",
+            "account": "SALE@GST",
+            "amount": 1274,
+            "sign": "Dr"
+          },
+          {
+            "date": "21-Dec-25",
             "type": "Rcpt",
-            "account": "SBI(ADB)-CC A/C",
-            "amount": 1700,
+            "account": "Cash",
+            "amount": 10000,
             "sign": "Cr"
           },
           {
-            "date": "22-Nov-25",
-            "type": "Sale",
-            "account": "SALE@GST",
-            "amount": 2112,
-            "sign": "Dr"
+            "date": "29-Dec-25",
+            "type": "Rcpt",
+            "account": "Cash",
+            "amount": 2000,
+            "sign": "Cr"
           }
         ],
         "isGroup": false,
@@ -4324,32 +4461,74 @@
       },
       {
         "name": "PANDA FOOT WEAR, JK",
-        "amount": 29563,
+        "amount": 22091,
         "type": "Dr",
         "transactions": [
           {
-            "date": "2-Nov-25",
-            "type": "Sale",
-            "account": "SALE@GST",
-            "amount": 3375,
-            "sign": "Dr"
-          },
-          {
-            "date": "4-Nov-25",
-            "type": "Rcpt",
-            "account": "Cash",
-            "amount": 10000,
-            "sign": "Cr"
-          },
-          {
-            "date": "10-Nov-25",
+            "date": "1-Dec-25",
             "type": "Rcpt",
             "account": "SBI(ADB)-CC A/C",
             "amount": 10000,
             "sign": "Cr"
           },
           {
-            "date": "17-Nov-25",
+            "date": "3-Dec-25",
+            "type": "Rcpt",
+            "account": "Cash",
+            "amount": 50000,
+            "sign": "Cr"
+          },
+          {
+            "date": "5-Dec-25",
+            "type": "Sale",
+            "account": "SALE@GST",
+            "amount": 23857,
+            "sign": "Dr"
+          },
+          {
+            "date": "8-Dec-25",
+            "type": "Sale",
+            "account": "SALE@GST",
+            "amount": 2520,
+            "sign": "Dr"
+          },
+          {
+            "date": "8-Dec-25",
+            "type": "Rcpt",
+            "account": "SBI(ADB)-CC A/C",
+            "amount": 11000,
+            "sign": "Cr"
+          },
+          {
+            "date": "9-Dec-25",
+            "type": "Rcpt",
+            "account": "Cash",
+            "amount": 4000,
+            "sign": "Cr"
+          },
+          {
+            "date": "15-Dec-25",
+            "type": "Sale",
+            "account": "SALE@GST",
+            "amount": 26862,
+            "sign": "Dr"
+          },
+          {
+            "date": "15-Dec-25",
+            "type": "Rcpt",
+            "account": "Cash",
+            "amount": 8000,
+            "sign": "Cr"
+          },
+          {
+            "date": "22-Dec-25",
+            "type": "Rcpt",
+            "account": "Cash",
+            "amount": 10000,
+            "sign": "Cr"
+          },
+          {
+            "date": "29-Dec-25",
             "type": "Rcpt",
             "account": "SBI(ADB)-CC A/C",
             "amount": 10000,
@@ -4361,11 +4540,11 @@
       },
       {
         "name": "PRATAP F/W, RAYAGADA",
-        "amount": 0,
-        "type": "Cr",
+        "amount": 65681,
+        "type": "Dr",
         "transactions": [],
         "isGroup": false,
-        "openingBalance": ""
+        "openingBalance": "-65681.00"
       },
       {
         "name": "R.K F/W- JK",
@@ -4385,22 +4564,43 @@
       },
       {
         "name": "SAI RAM FANCY, KOTTAPETA",
-        "amount": 26428,
+        "amount": 12606,
         "type": "Dr",
         "transactions": [
           {
-            "date": "11-Nov-25",
+            "date": "1-Dec-25",
             "type": "Rcpt",
             "account": "Cash",
             "amount": 5000,
             "sign": "Cr"
           },
           {
-            "date": "19-Nov-25",
+            "date": "19-Dec-25",
             "type": "Sale",
             "account": "SALE@GST",
-            "amount": 524,
+            "amount": 16930,
             "sign": "Dr"
+          },
+          {
+            "date": "19-Dec-25",
+            "type": "Rcpt",
+            "account": "SBI(ADB)-CC A/C",
+            "amount": 10000,
+            "sign": "Cr"
+          },
+          {
+            "date": "22-Dec-25",
+            "type": "Rcpt",
+            "account": "Cash",
+            "amount": 7752,
+            "sign": "Cr"
+          },
+          {
+            "date": "29-Dec-25",
+            "type": "Rcpt",
+            "account": "Cash",
+            "amount": 8000,
+            "sign": "Cr"
           }
         ],
         "isGroup": false,
@@ -4424,71 +4624,92 @@
       },
       {
         "name": "SIVA F/W(P.MANAMADHA RAO),JK",
-        "amount": 0,
-        "type": "Cr",
+        "amount": 1591,
+        "type": "Dr",
         "transactions": [],
         "isGroup": false,
-        "openingBalance": ""
+        "openingBalance": "-1591.00"
       },
       {
         "name": "S.K FOOTWEAR(SANJAY PANDA), JK",
-        "amount": 73483,
+        "amount": 28853,
         "type": "Dr",
         "transactions": [
           {
-            "date": "3-Nov-25",
-            "type": "Rcpt",
-            "account": "SBI(ADB)-CC A/C",
-            "amount": 2900,
-            "sign": "Cr"
-          },
-          {
-            "date": "3-Nov-25",
-            "type": "Rcpt",
-            "account": "SBI(ADB)-CC A/C",
-            "amount": 500,
-            "sign": "Cr"
-          },
-          {
-            "date": "4-Nov-25",
+            "date": "1-Dec-25",
             "type": "Rcpt",
             "account": "Cash",
-            "amount": 3600,
+            "amount": 8000,
             "sign": "Cr"
           },
           {
-            "date": "10-Nov-25",
+            "date": "8-Dec-25",
             "type": "Rcpt",
             "account": "SBI(ADB)-CC A/C",
+            "amount": 1300,
+            "sign": "Cr"
+          },
+          {
+            "date": "9-Dec-25",
+            "type": "Rcpt",
+            "account": "Cash",
+            "amount": 6700,
+            "sign": "Cr"
+          },
+          {
+            "date": "15-Dec-25",
+            "type": "Rcpt",
+            "account": "SBI(ADB)-CC A/C",
+            "amount": 1500,
+            "sign": "Cr"
+          },
+          {
+            "date": "15-Dec-25",
+            "type": "Rcpt",
+            "account": "Cash",
+            "amount": 5500,
+            "sign": "Cr"
+          },
+          {
+            "date": "22-Dec-25",
+            "type": "Rcpt",
+            "account": "Cash",
+            "amount": 3800,
+            "sign": "Cr"
+          },
+          {
+            "date": "22-Dec-25",
+            "type": "Rcpt",
+            "account": "SBI(ADB)-CC A/C",
+            "amount": 1400,
+            "sign": "Cr"
+          },
+          {
+            "date": "22-Dec-25",
+            "type": "Rcpt",
+            "account": "SBI(ADB)-CC A/C",
+            "amount": 800,
+            "sign": "Cr"
+          },
+          {
+            "date": "29-Dec-25",
+            "type": "Rcpt",
+            "account": "Cash",
             "amount": 3000,
             "sign": "Cr"
           },
           {
-            "date": "10-Nov-25",
+            "date": "29-Dec-25",
             "type": "Rcpt",
             "account": "SBI(ADB)-CC A/C",
-            "amount": 500,
+            "amount": 3600,
             "sign": "Cr"
           },
           {
-            "date": "11-Nov-25",
-            "type": "Rcpt",
-            "account": "Cash",
-            "amount": 1000,
-            "sign": "Cr"
-          },
-          {
-            "date": "18-Nov-25",
+            "date": "30-Dec-25",
             "type": "Sale",
             "account": "SALE@GST",
-            "amount": 31084,
-            "sign": "Dr"
-          },
-          {
-            "date": "19-Nov-25",
-            "type": "Sale",
-            "account": "SALE@GST",
-            "amount": 41321,
+            "amount": 970,
             "sign": "Dr"
           }
         ],
@@ -4497,28 +4718,21 @@
       },
       {
         "name": "S Mouli, Amalapeta",
-        "amount": 0,
-        "type": "Cr",
+        "amount": 750,
+        "type": "Dr",
         "transactions": [
           {
-            "date": "22-Aug-25",
+            "date": "18-Dec-25",
             "type": "Sale",
             "account": "SALE@GST",
-            "amount": 4057,
+            "amount": 1750,
             "sign": "Dr"
           },
           {
-            "date": "22-Aug-25",
-            "type": "Jrnl",
-            "account": "Discount Allowed",
-            "amount": 81,
-            "sign": "Cr"
-          },
-          {
-            "date": "22-Aug-25",
+            "date": "18-Dec-25",
             "type": "Rcpt",
-            "account": "SBI(ADB)-CC A/C",
-            "amount": 3976,
+            "account": "Cash",
+            "amount": 1000,
             "sign": "Cr"
           }
         ],
@@ -4527,35 +4741,42 @@
       },
       {
         "name": "S Narasingh Rao, Kottapeta",
-        "amount": 13803,
+        "amount": 6603,
         "type": "Dr",
         "transactions": [
           {
-            "date": "4-Nov-25",
+            "date": "1-Dec-25",
+            "type": "Rcpt",
+            "account": "Cash",
+            "amount": 3000,
+            "sign": "Cr"
+          },
+          {
+            "date": "9-Dec-25",
             "type": "Rcpt",
             "account": "Cash",
             "amount": 1000,
             "sign": "Cr"
           },
           {
-            "date": "8-Nov-25",
-            "type": "C/Note",
-            "account": "SALE@GST",
-            "amount": 100,
-            "sign": "Cr"
-          },
-          {
-            "date": "11-Nov-25",
-            "type": "Rcpt",
-            "account": "Cash",
-            "amount": 1000,
-            "sign": "Cr"
-          },
-          {
-            "date": "17-Nov-25",
+            "date": "15-Dec-25",
             "type": "Rcpt",
             "account": "Cash",
             "amount": 1500,
+            "sign": "Cr"
+          },
+          {
+            "date": "22-Dec-25",
+            "type": "Rcpt",
+            "account": "Cash",
+            "amount": 1000,
+            "sign": "Cr"
+          },
+          {
+            "date": "29-Dec-25",
+            "type": "Rcpt",
+            "account": "Cash",
+            "amount": 700,
             "sign": "Cr"
           }
         ],
@@ -4564,49 +4785,35 @@
       },
       {
         "name": "SRI MAJHIGOURI FANCY, KOTTAPETA",
-        "amount": 63825,
-        "type": "Dr",
+        "amount": 29248,
+        "type": "Cr",
         "transactions": [
           {
-            "date": "3-Nov-25",
+            "date": "1-Dec-25",
+            "type": "Rcpt",
+            "account": "Cash",
+            "amount": 5000,
+            "sign": "Cr"
+          },
+          {
+            "date": "3-Dec-25",
+            "type": "Rcpt",
+            "account": "Cash",
+            "amount": 100000,
+            "sign": "Cr"
+          },
+          {
+            "date": "13-Dec-25",
             "type": "Sale",
             "account": "SALE@GST",
-            "amount": 2376,
+            "amount": 4321,
             "sign": "Dr"
           },
           {
-            "date": "4-Nov-25",
-            "type": "Rcpt",
-            "account": "Cash",
-            "amount": 5000,
-            "sign": "Cr"
-          },
-          {
-            "date": "11-Nov-25",
-            "type": "Rcpt",
-            "account": "Cash",
-            "amount": 5000,
-            "sign": "Cr"
-          },
-          {
-            "date": "17-Nov-25",
-            "type": "Rcpt",
-            "account": "Cash",
-            "amount": 5000,
-            "sign": "Cr"
-          },
-          {
-            "date": "19-Nov-25",
+            "date": "26-Dec-25",
             "type": "Sale",
             "account": "SALE@GST",
-            "amount": 20593,
-            "sign": "Dr"
-          },
-          {
-            "date": "21-Nov-25",
-            "type": "Sale",
-            "account": "SALE@GST",
-            "amount": 5100,
+            "amount": 12606,
             "sign": "Dr"
           }
         ],
@@ -4631,22 +4838,50 @@
       },
       {
         "name": "V KRISHNA RAO, KOTTAPTA",
-        "amount": 1,
-        "type": "Dr",
+        "amount": 870,
+        "type": "Cr",
         "transactions": [
           {
-            "date": "7-Nov-25",
+            "date": "3-Dec-25",
+            "type": "Rcpt",
+            "account": "SBI(ADB)-CC A/C",
+            "amount": 10000,
+            "sign": "Cr"
+          },
+          {
+            "date": "4-Dec-25",
             "type": "Sale",
             "account": "SALE@GST",
-            "amount": 2013,
+            "amount": 1682,
             "sign": "Dr"
           },
           {
-            "date": "7-Nov-25",
+            "date": "4-Dec-25",
             "type": "Rcpt",
             "account": "Cash",
-            "amount": 2013,
+            "amount": 1682,
             "sign": "Cr"
+          },
+          {
+            "date": "11-Dec-25",
+            "type": "Sale",
+            "account": "SALE@GST",
+            "amount": 1960,
+            "sign": "Dr"
+          },
+          {
+            "date": "13-Dec-25",
+            "type": "Sale",
+            "account": "SALE@GST",
+            "amount": 3495,
+            "sign": "Dr"
+          },
+          {
+            "date": "27-Dec-25",
+            "type": "Sale",
+            "account": "SALE@GST",
+            "amount": 3675,
+            "sign": "Dr"
           }
         ],
         "isGroup": false,
@@ -4654,7 +4889,7 @@
       },
       {
         "name": "V. Pradeep,Kottapeta",
-        "amount": 1,
+        "amount": 0,
         "type": "Cr",
         "transactions": [],
         "isGroup": false,
@@ -4692,7 +4927,7 @@
         "type": "Cr",
         "transactions": [],
         "isGroup": false,
-        "openingBalance": ""
+        "openingBalance": "-209.00"
       },
       {
         "name": "A Vishnu Kumar , Dorbada",
@@ -4716,7 +4951,7 @@
         "type": "Cr",
         "transactions": [],
         "isGroup": false,
-        "openingBalance": ""
+        "openingBalance": "-244.00"
       },
       {
         "name": "Boishnovi Cell Point, Jagarnathpur,K.Singhpur",
@@ -4920,7 +5155,7 @@
         "type": "Cr",
         "transactions": [],
         "isGroup": false,
-        "openingBalance": ""
+        "openingBalance": "-5.00"
       },
       {
         "name": "K.NAGARAJU, SIKARPAI",
@@ -4975,7 +5210,7 @@
         "type": "Cr",
         "transactions": [],
         "isGroup": false,
-        "openingBalance": ""
+        "openingBalance": "-1217.00"
       },
       {
         "name": "M DILIP, SIKARPAI",
@@ -4998,7 +5233,7 @@
           }
         ],
         "isGroup": false,
-        "openingBalance": ""
+        "openingBalance": "-4.00"
       },
       {
         "name": "Member Secretry Phc New, Sikarpai",
@@ -5093,7 +5328,7 @@
         "type": "Cr",
         "transactions": [],
         "isGroup": false,
-        "openingBalance": ""
+        "openingBalance": "-5.00"
       },
       {
         "name": "P SHANKAR RAO, RIVALKONA",
@@ -5217,7 +5452,7 @@
         "type": "Cr",
         "transactions": [],
         "isGroup": false,
-        "openingBalance": ""
+        "openingBalance": "-279.00"
       },
       {
         "name": "SANGAM JYOTI, KALYANSINGPUR",
@@ -5370,7 +5605,7 @@
           }
         ],
         "isGroup": false,
-        "openingBalance": ""
+        "openingBalance": "-11902.00"
       },
       {
         "name": "S.SRIDHAR, SIKARPAI",
@@ -5378,7 +5613,7 @@
         "type": "Cr",
         "transactions": [],
         "isGroup": false,
-        "openingBalance": ""
+        "openingBalance": "4736.00"
       },
       {
         "name": "SUNIL DRESSES",
@@ -5386,7 +5621,7 @@
         "type": "Cr",
         "transactions": [],
         "isGroup": false,
-        "openingBalance": ""
+        "openingBalance": "-612.00"
       },
       {
         "name": "T.GANESH, SIKARPAI",
@@ -5509,19 +5744,19 @@
       },
       {
         "name": "DILIP SAHU, NARAYANPATNA",
-        "amount": 0,
-        "type": "Cr",
-        "transactions": [],
+        "amount": 16764,
+        "type": "Dr",
+        "transactions": [
+          {
+            "date": "15-Dec-25",
+            "type": "Sale",
+            "account": "SALE@GST",
+            "amount": 16764,
+            "sign": "Dr"
+          }
+        ],
         "isGroup": false,
         "openingBalance": "-8862.00"
-      },
-      {
-        "name": "G. GURUNATHA , NARAYANPATNA",
-        "amount": 0,
-        "type": "Cr",
-        "transactions": [],
-        "isGroup": false,
-        "openingBalance": ""
       },
       {
         "name": "GOURANGA BISOI",
@@ -5533,11 +5768,11 @@
       },
       {
         "name": "Hari Shankar Panda,Dumadangar(Nilabadi)",
-        "amount": 0,
-        "type": "Cr",
+        "amount": 10,
+        "type": "Dr",
         "transactions": [],
         "isGroup": false,
-        "openingBalance": ""
+        "openingBalance": "-10.00"
       },
       {
         "name": "ISWAR CHANDRA PANDU, KUBHARIPUT",
@@ -5565,19 +5800,11 @@
       },
       {
         "name": "Maa Majji Gouri F/w, Narayanpatna",
-        "amount": 0,
-        "type": "Cr",
+        "amount": 0.35,
+        "type": "Dr",
         "transactions": [],
         "isGroup": false,
-        "openingBalance": ""
-      },
-      {
-        "name": "M/S YUSUF FOOT WEAR, KOTAPAD",
-        "amount": 0,
-        "type": "Cr",
-        "transactions": [],
-        "isGroup": false,
-        "openingBalance": ""
+        "openingBalance": "-0.35"
       },
       {
         "name": "M Ventrawana,Kanagan(Nilabadi)",
@@ -5605,43 +5832,176 @@
       },
       {
         "name": "Ram Krishna Sahu, Badhugaon",
-        "amount": 0,
-        "type": "Cr",
+        "amount": 4,
+        "type": "Dr",
         "transactions": [],
         "isGroup": false,
-        "openingBalance": ""
+        "openingBalance": "-4.00"
       },
       {
         "name": "SHREE ENTERPISES, KORAPUT",
-        "amount": 1292447.72,
+        "amount": 1330847.72,
         "type": "Dr",
         "transactions": [
           {
-            "date": "11-Nov-25",
+            "date": "4-Dec-25",
             "type": "Rcpt",
             "account": "SBI(ADB)-CC A/C",
-            "amount": 400000,
+            "amount": 500000,
             "sign": "Cr"
           },
           {
-            "date": "18-Nov-25",
+            "date": "6-Dec-25",
             "type": "Sale",
             "account": "SALE@GST",
-            "amount": 24487,
+            "amount": 631223,
             "sign": "Dr"
           },
           {
-            "date": "18-Nov-25",
+            "date": "6-Dec-25",
             "type": "Sale",
             "account": "SALE@GST",
-            "amount": 9132,
+            "amount": 19716,
             "sign": "Dr"
           },
           {
-            "date": "18-Nov-25",
+            "date": "6-Dec-25",
             "type": "Sale",
             "account": "SALE@GST",
-            "amount": 37291,
+            "amount": 33486,
+            "sign": "Dr"
+          },
+          {
+            "date": "6-Dec-25",
+            "type": "Sale",
+            "account": "SALE@GST",
+            "amount": 10899,
+            "sign": "Dr"
+          },
+          {
+            "date": "6-Dec-25",
+            "type": "Sale",
+            "account": "SALE@GST",
+            "amount": 9140,
+            "sign": "Dr"
+          },
+          {
+            "date": "8-Dec-25",
+            "type": "Rcpt",
+            "account": "SBI(ADB)-CC A/C",
+            "amount": 300000,
+            "sign": "Cr"
+          },
+          {
+            "date": "15-Dec-25",
+            "type": "Sale",
+            "account": "SALE@GST",
+            "amount": 16975,
+            "sign": "Dr"
+          },
+          {
+            "date": "15-Dec-25",
+            "type": "Sale",
+            "account": "SALE@GST",
+            "amount": 80229,
+            "sign": "Dr"
+          },
+          {
+            "date": "15-Dec-25",
+            "type": "Sale",
+            "account": "SALE@GST",
+            "amount": 43220,
+            "sign": "Dr"
+          },
+          {
+            "date": "15-Dec-25",
+            "type": "Sale",
+            "account": "SALE@GST",
+            "amount": 21252,
+            "sign": "Dr"
+          },
+          {
+            "date": "15-Dec-25",
+            "type": "Sale",
+            "account": "SALE@GST",
+            "amount": 9140,
+            "sign": "Dr"
+          },
+          {
+            "date": "15-Dec-25",
+            "type": "Sale",
+            "account": "SALE@GST",
+            "amount": 138475,
+            "sign": "Dr"
+          },
+          {
+            "date": "15-Dec-25",
+            "type": "Sale",
+            "account": "SALE@GST",
+            "amount": 11531,
+            "sign": "Dr"
+          },
+          {
+            "date": "15-Dec-25",
+            "type": "Sale",
+            "account": "SALE@GST",
+            "amount": 45377,
+            "sign": "Dr"
+          },
+          {
+            "date": "18-Dec-25",
+            "type": "Rcpt",
+            "account": "SBI(ADB)-CC A/C",
+            "amount": 460000,
+            "sign": "Cr"
+          },
+          {
+            "date": "19-Dec-25",
+            "type": "Sale",
+            "account": "SALE@GST",
+            "amount": 320476,
+            "sign": "Dr"
+          },
+          {
+            "date": "19-Dec-25",
+            "type": "Sale",
+            "account": "SALE@GST",
+            "amount": 13579,
+            "sign": "Dr"
+          },
+          {
+            "date": "19-Dec-25",
+            "type": "Sale",
+            "account": "SALE@GST",
+            "amount": 40664,
+            "sign": "Dr"
+          },
+          {
+            "date": "26-Dec-25",
+            "type": "Rcpt",
+            "account": "SBI(ADB)-CC A/C",
+            "amount": 200000,
+            "sign": "Cr"
+          },
+          {
+            "date": "29-Dec-25",
+            "type": "Sale",
+            "account": "SALE@GST",
+            "amount": 63851,
+            "sign": "Dr"
+          },
+          {
+            "date": "29-Dec-25",
+            "type": "Sale",
+            "account": "SALE@GST",
+            "amount": 37094,
+            "sign": "Dr"
+          },
+          {
+            "date": "29-Dec-25",
+            "type": "Sale",
+            "account": "SALE@GST",
+            "amount": 119199,
             "sign": "Dr"
           }
         ],
@@ -5650,11 +6010,11 @@
       },
       {
         "name": "SHREE FOOT WEAR",
-        "amount": 0,
-        "type": "Cr",
+        "amount": 921995.69,
+        "type": "Dr",
         "transactions": [],
         "isGroup": false,
-        "openingBalance": ""
+        "openingBalance": "-921995.69"
       },
       {
         "name": "S Narasingh Rao, Kotulupeta",
@@ -5688,7 +6048,7 @@
         "type": "Cr",
         "transactions": [],
         "isGroup": false,
-        "openingBalance": ""
+        "openingBalance": "-22.36"
       },
       {
         "name": "Dulu Beni",
@@ -5766,7 +6126,7 @@
         "type": "Cr",
         "transactions": [],
         "isGroup": false,
-        "openingBalance": ""
+        "openingBalance": "-403.00"
       },
       {
         "name": "KHIRAMANI BEHERA, BISAM CUTTACK",
@@ -5774,7 +6134,7 @@
         "type": "Cr",
         "transactions": [],
         "isGroup": false,
-        "openingBalance": ""
+        "openingBalance": "-3.00"
       },
       {
         "name": "Kranti Kumar, Durgi",
@@ -5798,7 +6158,7 @@
         "type": "Cr",
         "transactions": [],
         "isGroup": false,
-        "openingBalance": ""
+        "openingBalance": "-25360.00"
       },
       {
         "name": "MANGULU F/W, B.CUTTACK",
@@ -5845,7 +6205,7 @@
         "type": "Cr",
         "transactions": [],
         "isGroup": false,
-        "openingBalance": ""
+        "openingBalance": "-556.00"
       },
       {
         "name": "OMM TRADERS, MUNIGUDA",
@@ -5853,7 +6213,7 @@
         "type": "Cr",
         "transactions": [],
         "isGroup": false,
-        "openingBalance": ""
+        "openingBalance": "-5.00"
       },
       {
         "name": "PIKU SPORTS, AMBADOLA",
@@ -5861,7 +6221,7 @@
         "type": "Cr",
         "transactions": [],
         "isGroup": false,
-        "openingBalance": ""
+        "openingBalance": "-8558.00"
       },
       {
         "name": "RAJA F/W, MUNIGUDA",
@@ -5877,7 +6237,7 @@
         "type": "Cr",
         "transactions": [],
         "isGroup": false,
-        "openingBalance": ""
+        "openingBalance": "-76.00"
       },
       {
         "name": "RANJAN DAS, CHATIKONA",
@@ -5949,7 +6309,7 @@
         "type": "Cr",
         "transactions": [],
         "isGroup": false,
-        "openingBalance": ""
+        "openingBalance": "-19257.00"
       }
     ],
     "Parlakhimundi Line": [
@@ -5959,7 +6319,7 @@
         "type": "Cr",
         "transactions": [],
         "isGroup": false,
-        "openingBalance": ""
+        "openingBalance": "-3.00"
       },
       {
         "name": "Arun F/w, Chandragiri",
@@ -5967,7 +6327,7 @@
         "type": "Cr",
         "transactions": [],
         "isGroup": false,
-        "openingBalance": ""
+        "openingBalance": "-13998.00"
       },
       {
         "name": "Ayyappa F/W",
@@ -6015,7 +6375,7 @@
         "type": "Cr",
         "transactions": [],
         "isGroup": false,
-        "openingBalance": ""
+        "openingBalance": "-845.00"
       },
       {
         "name": "BULU SAHU,MOHANA,PKD",
@@ -6063,7 +6423,7 @@
         "type": "Cr",
         "transactions": [],
         "isGroup": false,
-        "openingBalance": ""
+        "openingBalance": "-17159.00"
       },
       {
         "name": "G. Kiran Kumar, K. Sitapur",
@@ -6071,7 +6431,7 @@
         "type": "Cr",
         "transactions": [],
         "isGroup": false,
-        "openingBalance": ""
+        "openingBalance": "-1237.00"
       },
       {
         "name": "G.Ravi Kumar ( K.Sitapur )",
@@ -6079,7 +6439,7 @@
         "type": "Cr",
         "transactions": [],
         "isGroup": false,
-        "openingBalance": ""
+        "openingBalance": "-1091.00"
       },
       {
         "name": "Harichandra Gouda,Ramogiri",
@@ -6110,7 +6470,7 @@
         "type": "Cr",
         "transactions": [],
         "isGroup": false,
-        "openingBalance": ""
+        "openingBalance": "-143.86"
       },
       {
         "name": "I Visweswar Rao",
@@ -6126,7 +6486,7 @@
         "type": "Cr",
         "transactions": [],
         "isGroup": false,
-        "openingBalance": ""
+        "openingBalance": "-15879.00"
       },
       {
         "name": "Jay Maa Durga F/w Raigada",
@@ -6142,7 +6502,7 @@
         "type": "Cr",
         "transactions": [],
         "isGroup": false,
-        "openingBalance": ""
+        "openingBalance": "-1019.00"
       },
       {
         "name": "Jitu F/w( Minu Gouda) R.Udaygiri",
@@ -6150,7 +6510,7 @@
         "type": "Cr",
         "transactions": [],
         "isGroup": false,
-        "openingBalance": ""
+        "openingBalance": "-19479.00"
       },
       {
         "name": "JOYTI SWAMI, KASINAGAR",
@@ -6158,7 +6518,7 @@
         "type": "Cr",
         "transactions": [],
         "isGroup": false,
-        "openingBalance": ""
+        "openingBalance": "-6594.00"
       },
       {
         "name": "Kailash Naik, Ukkamba",
@@ -6174,7 +6534,7 @@
         "type": "Cr",
         "transactions": [],
         "isGroup": false,
-        "openingBalance": ""
+        "openingBalance": "-3621.00"
       },
       {
         "name": "Kishore Chandra Patro",
@@ -6214,7 +6574,7 @@
         "type": "Cr",
         "transactions": [],
         "isGroup": false,
-        "openingBalance": ""
+        "openingBalance": "-1289.00"
       },
       {
         "name": "K Santosh",
@@ -6246,7 +6606,7 @@
         "type": "Cr",
         "transactions": [],
         "isGroup": false,
-        "openingBalance": ""
+        "openingBalance": "-1471.00"
       },
       {
         "name": "LAXMI GANAPATI LADIES CORNER, KASINAGER",
@@ -6302,7 +6662,7 @@
         "type": "Cr",
         "transactions": [],
         "isGroup": false,
-        "openingBalance": ""
+        "openingBalance": "-3608.00"
       },
       {
         "name": "M Gopal Rao,Jangalpadu",
@@ -6334,7 +6694,7 @@
         "type": "Cr",
         "transactions": [],
         "isGroup": false,
-        "openingBalance": ""
+        "openingBalance": "-1085.00"
       },
       {
         "name": "MOHAN SAHU, P.K.D",
@@ -6342,7 +6702,7 @@
         "type": "Cr",
         "transactions": [],
         "isGroup": false,
-        "openingBalance": ""
+        "openingBalance": "-716.00"
       },
       {
         "name": "M Rama Rao, Hadubhangi",
@@ -6350,7 +6710,7 @@
         "type": "Cr",
         "transactions": [],
         "isGroup": false,
-        "openingBalance": ""
+        "openingBalance": "-6412.00"
       },
       {
         "name": "NILAMANI DURGA FOOTWERA, KASINAGAR",
@@ -6366,7 +6726,7 @@
         "type": "Cr",
         "transactions": [],
         "isGroup": false,
-        "openingBalance": ""
+        "openingBalance": "-7751.00"
       },
       {
         "name": "N K Behera",
@@ -6382,7 +6742,7 @@
         "type": "Cr",
         "transactions": [],
         "isGroup": false,
-        "openingBalance": ""
+        "openingBalance": "-2127.00"
       },
       {
         "name": "P. CHANDRASEKHAR RAO, KASINAGAR",
@@ -6390,7 +6750,7 @@
         "type": "Cr",
         "transactions": [],
         "isGroup": false,
-        "openingBalance": ""
+        "openingBalance": "-34.00"
       },
       {
         "name": "P Narayan Murti Nivaangam, Pkd",
@@ -6398,7 +6758,7 @@
         "type": "Cr",
         "transactions": [],
         "isGroup": false,
-        "openingBalance": ""
+        "openingBalance": "-5.00"
       },
       {
         "name": "Prabhakar F/w Chandiput",
@@ -6422,7 +6782,7 @@
         "type": "Cr",
         "transactions": [],
         "isGroup": false,
-        "openingBalance": ""
+        "openingBalance": "-119.00"
       },
       {
         "name": "P S Rao",
@@ -6462,7 +6822,7 @@
         "type": "Cr",
         "transactions": [],
         "isGroup": false,
-        "openingBalance": ""
+        "openingBalance": "-8513.00"
       },
       {
         "name": "Rajesh General Store",
@@ -6478,7 +6838,7 @@
         "type": "Cr",
         "transactions": [],
         "isGroup": false,
-        "openingBalance": ""
+        "openingBalance": "-13000.00"
       },
       {
         "name": "R.SATYANARAYAN, KASINAGAR",
@@ -6486,7 +6846,7 @@
         "type": "Cr",
         "transactions": [],
         "isGroup": false,
-        "openingBalance": ""
+        "openingBalance": "-879.00"
       },
       {
         "name": "Sai Ram Footwear, Mohana",
@@ -6494,7 +6854,7 @@
         "type": "Cr",
         "transactions": [],
         "isGroup": false,
-        "openingBalance": ""
+        "openingBalance": "-63.00"
       },
       {
         "name": "Sai Sports, R.Udaygiri",
@@ -6502,7 +6862,7 @@
         "type": "Cr",
         "transactions": [],
         "isGroup": false,
-        "openingBalance": ""
+        "openingBalance": "-4936.00"
       },
       {
         "name": "Sai  Suman Footwear, Mohana",
@@ -6526,7 +6886,7 @@
         "type": "Cr",
         "transactions": [],
         "isGroup": false,
-        "openingBalance": ""
+        "openingBalance": "-400.00"
       },
       {
         "name": "Simanchal Bijuli Chandiput",
@@ -6534,7 +6894,7 @@
         "type": "Cr",
         "transactions": [],
         "isGroup": false,
-        "openingBalance": ""
+        "openingBalance": "-2551.00"
       },
       {
         "name": "Sindhu Footwear, Kashinagar",
@@ -6557,7 +6917,7 @@
           }
         ],
         "isGroup": false,
-        "openingBalance": ""
+        "openingBalance": "-57185.00"
       },
       {
         "name": "S K Footwear,(Kumar),Parlakhemundi",
@@ -6596,7 +6956,7 @@
         "type": "Cr",
         "transactions": [],
         "isGroup": false,
-        "openingBalance": ""
+        "openingBalance": "-2537.00"
       },
       {
         "name": "SRI GANESH PADUKALAYA, PARALAKHEMUNDI",
@@ -6604,7 +6964,7 @@
         "type": "Cr",
         "transactions": [],
         "isGroup": false,
-        "openingBalance": ""
+        "openingBalance": "-152.00"
       },
       {
         "name": "Srinivas Store (Papu),Geerango",
@@ -6612,7 +6972,7 @@
         "type": "Cr",
         "transactions": [],
         "isGroup": false,
-        "openingBalance": ""
+        "openingBalance": "-4899.00"
       },
       {
         "name": "S S Enterprises(Sakalabattula Santosh),Pkd",
@@ -6628,7 +6988,7 @@
         "type": "Cr",
         "transactions": [],
         "isGroup": false,
-        "openingBalance": ""
+        "openingBalance": "-188.00"
       },
       {
         "name": "Surendra Sahu(Gst), Khajuripada",
@@ -6652,7 +7012,7 @@
         "type": "Cr",
         "transactions": [],
         "isGroup": false,
-        "openingBalance": ""
+        "openingBalance": "-5147.00"
       },
       {
         "name": "TADELA APPA RAO, GUNUPUR",
@@ -6716,7 +7076,7 @@
         "type": "Cr",
         "transactions": [],
         "isGroup": false,
-        "openingBalance": ""
+        "openingBalance": "-7243.00"
       },
       {
         "name": "VIJAY LAXMI LADIES CORNER, HADUBHANGI",
@@ -6762,7 +7122,7 @@
         "type": "Cr",
         "transactions": [],
         "isGroup": false,
-        "openingBalance": ""
+        "openingBalance": "-30.00"
       },
       {
         "name": "Y S L ENTERPRISES (BATA SHOP),PKD",
@@ -6800,68 +7160,68 @@
       },
       {
         "name": "DELIGHT FOOTWEAR, VIZIANAGARAM",
-        "amount": 302651,
+        "amount": 529772,
         "type": "Dr",
         "transactions": [
           {
-            "date": "5-Oct-25",
+            "date": "6-Dec-25",
             "type": "Sale",
             "account": "SALE@GST",
-            "amount": 19872,
+            "amount": 37150,
             "sign": "Dr"
           },
           {
-            "date": "5-Oct-25",
+            "date": "8-Dec-25",
+            "type": "Sale",
+            "account": "SALE@GST",
+            "amount": 93251,
+            "sign": "Dr"
+          },
+          {
+            "date": "8-Dec-25",
+            "type": "Sale",
+            "account": "SALE@GST",
+            "amount": 43525,
+            "sign": "Dr"
+          },
+          {
+            "date": "9-Dec-25",
             "type": "Rcpt",
             "account": "SBI(ADB)-CC A/C",
             "amount": 25000,
             "sign": "Cr"
           },
           {
-            "date": "6-Oct-25",
+            "date": "13-Dec-25",
             "type": "Sale",
             "account": "SALE@GST",
-            "amount": 39743,
+            "amount": 45855,
             "sign": "Dr"
           },
           {
-            "date": "16-Oct-25",
+            "date": "15-Dec-25",
+            "type": "Sale",
+            "account": "SALE@GST",
+            "amount": 30815,
+            "sign": "Dr"
+          },
+          {
+            "date": "24-Dec-25",
             "type": "Rcpt",
             "account": "SBI(ADB)-CC A/C",
-            "amount": 25000,
+            "amount": 30000,
             "sign": "Cr"
           },
           {
-            "date": "25-Oct-25",
+            "date": "25-Dec-25",
             "type": "Sale",
             "account": "SALE@GST",
-            "amount": 31321,
+            "amount": 31525,
             "sign": "Dr"
-          },
-          {
-            "date": "25-Oct-25",
-            "type": "Sale",
-            "account": "SALE@GST",
-            "amount": 21672,
-            "sign": "Dr"
-          },
-          {
-            "date": "25-Oct-25",
-            "type": "Sale",
-            "account": "SALE@GST",
-            "amount": 50919,
-            "sign": "Dr"
-          },
-          {
-            "date": "31-Oct-25",
-            "type": "Rcpt",
-            "account": "SBI(ADB)-CC A/C",
-            "amount": 25000,
-            "sign": "Cr"
           }
         ],
         "isGroup": false,
-        "openingBalance": ""
+        "openingBalance": "-281643.00"
       },
       {
         "name": "Family Footwear,Parvathipuram",
@@ -6873,7 +7233,7 @@
       },
       {
         "name": "GANESH FOOTWEAR & GENERAL STORE , PARVATHIPURAM",
-        "amount": 2,
+        "amount": 0,
         "type": "Cr",
         "transactions": [],
         "isGroup": false,
@@ -6881,9 +7241,59 @@
       },
       {
         "name": "G P N RAJU, KUNER",
-        "amount": 111,
-        "type": "Dr",
-        "transactions": [],
+        "amount": 72412,
+        "type": "Cr",
+        "transactions": [
+          {
+            "date": "3-Dec-25",
+            "type": "Rcpt",
+            "account": "Cash",
+            "amount": 95000,
+            "sign": "Cr"
+          },
+          {
+            "date": "3-Dec-25",
+            "type": "Rcpt",
+            "account": "SBI(ADB)-CC A/C",
+            "amount": 5000,
+            "sign": "Cr"
+          },
+          {
+            "date": "7-Dec-25",
+            "type": "Rcpt",
+            "account": "SBI(ADB)-CC A/C",
+            "amount": 100000,
+            "sign": "Cr"
+          },
+          {
+            "date": "9-Dec-25",
+            "type": "Sale",
+            "account": "SALE@GST",
+            "amount": 48948,
+            "sign": "Dr"
+          },
+          {
+            "date": "10-Dec-25",
+            "type": "Sale",
+            "account": "SALE@GST",
+            "amount": 38494,
+            "sign": "Dr"
+          },
+          {
+            "date": "14-Dec-25",
+            "type": "Sale",
+            "account": "SALE@GST",
+            "amount": 41295,
+            "sign": "Dr"
+          },
+          {
+            "date": "15-Dec-25",
+            "type": "C/Note",
+            "account": "SALE@GST",
+            "amount": 1260,
+            "sign": "Cr"
+          }
+        ],
         "isGroup": false,
         "openingBalance": "-11111.00"
       },
@@ -6897,26 +7307,41 @@
       },
       {
         "name": "K.G.N. FOOTWEAR, PARVATHIPURAM",
-        "amount": 24764,
+        "amount": 53670,
         "type": "Dr",
         "transactions": [
           {
-            "date": "2-Nov-25",
+            "date": "7-Dec-25",
+            "type": "Sale",
+            "account": "SALE@GST",
+            "amount": 68906,
+            "sign": "Dr"
+          },
+          {
+            "date": "18-Dec-25",
             "type": "Rcpt",
-            "account": "Cash",
-            "amount": 10000,
+            "account": "SBI(ADB)-CC A/C",
+            "amount": 15000,
             "sign": "Cr"
           },
           {
-            "date": "8-Nov-25",
+            "date": "26-Dec-25",
             "type": "Rcpt",
-            "account": "SBI(ADB)-CC A/C",
-            "amount": 10000,
+            "account": "Cash",
+            "amount": 15000,
             "sign": "Cr"
           }
         ],
         "isGroup": false,
         "openingBalance": "-465.00"
+      },
+      {
+        "name": "MARUTI FOOTWEAR & GENERAL STORES, PARVATIPURAM",
+        "amount": 47442,
+        "type": "Dr",
+        "transactions": [],
+        "isGroup": false,
+        "openingBalance": ""
       },
       {
         "name": "N Kavatha, Parvathipuram",
@@ -6936,50 +7361,72 @@
       },
       {
         "name": "P Ravi Kumar,Kuner",
-        "amount": 1,
+        "amount": 237,
         "type": "Cr",
-        "transactions": [],
+        "transactions": [
+          {
+            "date": "3-Dec-25",
+            "type": "Rcpt",
+            "account": "Cash",
+            "amount": 10000,
+            "sign": "Cr"
+          },
+          {
+            "date": "9-Dec-25",
+            "type": "Sale",
+            "account": "SALE@GST",
+            "amount": 9763,
+            "sign": "Dr"
+          }
+        ],
         "isGroup": false,
         "openingBalance": "1.00"
       },
       {
         "name": "P V Ramakrishana, Kuner",
-        "amount": 13531,
-        "type": "Dr",
+        "amount": 32438,
+        "type": "Cr",
         "transactions": [
           {
-            "date": "7-Nov-25",
-            "type": "Sale",
-            "account": "SALE@GST",
-            "amount": 9047,
-            "sign": "Dr"
-          },
-          {
-            "date": "7-Nov-25",
-            "type": "Sale",
-            "account": "SALE@GST",
-            "amount": 1440,
-            "sign": "Dr"
-          },
-          {
-            "date": "7-Nov-25",
+            "date": "3-Dec-25",
             "type": "Rcpt",
             "account": "Cash",
-            "amount": 1440,
+            "amount": 66000,
             "sign": "Cr"
           },
           {
-            "date": "7-Nov-25",
-            "type": "Rcpt",
-            "account": "SBI(ADB)-CC A/C",
-            "amount": 9000,
-            "sign": "Cr"
-          },
-          {
-            "date": "21-Nov-25",
+            "date": "5-Dec-25",
             "type": "Sale",
             "account": "SALE@GST",
-            "amount": 12617,
+            "amount": 4259,
+            "sign": "Dr"
+          },
+          {
+            "date": "5-Dec-25",
+            "type": "Rcpt",
+            "account": "SBI(ADB)-CC A/C",
+            "amount": 17000,
+            "sign": "Cr"
+          },
+          {
+            "date": "12-Dec-25",
+            "type": "Sale",
+            "account": "SALE@GST",
+            "amount": 17964,
+            "sign": "Dr"
+          },
+          {
+            "date": "18-Dec-25",
+            "type": "Sale",
+            "account": "SALE@GST",
+            "amount": 26265,
+            "sign": "Dr"
+          },
+          {
+            "date": "18-Dec-25",
+            "type": "Sale",
+            "account": "SALE@GST",
+            "amount": 1160,
             "sign": "Dr"
           }
         ],
@@ -6987,44 +7434,95 @@
         "openingBalance": "-8252.00"
       },
       {
-        "name": "S China, Parvathipuram",
-        "amount": 0,
-        "type": "Cr",
-        "transactions": [],
+        "name": "RAMU FOOTWEAR, SALURU",
+        "amount": 13271,
+        "type": "Dr",
+        "transactions": [
+          {
+            "date": "30-Dec-25",
+            "type": "Sale",
+            "account": "SALE@GST",
+            "amount": 13271,
+            "sign": "Dr"
+          }
+        ],
         "isGroup": false,
         "openingBalance": ""
       },
       {
+        "name": "S China, Parvathipuram",
+        "amount": 17147,
+        "type": "Dr",
+        "transactions": [],
+        "isGroup": false,
+        "openingBalance": "-17147.00"
+      },
+      {
         "name": "SHREE F/W, SKLM",
-        "amount": 797855,
+        "amount": 1112242,
         "type": "Dr",
         "transactions": [
           {
-            "date": "5-Nov-25",
+            "date": "8-Dec-25",
+            "type": "Sale",
+            "account": "SALE@GST",
+            "amount": 66635,
+            "sign": "Dr"
+          },
+          {
+            "date": "8-Dec-25",
+            "type": "Sale",
+            "account": "SALE@GST",
+            "amount": 108882,
+            "sign": "Dr"
+          },
+          {
+            "date": "8-Dec-25",
+            "type": "Pymt",
+            "account": "SBI(ADB)-CC A/C",
+            "amount": 1000000,
+            "sign": "Dr"
+          },
+          {
+            "date": "8-Dec-25",
+            "type": "Pymt",
+            "account": "SBI(ADB)-CC A/C",
+            "amount": 400000,
+            "sign": "Dr"
+          },
+          {
+            "date": "11-Dec-25",
             "type": "Rcpt",
             "account": "SBI(ADB)-CC A/C",
-            "amount": 100000,
+            "amount": 1400000,
             "sign": "Cr"
           },
           {
-            "date": "14-Nov-25",
+            "date": "13-Dec-25",
+            "type": "Rcpt",
+            "account": "SBI(ADB)-CC A/C",
+            "amount": 600000,
+            "sign": "Cr"
+          },
+          {
+            "date": "23-Dec-25",
+            "type": "Rcpt",
+            "account": "SBI(ADB)-CC A/C",
+            "amount": 1000000,
+            "sign": "Cr"
+          },
+          {
+            "date": "24-Dec-25",
             "type": "Sale",
             "account": "SALE@GST",
-            "amount": 55879,
+            "amount": 677376,
             "sign": "Dr"
           },
           {
-            "date": "21-Nov-25",
+            "date": "27-Dec-25",
             "type": "Sale",
             "account": "SALE@GST",
-            "amount": 25889,
-            "sign": "Dr"
-          },
-          {
-            "date": "21-Nov-25",
-            "type": "Sale",
-            "account": "SALE@GST",
-            "amount": 691539,
+            "amount": 142779,
             "sign": "Dr"
           }
         ],
@@ -7033,11 +7531,18 @@
       },
       {
         "name": "SRI ADITYA METRO SHOE, PARVATHIPURAM",
-        "amount": 12033,
+        "amount": 3033,
         "type": "Dr",
         "transactions": [
           {
-            "date": "14-Nov-25",
+            "date": "12-Dec-25",
+            "type": "Rcpt",
+            "account": "Cash",
+            "amount": 3000,
+            "sign": "Cr"
+          },
+          {
+            "date": "26-Dec-25",
             "type": "Rcpt",
             "account": "Cash",
             "amount": 3000,
@@ -7049,36 +7554,85 @@
       },
       {
         "name": "SRI SAI FOOTWEAR, SOMPETA",
-        "amount": 0,
-        "type": "Cr",
+        "amount": 632,
+        "type": "Dr",
         "transactions": [],
         "isGroup": false,
-        "openingBalance": ""
+        "openingBalance": "-632.00"
       },
       {
         "name": "SRI SHARVANI FOOTWEAR , VISAKHAPATNAM",
-        "amount": 919531,
+        "amount": 1941609,
         "type": "Dr",
         "transactions": [
           {
-            "date": "10-Nov-25",
+            "date": "13-Dec-25",
             "type": "Sale",
             "account": "SALE@GST",
-            "amount": 67203,
+            "amount": 192213,
             "sign": "Dr"
           },
           {
-            "date": "11-Nov-25",
+            "date": "13-Dec-25",
+            "type": "Sale",
+            "account": "SALE@GST",
+            "amount": 189751,
+            "sign": "Dr"
+          },
+          {
+            "date": "13-Dec-25",
+            "type": "Sale",
+            "account": "SALE@GST",
+            "amount": 183941,
+            "sign": "Dr"
+          },
+          {
+            "date": "13-Dec-25",
+            "type": "Sale",
+            "account": "SALE@GST",
+            "amount": 61185,
+            "sign": "Dr"
+          },
+          {
+            "date": "13-Dec-25",
+            "type": "Sale",
+            "account": "SALE@GST",
+            "amount": 106253,
+            "sign": "Dr"
+          },
+          {
+            "date": "13-Dec-25",
+            "type": "Sale",
+            "account": "SALE@GST",
+            "amount": 170459,
+            "sign": "Dr"
+          },
+          {
+            "date": "13-Dec-25",
+            "type": "Sale",
+            "account": "SALE@GST",
+            "amount": 158924,
+            "sign": "Dr"
+          },
+          {
+            "date": "13-Dec-25",
             "type": "Rcpt",
             "account": "SBI(ADB)-CC A/C",
             "amount": 300000,
             "sign": "Cr"
           },
           {
-            "date": "12-Nov-25",
+            "date": "25-Dec-25",
             "type": "Sale",
             "account": "SALE@GST",
-            "amount": 66312,
+            "amount": 101278,
+            "sign": "Dr"
+          },
+          {
+            "date": "25-Dec-25",
+            "type": "Sale",
+            "account": "SALE@GST",
+            "amount": 112209,
             "sign": "Dr"
           }
         ],
@@ -7091,25 +7645,18 @@
         "type": "Dr",
         "transactions": [],
         "isGroup": false,
-        "openingBalance": ""
+        "openingBalance": "-74883.00"
       },
       {
         "name": "VERITY SHOE MART, PARVATHIPURAM",
-        "amount": 40,
+        "amount": 11180,
         "type": "Dr",
         "transactions": [
           {
-            "date": "2-Oct-25",
+            "date": "19-Dec-25",
             "type": "Rcpt",
             "account": "Cash",
-            "amount": 1000,
-            "sign": "Cr"
-          },
-          {
-            "date": "18-Oct-25",
-            "type": "Rcpt",
-            "account": "Cash",
-            "amount": 800,
+            "amount": 2000,
             "sign": "Cr"
           }
         ],
@@ -7128,19 +7675,19 @@
       },
       {
         "name": "Ajanta Footwear, G.Udaygiri",
-        "amount": 0,
-        "type": "Cr",
+        "amount": 38,
+        "type": "Dr",
         "transactions": [],
         "isGroup": false,
-        "openingBalance": ""
+        "openingBalance": "-38.00"
       },
       {
         "name": "Ajit Footwear, Kotagada",
-        "amount": 0,
-        "type": "Cr",
+        "amount": 532,
+        "type": "Dr",
         "transactions": [],
         "isGroup": false,
-        "openingBalance": ""
+        "openingBalance": "-532.00"
       },
       {
         "name": "Andhar Bhauti,Tambisuga",
@@ -7152,15 +7699,15 @@
       },
       {
         "name": "ASHOK SAHU (MANU FOOTWEAR), SARANGADA",
-        "amount": 51875,
+        "amount": 31875,
         "type": "Dr",
         "transactions": [
           {
-            "date": "18-Nov-25",
-            "type": "Sale",
-            "account": "SALE@GST",
-            "amount": 22454,
-            "sign": "Dr"
+            "date": "17-Dec-25",
+            "type": "Rcpt",
+            "account": "Cash",
+            "amount": 10000,
+            "sign": "Cr"
           }
         ],
         "isGroup": false,
@@ -7168,11 +7715,11 @@
       },
       {
         "name": "Babu Footwear, Kotagada",
-        "amount": 0,
-        "type": "Cr",
+        "amount": 1204,
+        "type": "Dr",
         "transactions": [],
         "isGroup": false,
-        "openingBalance": ""
+        "openingBalance": "-1204.00"
       },
       {
         "name": "BALAJI SHOES STORE, PHULBANI",
@@ -7184,29 +7731,36 @@
       },
       {
         "name": "DAS FOOTWEAR, K NUAGAON",
-        "amount": 53632,
+        "amount": 75409,
         "type": "Dr",
         "transactions": [
           {
-            "date": "3-Nov-25",
-            "type": "Sale",
-            "account": "SALE@GST",
-            "amount": 32031,
-            "sign": "Dr"
-          },
-          {
-            "date": "6-Nov-25",
+            "date": "4-Dec-25",
             "type": "Rcpt",
-            "account": "Cash",
-            "amount": 10500,
+            "account": "SBI(ADB)-CC A/C",
+            "amount": 20000,
             "sign": "Cr"
           },
           {
-            "date": "18-Nov-25",
+            "date": "5-Dec-25",
             "type": "Sale",
             "account": "SALE@GST",
-            "amount": 16481,
+            "amount": 32586,
             "sign": "Dr"
+          },
+          {
+            "date": "16-Dec-25",
+            "type": "Sale",
+            "account": "SALE@GST",
+            "amount": 36191,
+            "sign": "Dr"
+          },
+          {
+            "date": "17-Dec-25",
+            "type": "Rcpt",
+            "account": "Cash",
+            "amount": 10000,
+            "sign": "Cr"
           }
         ],
         "isGroup": false,
@@ -7270,29 +7824,50 @@
       },
       {
         "name": "Loknath Sahu, Kotraguda",
-        "amount": 0,
-        "type": "Cr",
+        "amount": 52,
+        "type": "Dr",
         "transactions": [],
         "isGroup": false,
-        "openingBalance": ""
+        "openingBalance": "-52.00"
       },
       {
         "name": "Maa Rudrakali F/w, Phirangia",
-        "amount": 26912,
+        "amount": 49392,
         "type": "Dr",
         "transactions": [
           {
-            "date": "6-Nov-25",
+            "date": "3-Dec-25",
+            "type": "Rcpt",
+            "account": "Cash",
+            "amount": 20000,
+            "sign": "Cr"
+          },
+          {
+            "date": "12-Dec-25",
             "type": "Sale",
             "account": "SALE@GST",
-            "amount": 16925,
+            "amount": 19636,
             "sign": "Dr"
           },
           {
-            "date": "6-Nov-25",
+            "date": "14-Dec-25",
             "type": "Rcpt",
             "account": "Cash",
-            "amount": 10000,
+            "amount": 5000,
+            "sign": "Cr"
+          },
+          {
+            "date": "16-Dec-25",
+            "type": "Sale",
+            "account": "SALE@GST",
+            "amount": 38844,
+            "sign": "Dr"
+          },
+          {
+            "date": "17-Dec-25",
+            "type": "Rcpt",
+            "account": "Cash",
+            "amount": 5000,
             "sign": "Cr"
           }
         ],
@@ -7340,11 +7915,11 @@
       },
       {
         "name": "SOM SUDIN FOOTWEAR, PHULBANI",
-        "amount": 50266,
+        "amount": 40266,
         "type": "Dr",
         "transactions": [
           {
-            "date": "6-Nov-25",
+            "date": "17-Dec-25",
             "type": "Rcpt",
             "account": "Cash",
             "amount": 5000,
@@ -7368,7 +7943,7 @@
           }
         ],
         "isGroup": false,
-        "openingBalance": ""
+        "openingBalance": "-34777.00"
       },
       {
         "name": "Sushili Footwear, Raikia",
@@ -7380,7 +7955,7 @@
       },
       {
         "name": "SUSIL  BOOT HOUSE, RAIKIA",
-        "amount": 9395,
+        "amount": 10395,
         "type": "Dr",
         "transactions": [
           {
@@ -7434,7 +8009,7 @@
         "type": "Cr",
         "transactions": [],
         "isGroup": false,
-        "openingBalance": ""
+        "openingBalance": "-1.00"
       },
       {
         "name": "Barsha Store,Rayagada",
@@ -7512,7 +8087,7 @@
         "type": "Cr",
         "transactions": [],
         "isGroup": false,
-        "openingBalance": ""
+        "openingBalance": "-28276.00"
       },
       {
         "name": "DAMBURU, RAYAGADA",
@@ -7831,7 +8406,7 @@
         "type": "Cr",
         "transactions": [],
         "isGroup": false,
-        "openingBalance": ""
+        "openingBalance": "-2.00"
       },
       {
         "name": "ESWAR BEHERA, RAYAGADA",
@@ -7965,7 +8540,7 @@
         "type": "Cr",
         "transactions": [],
         "isGroup": false,
-        "openingBalance": ""
+        "openingBalance": "68.00"
       },
       {
         "name": "GANESH CLOTH STORE, RAYAGADA",
@@ -7996,7 +8571,7 @@
         "type": "Cr",
         "transactions": [],
         "isGroup": false,
-        "openingBalance": ""
+        "openingBalance": "-3220.00"
       },
       {
         "name": "G. Nandi Babu, Chiti Money",
@@ -8154,7 +8729,7 @@
         "type": "Cr",
         "transactions": [],
         "isGroup": false,
-        "openingBalance": ""
+        "openingBalance": "-1170.00"
       },
       {
         "name": "H.M & Smc , Lakrish",
@@ -8251,7 +8826,7 @@
         "type": "Cr",
         "transactions": [],
         "isGroup": false,
-        "openingBalance": ""
+        "openingBalance": "-40.00"
       },
       {
         "name": "JAY JAGANNATH, RAYAGADA",
@@ -8259,7 +8834,7 @@
         "type": "Cr",
         "transactions": [],
         "isGroup": false,
-        "openingBalance": ""
+        "openingBalance": "-8718.00"
       },
       {
         "name": "Jitendra Kumar(Bishnu), Rayagada",
@@ -8275,7 +8850,7 @@
         "type": "Cr",
         "transactions": [],
         "isGroup": false,
-        "openingBalance": ""
+        "openingBalance": "-973.00"
       },
       {
         "name": "K Dibakar,Rayagada",
@@ -8291,7 +8866,7 @@
         "type": "Cr",
         "transactions": [],
         "isGroup": false,
-        "openingBalance": ""
+        "openingBalance": "-5.00"
       },
       {
         "name": "KODANDA BEHERA, RAYAGADA",
@@ -8338,7 +8913,7 @@
         "type": "Cr",
         "transactions": [],
         "isGroup": false,
-        "openingBalance": ""
+        "openingBalance": "-690.00"
       },
       {
         "name": "LAXMAN BEHERA, RAYAGADA",
@@ -8406,7 +8981,7 @@
           }
         ],
         "isGroup": false,
-        "openingBalance": ""
+        "openingBalance": "-1.00"
       },
       {
         "name": "Loknath Patro",
@@ -8414,7 +8989,7 @@
         "type": "Cr",
         "transactions": [],
         "isGroup": false,
-        "openingBalance": ""
+        "openingBalance": "-1814201.00"
       },
       {
         "name": "LUCKY FOOT PRINT",
@@ -8422,7 +8997,7 @@
         "type": "Cr",
         "transactions": [],
         "isGroup": false,
-        "openingBalance": ""
+        "openingBalance": "-23116.00"
       },
       {
         "name": "Maa Majhi Gouri F/w(Bishnu)",
@@ -8494,7 +9069,7 @@
           }
         ],
         "isGroup": false,
-        "openingBalance": ""
+        "openingBalance": "-200.00"
       },
       {
         "name": "Manisri Sports",
@@ -8510,7 +9085,7 @@
         "type": "Cr",
         "transactions": [],
         "isGroup": false,
-        "openingBalance": ""
+        "openingBalance": "-27598.00"
       },
       {
         "name": "M Maleswar Rao, Rayagada",
@@ -8558,7 +9133,7 @@
         "type": "Cr",
         "transactions": [],
         "isGroup": false,
-        "openingBalance": ""
+        "openingBalance": "-406.00"
       },
       {
         "name": "M/S. SRI DURJODHAN PATI",
@@ -8774,7 +9349,7 @@
         "type": "Cr",
         "transactions": [],
         "isGroup": false,
-        "openingBalance": ""
+        "openingBalance": "-26670.00"
       },
       {
         "name": "Nirupama Sports",
@@ -8838,7 +9413,7 @@
         "type": "Cr",
         "transactions": [],
         "isGroup": false,
-        "openingBalance": ""
+        "openingBalance": "-5085.00"
       },
       {
         "name": "PAWAN SENAPATI , RAYAGADA",
@@ -8989,7 +9564,7 @@
           }
         ],
         "isGroup": false,
-        "openingBalance": ""
+        "openingBalance": "-66.00"
       },
       {
         "name": "Rama Naidu, Seskhal",
@@ -8997,7 +9572,7 @@
         "type": "Cr",
         "transactions": [],
         "isGroup": false,
-        "openingBalance": ""
+        "openingBalance": "-2040.00"
       },
       {
         "name": "Rashmita Das, Ambaguda",
@@ -9216,7 +9791,7 @@
         "type": "Cr",
         "transactions": [],
         "isGroup": false,
-        "openingBalance": ""
+        "openingBalance": "-2.00"
       },
       {
         "name": "Sai Gouri F/w, Kasturinagar",
@@ -9241,6 +9816,14 @@
         ],
         "isGroup": false,
         "openingBalance": "-733.00"
+      },
+      {
+        "name": "SANTOS FOOTWEAR (SUB-DEALER)",
+        "amount": 0,
+        "type": "Dr",
+        "transactions": [],
+        "isGroup": false,
+        "openingBalance": ""
       },
       {
         "name": "Santosh",
@@ -9294,7 +9877,7 @@
         "type": "Cr",
         "transactions": [],
         "isGroup": false,
-        "openingBalance": ""
+        "openingBalance": "-10358.00"
       },
       {
         "name": "SHIVSHAKTHI TRADERS, RAYAGADA",
@@ -9451,6 +10034,14 @@
           }
         ],
         "isGroup": false,
+        "openingBalance": "-32605.00"
+      },
+      {
+        "name": "SRILAPU DAMAYANTI,AMBAGUDA",
+        "amount": 0,
+        "type": "Dr",
+        "transactions": [],
+        "isGroup": false,
         "openingBalance": ""
       },
       {
@@ -9467,7 +10058,7 @@
           }
         ],
         "isGroup": false,
-        "openingBalance": ""
+        "openingBalance": "-128.00"
       },
       {
         "name": "S Sahu, Rayagada",
@@ -9475,7 +10066,7 @@
         "type": "Cr",
         "transactions": [],
         "isGroup": false,
-        "openingBalance": ""
+        "openingBalance": "-4.00"
       },
       {
         "name": "S S Garment, Rayagada",
@@ -9514,7 +10105,7 @@
           }
         ],
         "isGroup": false,
-        "openingBalance": ""
+        "openingBalance": "12.00"
       },
       {
         "name": "SURRYA KAMAL TOWERS",
@@ -9585,7 +10176,7 @@
           }
         ],
         "isGroup": false,
-        "openingBalance": ""
+        "openingBalance": "-50000.00"
       },
       {
         "name": "Upendra Behera",
@@ -9625,7 +10216,7 @@
         "type": "Cr",
         "transactions": [],
         "isGroup": false,
-        "openingBalance": ""
+        "openingBalance": "-87.00"
       },
       {
         "name": "Y Laxmi",
@@ -9643,7 +10234,7 @@
         "type": "Dr",
         "transactions": [],
         "isGroup": false,
-        "openingBalance": ""
+        "openingBalance": "-4170.00"
       }
     ],
     "STAFF": [
@@ -9708,7 +10299,7 @@
           }
         ],
         "isGroup": false,
-        "openingBalance": ""
+        "openingBalance": "-1128.00"
       },
       {
         "name": "Aparna Mallik,Staff Rgda",
@@ -9731,7 +10322,7 @@
           }
         ],
         "isGroup": false,
-        "openingBalance": ""
+        "openingBalance": "-11215.00"
       },
       {
         "name": "Arihant Staff (Krushno)",
@@ -9762,7 +10353,7 @@
           }
         ],
         "isGroup": false,
-        "openingBalance": ""
+        "openingBalance": "-2460.00"
       },
       {
         "name": "Binati Kadraka,Staff",
@@ -9880,7 +10471,7 @@
         "type": "Cr",
         "transactions": [],
         "isGroup": false,
-        "openingBalance": ""
+        "openingBalance": "-12542.00"
       },
       {
         "name": "KALPANA STAFF",
@@ -9935,7 +10526,7 @@
         "type": "Cr",
         "transactions": [],
         "isGroup": false,
-        "openingBalance": ""
+        "openingBalance": "100000.00"
       },
       {
         "name": "Ladi Kishore Staff Salary",
@@ -10011,7 +10602,7 @@
         "type": "Cr",
         "transactions": [],
         "isGroup": false,
-        "openingBalance": ""
+        "openingBalance": "-678.00"
       },
       {
         "name": "NIRMALA PANI, STAFF",
@@ -10027,7 +10618,7 @@
           }
         ],
         "isGroup": false,
-        "openingBalance": ""
+        "openingBalance": "-18498.00"
       },
       {
         "name": "N.MUNA (DRIVER), STAFF",
@@ -10073,7 +10664,7 @@
           }
         ],
         "isGroup": false,
-        "openingBalance": ""
+        "openingBalance": "-5752.00"
       },
       {
         "name": "Rahul Hiirika Staff",
@@ -10145,7 +10736,7 @@
         "type": "Cr",
         "transactions": [],
         "isGroup": false,
-        "openingBalance": ""
+        "openingBalance": "-1821.00"
       },
       {
         "name": "SRIDEVI, STAFF RGDA",
@@ -10284,15 +10875,15 @@
       },
       {
         "name": "CH ITISHREE DEVI",
-        "amount": 15000,
+        "amount": 0,
         "type": "Cr",
         "transactions": [
           {
-            "date": "3-Nov-25",
-            "type": "Rcpt",
+            "date": "1-Dec-25",
+            "type": "Pymt",
             "account": "SBI(ADB)-CC A/C",
             "amount": 15000,
-            "sign": "Cr"
+            "sign": "Dr"
           }
         ],
         "isGroup": false,
@@ -10435,22 +11026,6 @@
         "openingBalance": ""
       },
       {
-        "name": "K.K Catrin Service",
-        "amount": 10000,
-        "type": "Dr",
-        "transactions": [
-          {
-            "date": "17-Nov-25",
-            "type": "Pymt",
-            "account": "SBI(ADB)-CC A/C",
-            "amount": 10000,
-            "sign": "Dr"
-          }
-        ],
-        "isGroup": false,
-        "openingBalance": ""
-      },
-      {
         "name": "Kodandarama Footwear,Battili",
         "amount": 0,
         "type": "Cr",
@@ -10502,14 +11077,6 @@
         "name": "Mahesh Enterprises",
         "amount": 0,
         "type": "Cr",
-        "transactions": [],
-        "isGroup": false,
-        "openingBalance": ""
-      },
-      {
-        "name": "MARUTI FOOTWEAR & GENERAL STORES, PARVATIPURAM",
-        "amount": 66442,
-        "type": "Dr",
         "transactions": [],
         "isGroup": false,
         "openingBalance": ""
@@ -10604,7 +11171,7 @@
       },
       {
         "name": "P Srinivas Rao,Rayagada",
-        "amount": 128,
+        "amount": 62,
         "type": "Cr",
         "transactions": [
           {
@@ -10654,29 +11221,6 @@
         "amount": 0,
         "type": "Cr",
         "transactions": [],
-        "isGroup": false,
-        "openingBalance": ""
-      },
-      {
-        "name": "SAHADEV NAYAK,KASIPUR",
-        "amount": 5,
-        "type": "Dr",
-        "transactions": [
-          {
-            "date": "16-Jun-25",
-            "type": "Sale",
-            "account": "SALE@GST",
-            "amount": 6005,
-            "sign": "Dr"
-          },
-          {
-            "date": "16-Jun-25",
-            "type": "Rcpt",
-            "account": "Cash",
-            "amount": 6000,
-            "sign": "Cr"
-          }
-        ],
         "isGroup": false,
         "openingBalance": ""
       },
@@ -10793,7 +11337,7 @@
         }
       ],
       "isGroup": false,
-      "openingBalance": ""
+      "openingBalance": "45894.91"
     },
     {
       "name": "A G ENTERPRISES",
@@ -10862,32 +11406,74 @@
         }
       ],
       "isGroup": false,
-      "openingBalance": ""
+      "openingBalance": "21600.00"
     },
     {
       "name": "A R C Limited",
-      "amount": 4208,
+      "amount": 3629,
       "type": "Dr",
       "transactions": [
         {
-          "date": "17-Nov-25",
+          "date": "4-Dec-25",
+          "type": "Pymt",
+          "account": "SBI(ADB)-CC A/C",
+          "amount": 1990,
+          "sign": "Dr"
+        },
+        {
+          "date": "5-Dec-25",
+          "type": "Purc",
+          "account": "Transport Charges(Services)",
+          "amount": 1634,
+          "sign": "Cr"
+        },
+        {
+          "date": "5-Dec-25",
+          "type": "Purc",
+          "account": "Transport Charges(Services)",
+          "amount": 1634,
+          "sign": "Cr"
+        },
+        {
+          "date": "5-Dec-25",
+          "type": "Purc",
+          "account": "Transport Charges(Services)",
+          "amount": 2000,
+          "sign": "Cr"
+        },
+        {
+          "date": "6-Dec-25",
           "type": "Pymt",
           "account": "SBI(ADB)-CC A/C",
           "amount": 1634,
           "sign": "Dr"
         },
         {
-          "date": "17-Nov-25",
+          "date": "6-Dec-25",
           "type": "Pymt",
           "account": "SBI(ADB)-CC A/C",
           "amount": 1634,
           "sign": "Dr"
         },
         {
-          "date": "17-Nov-25",
+          "date": "15-Dec-25",
           "type": "Pymt",
           "account": "SBI(ADB)-CC A/C",
-          "amount": 1634,
+          "amount": 2000,
+          "sign": "Dr"
+        },
+        {
+          "date": "25-Dec-25",
+          "type": "Pymt",
+          "account": "SBI(ADB)-CC A/C",
+          "amount": 1510,
+          "sign": "Dr"
+        },
+        {
+          "date": "25-Dec-25",
+          "type": "Pymt",
+          "account": "SBI(ADB)-CC A/C",
+          "amount": 2110,
           "sign": "Dr"
         }
       ],
@@ -10904,15 +11490,15 @@
     },
     {
       "name": "ASHU FOOTWEAR",
-      "amount": 64420,
-      "type": "Dr",
+      "amount": 0,
+      "type": "Cr",
       "transactions": [
         {
-          "date": "31-Oct-25",
-          "type": "Pymt",
-          "account": "SBI(ADB)-CC A/C",
+          "date": "18-Nov-25",
+          "type": "Purc",
+          "account": "PURCHASE@GST",
           "amount": 64420,
-          "sign": "Dr"
+          "sign": "Cr"
         }
       ],
       "isGroup": false,
@@ -10936,21 +11522,14 @@
     },
     {
       "name": "B.K INTERNATIONAL PVT.LTD",
-      "amount": 26208,
+      "amount": 22859,
       "type": "Cr",
       "transactions": [
         {
-          "date": "31-Jul-25",
-          "type": "Pymt",
-          "account": "SBI(ADB)-CC A/C",
-          "amount": 26486,
-          "sign": "Dr"
-        },
-        {
-          "date": "31-Jul-25",
+          "date": "8-Dec-25",
           "type": "Purc",
           "account": "PURCHASE@GST",
-          "amount": 26208,
+          "amount": 22859,
           "sign": "Cr"
         }
       ],
@@ -10990,22 +11569,43 @@
     },
     {
       "name": "CUBIX FOOTWEAR",
-      "amount": 623527,
+      "amount": 719022.05,
       "type": "Cr",
       "transactions": [
         {
-          "date": "4-Nov-25",
+          "date": "5-Dec-25",
+          "type": "Pymt",
+          "account": "SBI(ADB)-CC A/C",
+          "amount": 200000,
+          "sign": "Dr"
+        },
+        {
+          "date": "12-Dec-25",
+          "type": "Purc",
+          "account": "PURCHASE@GST",
+          "amount": 191526.05,
+          "sign": "Cr"
+        },
+        {
+          "date": "15-Dec-25",
+          "type": "Purc",
+          "account": "PURCHASE@GST",
+          "amount": 80501,
+          "sign": "Cr"
+        },
+        {
+          "date": "18-Dec-25",
+          "type": "Purc",
+          "account": "PURCHASE@GST",
+          "amount": 89424,
+          "sign": "Cr"
+        },
+        {
+          "date": "24-Dec-25",
           "type": "Pymt",
           "account": "SBI(ADB)-CC A/C",
           "amount": 100000,
           "sign": "Dr"
-        },
-        {
-          "date": "18-Nov-25",
-          "type": "Purc",
-          "account": "PURCHASE@GST",
-          "amount": 111104,
-          "sign": "Cr"
         }
       ],
       "isGroup": false,
@@ -11013,19 +11613,19 @@
     },
     {
       "name": "Dibakara Nayak",
-      "amount": 0,
-      "type": "Cr",
+      "amount": 13528,
+      "type": "Dr",
       "transactions": [],
       "isGroup": false,
-      "openingBalance": ""
+      "openingBalance": "-13528.00"
     },
     {
       "name": "Doubt",
-      "amount": 0,
+      "amount": 1917126,
       "type": "Cr",
       "transactions": [],
       "isGroup": false,
-      "openingBalance": ""
+      "openingBalance": "1917126.00"
     },
     {
       "name": "Elastrex Polymers Pvt Ltd.",
@@ -11041,7 +11641,7 @@
       "type": "Dr",
       "transactions": [],
       "isGroup": false,
-      "openingBalance": ""
+      "openingBalance": "-446.74"
     },
     {
       "name": "GAUTAM ENTERPRISES (JK PLASTIC)",
@@ -11061,19 +11661,19 @@
     },
     {
       "name": "GOKUL FOOTWEAR PVT LTD, HARYANA",
-      "amount": 56745.95,
+      "amount": 36366.95,
       "type": "Cr",
       "transactions": [
         {
-          "date": "30-Aug-25",
-          "type": "Pymt",
-          "account": "SBI(ADB)-CC A/C",
-          "amount": 20976,
+          "date": "31-Dec-25",
+          "type": "Jrnl",
+          "account": "Discount Received",
+          "amount": 20379,
           "sign": "Dr"
         }
       ],
       "isGroup": false,
-      "openingBalance": ""
+      "openingBalance": "122010.95"
     },
     {
       "name": "GOLDEN FOOT STEP (BHILAI)",
@@ -11085,42 +11685,77 @@
     },
     {
       "name": "GREAT INDIA ROADWAYS",
-      "amount": 550,
-      "type": "Dr",
+      "amount": 2100,
+      "type": "Cr",
       "transactions": [
         {
-          "date": "5-Nov-25",
-          "type": "Pymt",
-          "account": "SBI(ADB)-CC A/C",
-          "amount": 4850,
-          "sign": "Dr"
-        },
-        {
-          "date": "5-Nov-25",
+          "date": "8-Dec-25",
           "type": "Pymt",
           "account": "SBI(ADB)-CC A/C",
           "amount": 1450,
           "sign": "Dr"
         },
         {
-          "date": "5-Nov-25",
+          "date": "8-Dec-25",
+          "type": "Purc",
+          "account": "Transport Charges(Services)",
+          "amount": 1530,
+          "sign": "Cr"
+        },
+        {
+          "date": "8-Dec-25",
+          "type": "Purc",
+          "account": "Transport Charges(Services)",
+          "amount": 850,
+          "sign": "Cr"
+        },
+        {
+          "date": "8-Dec-25",
+          "type": "Purc",
+          "account": "Transport Charges(Services)",
+          "amount": 1070,
+          "sign": "Cr"
+        },
+        {
+          "date": "8-Dec-25",
           "type": "Purc",
           "account": "Transport Charges(Services)",
           "amount": 1450,
           "sign": "Cr"
         },
         {
-          "date": "5-Nov-25",
+          "date": "8-Dec-25",
           "type": "Purc",
           "account": "Transport Charges(Services)",
-          "amount": 4850,
+          "amount": 850,
           "sign": "Cr"
         },
         {
-          "date": "8-Nov-25",
-          "type": "Pymt",
-          "account": "SBI(ADB)-CC A/C",
+          "date": "8-Dec-25",
+          "type": "Purc",
+          "account": "Transport Charges(Services)",
           "amount": 1250,
+          "sign": "Cr"
+        },
+        {
+          "date": "10-Dec-25",
+          "type": "Pymt",
+          "account": "SBI(ADB)-CC A/C",
+          "amount": 850,
+          "sign": "Dr"
+        },
+        {
+          "date": "10-Dec-25",
+          "type": "Pymt",
+          "account": "SBI(ADB)-CC A/C",
+          "amount": 1070,
+          "sign": "Dr"
+        },
+        {
+          "date": "19-Dec-25",
+          "type": "Pymt",
+          "account": "SBI(ADB)-CC A/C",
+          "amount": 1530,
           "sign": "Dr"
         }
       ],
@@ -11175,11 +11810,11 @@
     },
     {
       "name": "HOTEL LOTUS PARADISE",
-      "amount": 0,
+      "amount": 50000,
       "type": "Cr",
       "transactions": [],
       "isGroup": false,
-      "openingBalance": ""
+      "openingBalance": "50000.00"
     },
     {
       "name": "JAI JAGNATH F/W , TITLAGARH",
@@ -11215,22 +11850,22 @@
     },
     {
       "name": "Jai Sri Mahalaxmi Enterprises",
-      "amount": 0,
-      "type": "Cr",
+      "amount": 10000,
+      "type": "Dr",
       "transactions": [],
       "isGroup": false,
-      "openingBalance": ""
+      "openingBalance": "-10000.00"
     },
     {
       "name": "JAWAHAR HOSIERY FACTORY",
-      "amount": 94265,
+      "amount": 133351,
       "type": "Cr",
       "transactions": [
         {
-          "date": "24-Oct-25",
+          "date": "19-Dec-25",
           "type": "Purc",
           "account": "PURCHASE@GST",
-          "amount": 42441,
+          "amount": 64086,
           "sign": "Cr"
         }
       ],
@@ -11239,28 +11874,14 @@
     },
     {
       "name": "J.K Plastic Industries",
-      "amount": 50830,
+      "amount": 98483,
       "type": "Cr",
       "transactions": [
         {
-          "date": "7-Jul-25",
-          "type": "Pymt",
-          "account": "SBI(ADB)-CC A/C",
-          "amount": 30000,
-          "sign": "Dr"
-        },
-        {
-          "date": "17-Jul-25",
-          "type": "Pymt",
-          "account": "SBI(ADB)-CC A/C",
-          "amount": 13562,
-          "sign": "Dr"
-        },
-        {
-          "date": "30-Jul-25",
+          "date": "20-Nov-25",
           "type": "Purc",
           "account": "PURCHASE@GST",
-          "amount": 50830,
+          "amount": 47653,
           "sign": "Cr"
         }
       ],
@@ -11292,6 +11913,22 @@
       "openingBalance": ""
     },
     {
+      "name": "KRISHNA SALES AGENCY",
+      "amount": 26328,
+      "type": "Cr",
+      "transactions": [
+        {
+          "date": "13-Dec-25",
+          "type": "Purc",
+          "account": "PURCHASE@GST",
+          "amount": 26328,
+          "sign": "Cr"
+        }
+      ],
+      "isGroup": false,
+      "openingBalance": ""
+    },
+    {
       "name": "K R J POLYMERS (SWASTIK)",
       "amount": 155904,
       "type": "Cr",
@@ -11309,15 +11946,64 @@
     },
     {
       "name": "MAGNET POLYMERS",
-      "amount": 385166.53,
+      "amount": 279388.53,
       "type": "Cr",
       "transactions": [
         {
-          "date": "4-Nov-25",
+          "date": "4-Dec-25",
           "type": "Pymt",
           "account": "SBI(ADB)-CC A/C",
-          "amount": 80000,
+          "amount": 100000,
           "sign": "Dr"
+        },
+        {
+          "date": "8-Dec-25",
+          "type": "Purc",
+          "account": "PURCHASE@GST",
+          "amount": 10886,
+          "sign": "Cr"
+        },
+        {
+          "date": "8-Dec-25",
+          "type": "Purc",
+          "account": "PURCHASE@GST",
+          "amount": 24480,
+          "sign": "Cr"
+        },
+        {
+          "date": "8-Dec-25",
+          "type": "Purc",
+          "account": "PURCHASE@GST",
+          "amount": 13482,
+          "sign": "Cr"
+        },
+        {
+          "date": "9-Dec-25",
+          "type": "Pymt",
+          "account": "SBI(ADB)-CC A/C",
+          "amount": 850,
+          "sign": "Dr"
+        },
+        {
+          "date": "22-Dec-25",
+          "type": "Pymt",
+          "account": "SBI(ADB)-CC A/C",
+          "amount": 100000,
+          "sign": "Dr"
+        },
+        {
+          "date": "27-Dec-25",
+          "type": "Purc",
+          "account": "PURCHASE@GST",
+          "amount": 18000,
+          "sign": "Cr"
+        },
+        {
+          "date": "27-Dec-25",
+          "type": "Purc",
+          "account": "PURCHASE@GST",
+          "amount": 28224,
+          "sign": "Cr"
         }
       ],
       "isGroup": false,
@@ -11325,15 +12011,22 @@
     },
     {
       "name": "MARUTI PLASTICS",
-      "amount": 287485,
+      "amount": 308583,
       "type": "Cr",
       "transactions": [
         {
-          "date": "14-Nov-25",
+          "date": "10-Dec-25",
           "type": "Pymt",
           "account": "SBI(ADB)-CC A/C",
-          "amount": 50000,
+          "amount": 100000,
           "sign": "Dr"
+        },
+        {
+          "date": "13-Dec-25",
+          "type": "Purc",
+          "account": "PURCHASE@GST",
+          "amount": 27240,
+          "sign": "Cr"
         }
       ],
       "isGroup": false,
@@ -11353,7 +12046,7 @@
       "type": "Dr",
       "transactions": [],
       "isGroup": false,
-      "openingBalance": ""
+      "openingBalance": "-11629.00"
     },
     {
       "name": "MINI FOOTWEAR",
@@ -11373,14 +12066,14 @@
     },
     {
       "name": "M/S PANKAJ PLASTIC",
-      "amount": 0,
-      "type": "Cr",
+      "amount": 52637,
+      "type": "Dr",
       "transactions": [
         {
-          "date": "10-Nov-25",
+          "date": "23-Dec-25",
           "type": "Pymt",
           "account": "SBI(ADB)-CC A/C",
-          "amount": 4894,
+          "amount": 52637,
           "sign": "Dr"
         }
       ],
@@ -11397,14 +12090,14 @@
     },
     {
       "name": "NAV DURGA ENTERPRISES (R.K F/W)",
-      "amount": 80109.43,
+      "amount": 62951.43,
       "type": "Cr",
       "transactions": [
         {
-          "date": "6-Nov-25",
+          "date": "6-Dec-25",
           "type": "Pymt",
           "account": "SBI(ADB)-CC A/C",
-          "amount": 23412,
+          "amount": 23050,
           "sign": "Dr"
         }
       ],
@@ -11432,7 +12125,7 @@
         }
       ],
       "isGroup": false,
-      "openingBalance": ""
+      "openingBalance": "171100.00"
     },
     {
       "name": "NEXGEN FOTWEAR",
@@ -11440,18 +12133,34 @@
       "type": "Dr",
       "transactions": [],
       "isGroup": false,
-      "openingBalance": ""
+      "openingBalance": "-50360.00"
     },
     {
       "name": "NEXUS VENTURE (R K TREDERS)",
-      "amount": 43867,
+      "amount": 68517,
       "type": "Cr",
       "transactions": [
         {
-          "date": "17-Nov-25",
+          "date": "27-Dec-25",
           "type": "Purc",
           "account": "PURCHASE@GST",
-          "amount": 24723,
+          "amount": 24650,
+          "sign": "Cr"
+        }
+      ],
+      "isGroup": false,
+      "openingBalance": ""
+    },
+    {
+      "name": "NIKHIL UDYOG,DELHI",
+      "amount": 151271,
+      "type": "Cr",
+      "transactions": [
+        {
+          "date": "15-Dec-25",
+          "type": "Purc",
+          "account": "PURCHASE@GST",
+          "amount": 17640,
           "sign": "Cr"
         }
       ],
@@ -11468,11 +12177,11 @@
     },
     {
       "name": "Om Maa Mangala Catering",
-      "amount": 0,
+      "amount": 167500,
       "type": "Cr",
       "transactions": [],
       "isGroup": false,
-      "openingBalance": ""
+      "openingBalance": "167500.00"
     },
     {
       "name": "OM TRADERS  (J K PLASTIK)",
@@ -11488,7 +12197,7 @@
         }
       ],
       "isGroup": false,
-      "openingBalance": ""
+      "openingBalance": "50878.00"
     },
     {
       "name": "Paragon Polymer Productc Pvt Ltd(Delhi)",
@@ -11504,13 +12213,21 @@
         }
       ],
       "isGroup": false,
-      "openingBalance": ""
+      "openingBalance": "41798.00"
     },
     {
       "name": "Paragon Polymer Products Ltd(West Bangal)",
-      "amount": 0,
+      "amount": 63851,
       "type": "Cr",
-      "transactions": [],
+      "transactions": [
+        {
+          "date": "29-Dec-25",
+          "type": "Purc",
+          "account": "PURCHASE@GST",
+          "amount": 63851,
+          "sign": "Cr"
+        }
+      ],
       "isGroup": false,
       "openingBalance": ""
     },
@@ -11524,22 +12241,169 @@
     },
     {
       "name": "Paragon Polymer Products Pvt Ltd.",
-      "amount": 3092471.96,
+      "amount": 1769063.16,
       "type": "Cr",
       "transactions": [
         {
-          "date": "21-Nov-25",
+          "date": "5-Dec-25",
           "type": "Purc",
           "account": "PURCHASE@GST",
-          "amount": 25889,
+          "amount": 631223,
           "sign": "Cr"
         },
         {
-          "date": "21-Nov-25",
+          "date": "5-Dec-25",
           "type": "Purc",
           "account": "PURCHASE@GST",
-          "amount": 691539,
+          "amount": 19716,
           "sign": "Cr"
+        },
+        {
+          "date": "5-Dec-25",
+          "type": "Purc",
+          "account": "PURCHASE@GST",
+          "amount": 33486,
+          "sign": "Cr"
+        },
+        {
+          "date": "5-Dec-25",
+          "type": "Purc",
+          "account": "PURCHASE@GST",
+          "amount": 10899,
+          "sign": "Cr"
+        },
+        {
+          "date": "5-Dec-25",
+          "type": "Purc",
+          "account": "PURCHASE@GST",
+          "amount": 9140,
+          "sign": "Cr"
+        },
+        {
+          "date": "5-Dec-25",
+          "type": "Purc",
+          "account": "PURCHASE@GST",
+          "amount": 38145,
+          "sign": "Cr"
+        },
+        {
+          "date": "5-Dec-25",
+          "type": "Purc",
+          "account": "PURCHASE@GST",
+          "amount": 192627,
+          "sign": "Cr"
+        },
+        {
+          "date": "5-Dec-25",
+          "type": "Purc",
+          "account": "PURCHASE@GST",
+          "amount": 19548,
+          "sign": "Cr"
+        },
+        {
+          "date": "5-Dec-25",
+          "type": "Purc",
+          "account": "PURCHASE@GST",
+          "amount": 6621,
+          "sign": "Cr"
+        },
+        {
+          "date": "11-Dec-25",
+          "type": "Pymt",
+          "account": "SBI(ADB)-CC A/C",
+          "amount": 1000000,
+          "sign": "Dr"
+        },
+        {
+          "date": "13-Dec-25",
+          "type": "Pymt",
+          "account": "SBI(ADB)-CC A/C",
+          "amount": 500000,
+          "sign": "Dr"
+        },
+        {
+          "date": "16-Dec-25",
+          "type": "Purc",
+          "account": "PURCHASE@GST",
+          "amount": 487621,
+          "sign": "Cr"
+        },
+        {
+          "date": "16-Dec-25",
+          "type": "Purc",
+          "account": "PURCHASE@GST",
+          "amount": 18281,
+          "sign": "Cr"
+        },
+        {
+          "date": "16-Dec-25",
+          "type": "Purc",
+          "account": "PURCHASE@GST",
+          "amount": 38356,
+          "sign": "Cr"
+        },
+        {
+          "date": "16-Dec-25",
+          "type": "Purc",
+          "account": "PURCHASE@GST",
+          "amount": 19573,
+          "sign": "Cr"
+        },
+        {
+          "date": "18-Dec-25",
+          "type": "Pymt",
+          "account": "SBI(ADB)-CC A/C",
+          "amount": 700000,
+          "sign": "Dr"
+        },
+        {
+          "date": "19-Dec-25",
+          "type": "Purc",
+          "account": "PURCHASE@GST",
+          "amount": 320476,
+          "sign": "Cr"
+        },
+        {
+          "date": "19-Dec-25",
+          "type": "Purc",
+          "account": "PURCHASE@GST",
+          "amount": 13579,
+          "sign": "Cr"
+        },
+        {
+          "date": "19-Dec-25",
+          "type": "Purc",
+          "account": "PURCHASE@GST",
+          "amount": 40664,
+          "sign": "Cr"
+        },
+        {
+          "date": "19-Dec-25",
+          "type": "Purc",
+          "account": "PURCHASE@GST",
+          "amount": 246610,
+          "sign": "Cr"
+        },
+        {
+          "date": "20-Dec-25",
+          "type": "Pymt",
+          "account": "SBI(ADB)-CC A/C",
+          "amount": 200000,
+          "sign": "Dr"
+        },
+        {
+          "date": "24-Dec-25",
+          "type": "Purc",
+          "account": "PURCHASE@GST",
+          "amount": 677376,
+          "sign": "Cr"
+        },
+        {
+          "date": "24-Dec-25",
+          "type": "Pymt",
+          "account": "SBI(ADB)-CC A/C",
+          "amount": 1000000,
+          "sign": "Dr"
         }
       ],
       "isGroup": false,
@@ -11547,91 +12411,98 @@
     },
     {
       "name": "Paragon Polymer Products Pvt Ltd(Bangalore)",
-      "amount": 865037,
+      "amount": 771381,
       "type": "Cr",
       "transactions": [
         {
-          "date": "5-Nov-25",
-          "type": "Purc",
-          "account": "PURCHASE@GST",
-          "amount": 21323,
-          "sign": "Cr"
-        },
-        {
-          "date": "5-Nov-25",
-          "type": "Purc",
-          "account": "PURCHASE@GST",
-          "amount": 80891,
-          "sign": "Cr"
-        },
-        {
-          "date": "11-Nov-25",
-          "type": "Purc",
-          "account": "PURCHASE@GST",
-          "amount": 43697,
-          "sign": "Cr"
-        },
-        {
-          "date": "11-Nov-25",
-          "type": "Purc",
-          "account": "PURCHASE@GST",
-          "amount": 5585,
-          "sign": "Cr"
-        },
-        {
-          "date": "12-Nov-25",
-          "type": "Purc",
-          "account": "PURCHASE@GST",
-          "amount": 66466,
-          "sign": "Cr"
-        },
-        {
-          "date": "12-Nov-25",
-          "type": "Purc",
-          "account": "PURCHASE@GST",
-          "amount": 10902,
-          "sign": "Cr"
-        },
-        {
-          "date": "13-Nov-25",
-          "type": "Pymt",
-          "account": "SBI(ADB)-CC A/C",
-          "amount": 500000,
+          "date": "4-Dec-25",
+          "type": "Jrnl",
+          "account": "Hero Fincorp Ltd",
+          "amount": 930141,
           "sign": "Dr"
         },
         {
-          "date": "13-Nov-25",
+          "date": "9-Dec-25",
           "type": "Purc",
           "account": "PURCHASE@GST",
-          "amount": 50129,
+          "amount": 117439,
           "sign": "Cr"
         },
         {
-          "date": "15-Nov-25",
+          "date": "9-Dec-25",
           "type": "Purc",
           "account": "PURCHASE@GST",
-          "amount": 24487,
+          "amount": 28648,
           "sign": "Cr"
         },
         {
-          "date": "15-Nov-25",
+          "date": "10-Dec-25",
           "type": "Purc",
           "account": "PURCHASE@GST",
-          "amount": 9132,
+          "amount": 41629,
           "sign": "Cr"
         },
         {
-          "date": "15-Nov-25",
+          "date": "13-Dec-25",
           "type": "Purc",
           "account": "PURCHASE@GST",
-          "amount": 37291,
+          "amount": 138475,
           "sign": "Cr"
         },
         {
-          "date": "20-Nov-25",
+          "date": "13-Dec-25",
           "type": "Purc",
           "account": "PURCHASE@GST",
-          "amount": 49872,
+          "amount": 11531,
+          "sign": "Cr"
+        },
+        {
+          "date": "13-Dec-25",
+          "type": "Purc",
+          "account": "PURCHASE@GST",
+          "amount": 45378,
+          "sign": "Cr"
+        },
+        {
+          "date": "15-Dec-25",
+          "type": "Purc",
+          "account": "PURCHASE@GST",
+          "amount": 64089,
+          "sign": "Cr"
+        },
+        {
+          "date": "15-Dec-25",
+          "type": "Purc",
+          "account": "PURCHASE@GST",
+          "amount": 38184,
+          "sign": "Cr"
+        },
+        {
+          "date": "15-Dec-25",
+          "type": "Purc",
+          "account": "PURCHASE@GST",
+          "amount": 23063,
+          "sign": "Cr"
+        },
+        {
+          "date": "15-Dec-25",
+          "type": "Purc",
+          "account": "PURCHASE@GST",
+          "amount": 138370,
+          "sign": "Cr"
+        },
+        {
+          "date": "22-Dec-25",
+          "type": "Purc",
+          "account": "PURCHASE@GST",
+          "amount": 82524,
+          "sign": "Cr"
+        },
+        {
+          "date": "26-Dec-25",
+          "type": "Purc",
+          "account": "PURCHASE@GST",
+          "amount": 121688,
           "sign": "Cr"
         }
       ],
@@ -11640,21 +12511,77 @@
     },
     {
       "name": "PARAGON POLYMER PRODUCTS PVT LTD(HARYANA)",
-      "amount": 179124,
+      "amount": 351521,
       "type": "Cr",
       "transactions": [
         {
-          "date": "12-Nov-25",
+          "date": "4-Dec-25",
+          "type": "Jrnl",
+          "account": "Hero Fincorp Ltd",
+          "amount": 12557,
+          "sign": "Dr"
+        },
+        {
+          "date": "9-Dec-25",
           "type": "Purc",
           "account": "PURCHASE@GST",
-          "amount": 18398,
+          "amount": 11131,
           "sign": "Cr"
         },
         {
-          "date": "12-Nov-25",
+          "date": "9-Dec-25",
           "type": "Purc",
           "account": "PURCHASE@GST",
-          "amount": 41754,
+          "amount": 21424,
+          "sign": "Cr"
+        },
+        {
+          "date": "9-Dec-25",
+          "type": "Purc",
+          "account": "PURCHASE@GST",
+          "amount": 11724,
+          "sign": "Cr"
+        },
+        {
+          "date": "12-Dec-25",
+          "type": "Purc",
+          "account": "PURCHASE@GST",
+          "amount": 16975,
+          "sign": "Cr"
+        },
+        {
+          "date": "12-Dec-25",
+          "type": "Purc",
+          "account": "PURCHASE@GST",
+          "amount": 43220,
+          "sign": "Cr"
+        },
+        {
+          "date": "12-Dec-25",
+          "type": "Purc",
+          "account": "PURCHASE@GST",
+          "amount": 21252,
+          "sign": "Cr"
+        },
+        {
+          "date": "12-Dec-25",
+          "type": "Purc",
+          "account": "PURCHASE@GST",
+          "amount": 9140,
+          "sign": "Cr"
+        },
+        {
+          "date": "15-Dec-25",
+          "type": "Purc",
+          "account": "PURCHASE@GST",
+          "amount": 28664,
+          "sign": "Cr"
+        },
+        {
+          "date": "15-Dec-25",
+          "type": "Purc",
+          "account": "PURCHASE@GST",
+          "amount": 21424,
           "sign": "Cr"
         }
       ],
@@ -11663,49 +12590,70 @@
     },
     {
       "name": "Paragon Polymer Products Pvt.Ltd(Kerala)",
-      "amount": 989511,
+      "amount": 487200,
       "type": "Cr",
       "transactions": [
         {
-          "date": "5-Nov-25",
+          "date": "4-Dec-25",
+          "type": "Pymt",
+          "account": "SBI(ADB)-CC A/C",
+          "amount": 450000,
+          "sign": "Dr"
+        },
+        {
+          "date": "4-Dec-25",
+          "type": "Jrnl",
+          "account": "Hero Fincorp Ltd",
+          "amount": 345484,
+          "sign": "Dr"
+        },
+        {
+          "date": "10-Dec-25",
           "type": "Purc",
           "account": "PURCHASE@GST",
-          "amount": 46599,
+          "amount": 47025,
           "sign": "Cr"
         },
         {
-          "date": "13-Nov-25",
+          "date": "12-Dec-25",
           "type": "Purc",
           "account": "PURCHASE@GST",
-          "amount": 74092,
+          "amount": 80229,
           "sign": "Cr"
         },
         {
-          "date": "13-Nov-25",
+          "date": "15-Dec-25",
           "type": "Purc",
           "account": "PURCHASE@GST",
-          "amount": 6786,
+          "amount": 31226,
           "sign": "Cr"
         },
         {
-          "date": "14-Nov-25",
+          "date": "15-Dec-25",
+          "type": "Pymt",
+          "account": "SBI(ADB)-CC A/C",
+          "amount": 200000,
+          "sign": "Dr"
+        },
+        {
+          "date": "22-Dec-25",
           "type": "Purc",
           "account": "PURCHASE@GST",
-          "amount": 84624,
+          "amount": 109050,
           "sign": "Cr"
         },
         {
-          "date": "18-Nov-25",
+          "date": "26-Dec-25",
           "type": "Purc",
           "account": "PURCHASE@GST",
-          "amount": 36686,
+          "amount": 60415,
           "sign": "Cr"
         },
         {
-          "date": "20-Nov-25",
+          "date": "27-Dec-25",
           "type": "Purc",
           "account": "PURCHASE@GST",
-          "amount": 57417,
+          "amount": 119199,
           "sign": "Cr"
         }
       ],
@@ -11714,51 +12662,51 @@
     },
     {
       "name": "PARAGON POLYMER PRODUCTS PVT LTD, MEDAK (TELANGANA)",
-      "amount": 302878,
+      "amount": 175557,
       "type": "Cr",
       "transactions": [
         {
-          "date": "5-Nov-25",
-          "type": "Purc",
-          "account": "PURCHASE@GST",
-          "amount": 41382,
-          "sign": "Cr"
-        },
-        {
-          "date": "5-Nov-25",
-          "type": "Purc",
-          "account": "PURCHASE@GST",
-          "amount": 3425,
-          "sign": "Cr"
-        },
-        {
-          "date": "12-Nov-25",
-          "type": "Purc",
-          "account": "PURCHASE@GST",
-          "amount": 40183,
-          "sign": "Cr"
+          "date": "4-Dec-25",
+          "type": "Jrnl",
+          "account": "Hero Fincorp Ltd",
+          "amount": 57481,
+          "sign": "Dr"
         }
       ],
       "isGroup": false,
-      "openingBalance": ""
+      "openingBalance": "147103.00"
     },
     {
       "name": "PARAGON POLYMER PRODUCTS PVT(TAMIL NADU)",
-      "amount": 388330,
+      "amount": 388307,
       "type": "Cr",
       "transactions": [
         {
-          "date": "5-Nov-25",
+          "date": "4-Dec-25",
+          "type": "Jrnl",
+          "account": "Hero Fincorp Ltd",
+          "amount": 147395,
+          "sign": "Dr"
+        },
+        {
+          "date": "10-Dec-25",
           "type": "Purc",
           "account": "PURCHASE@GST",
-          "amount": 55637,
+          "amount": 76628,
           "sign": "Cr"
         },
         {
-          "date": "12-Nov-25",
+          "date": "26-Dec-25",
           "type": "Purc",
           "account": "PURCHASE@GST",
-          "amount": 38038,
+          "amount": 33650,
+          "sign": "Cr"
+        },
+        {
+          "date": "26-Dec-25",
+          "type": "Purc",
+          "account": "PURCHASE@GST",
+          "amount": 37094,
           "sign": "Cr"
         }
       ],
@@ -11767,22 +12715,15 @@
     },
     {
       "name": "PARIS INTERNATIONAL",
-      "amount": 44562,
+      "amount": 80987,
       "type": "Cr",
       "transactions": [
         {
-          "date": "24-Oct-25",
+          "date": "10-Dec-25",
           "type": "Purc",
           "account": "PURCHASE@GST",
-          "amount": 27040,
+          "amount": 53945,
           "sign": "Cr"
-        },
-        {
-          "date": "26-Oct-25",
-          "type": "Pymt",
-          "account": "SBI(ADB)-CC A/C",
-          "amount": 30000,
-          "sign": "Dr"
         }
       ],
       "isGroup": false,
@@ -11798,11 +12739,18 @@
     },
     {
       "name": "POPULAR RUBBER INDUSTRIES",
-      "amount": 178668,
+      "amount": 177980,
       "type": "Cr",
       "transactions": [
         {
-          "date": "9-Oct-25",
+          "date": "10-Dec-25",
+          "type": "Purc",
+          "account": "PURCHASE@GST",
+          "amount": 39312,
+          "sign": "Cr"
+        },
+        {
+          "date": "11-Dec-25",
           "type": "Pymt",
           "account": "SBI(ADB)-CC A/C",
           "amount": 40000,
@@ -11810,15 +12758,15 @@
         }
       ],
       "isGroup": false,
-      "openingBalance": ""
+      "openingBalance": "32898.00"
     },
     {
       "name": "Preston India Pvt Ltd.",
-      "amount": 0,
-      "type": "Cr",
+      "amount": 195984,
+      "type": "Dr",
       "transactions": [],
       "isGroup": false,
-      "openingBalance": ""
+      "openingBalance": "-195984.00"
     },
     {
       "name": "PRESTON INDIA PVT LTD, CUTTACK",
@@ -11841,7 +12789,7 @@
         }
       ],
       "isGroup": false,
-      "openingBalance": ""
+      "openingBalance": "-303544.11"
     },
     {
       "name": "PRESTON INDIA PVT LTD, HARYANA",
@@ -11861,11 +12809,19 @@
     },
     {
       "name": "PRESTON INDIA PVT LTD , KARNATAKA BANGALURU",
-      "amount": 25683,
+      "amount": 25120.8,
       "type": "Cr",
-      "transactions": [],
+      "transactions": [
+        {
+          "date": "16-Oct-25",
+          "type": "Jrnl",
+          "account": "Paragon Polymer Products Pvt Ltd.",
+          "amount": 562.2,
+          "sign": "Dr"
+        }
+      ],
       "isGroup": false,
-      "openingBalance": ""
+      "openingBalance": "25683.00"
     },
     {
       "name": "PU-LION FOOTWEAR PRIVATE LIMITED",
@@ -11951,7 +12907,7 @@
         }
       ],
       "isGroup": false,
-      "openingBalance": ""
+      "openingBalance": "45903.30"
     },
     {
       "name": "R K TRADER , DELHI",
@@ -11974,12 +12930,12 @@
         }
       ],
       "isGroup": false,
-      "openingBalance": ""
+      "openingBalance": "23253.00"
     },
     {
       "name": "R.R POLYPLAST PRIVATE LIMITED",
-      "amount": 230000,
-      "type": "Dr",
+      "amount": 0,
+      "type": "Cr",
       "transactions": [
         {
           "date": "17-Oct-25",
@@ -11994,27 +12950,27 @@
     },
     {
       "name": "RUBAN FOOTWEAR COMPANY",
-      "amount": 0,
+      "amount": 718.6,
       "type": "Cr",
       "transactions": [],
       "isGroup": false,
-      "openingBalance": ""
+      "openingBalance": "718.60"
     },
     {
       "name": "Sagar General Store",
-      "amount": 0,
-      "type": "Cr",
+      "amount": 18400,
+      "type": "Dr",
       "transactions": [],
       "isGroup": false,
-      "openingBalance": ""
+      "openingBalance": "-18400.00"
     },
     {
       "name": "Sai Goutam Glass & Works, Rgda",
-      "amount": 0,
-      "type": "Cr",
+      "amount": 80000,
+      "type": "Dr",
       "transactions": [],
       "isGroup": false,
-      "openingBalance": ""
+      "openingBalance": "-80000.00"
     },
     {
       "name": "Sai Steel Industries",
@@ -12042,15 +12998,15 @@
     },
     {
       "name": "Shiva Bag Zone",
-      "amount": 0,
-      "type": "Cr",
+      "amount": 11392.5,
+      "type": "Dr",
       "transactions": [],
       "isGroup": false,
-      "openingBalance": ""
+      "openingBalance": "-11392.50"
     },
     {
       "name": "SHREE BALAJI INCORPORATION-HARYAN",
-      "amount": 39837,
+      "amount": 75881,
       "type": "Cr",
       "transactions": [
         {
@@ -12102,19 +13058,19 @@
         }
       ],
       "isGroup": false,
-      "openingBalance": ""
+      "openingBalance": "23400.00"
     },
     {
       "name": "SHREE SHYAM FOOTWEAR",
-      "amount": 36860,
+      "amount": 0,
       "type": "Cr",
       "transactions": [
         {
-          "date": "30-Sep-25",
-          "type": "Purc",
-          "account": "PURCHASE@GST",
+          "date": "28-Dec-25",
+          "type": "Pymt",
+          "account": "SBI(ADB)-CC A/C",
           "amount": 36860,
-          "sign": "Cr"
+          "sign": "Dr"
         }
       ],
       "isGroup": false,
@@ -12130,14 +13086,14 @@
     },
     {
       "name": "SHRI MAHADEV INDUSTRIES",
-      "amount": 26283,
+      "amount": 8520,
       "type": "Cr",
       "transactions": [
         {
-          "date": "10-Sep-25",
+          "date": "10-Dec-25",
           "type": "Pymt",
           "account": "SBI(ADB)-CC A/C",
-          "amount": 30000,
+          "amount": 17763,
           "sign": "Dr"
         }
       ],
@@ -12162,11 +13118,32 @@
     },
     {
       "name": "SHRI RAMDUT ENTERPRISES",
-      "amount": 604266,
+      "amount": 744997,
       "type": "Cr",
       "transactions": [
         {
-          "date": "3-Nov-25",
+          "date": "4-Dec-25",
+          "type": "Pymt",
+          "account": "SBI(ADB)-CC A/C",
+          "amount": 100000,
+          "sign": "Dr"
+        },
+        {
+          "date": "16-Dec-25",
+          "type": "Purc",
+          "account": "PURCHASE@GST",
+          "amount": 142779,
+          "sign": "Cr"
+        },
+        {
+          "date": "18-Dec-25",
+          "type": "Pymt",
+          "account": "SBI(ADB)-CC A/C",
+          "amount": 100000,
+          "sign": "Dr"
+        },
+        {
+          "date": "26-Dec-25",
           "type": "Pymt",
           "account": "SBI(ADB)-CC A/C",
           "amount": 100000,
@@ -12174,7 +13151,7 @@
         }
       ],
       "isGroup": false,
-      "openingBalance": ""
+      "openingBalance": "552151.00"
     },
     {
       "name": "SHRI SAI FOOTCARE (FLOREX)",
@@ -12204,18 +13181,10 @@
         }
       ],
       "isGroup": false,
-      "openingBalance": ""
+      "openingBalance": "29400.00"
     },
     {
       "name": "SHUBHAM SALES (BAJAJ)",
-      "amount": 0,
-      "type": "Cr",
-      "transactions": [],
-      "isGroup": false,
-      "openingBalance": ""
-    },
-    {
-      "name": "SHUBHAN SALES (BAJAJ)",
       "amount": 0,
       "type": "Cr",
       "transactions": [],
@@ -12248,19 +13217,11 @@
     },
     {
       "name": "Srinu Engineering Works",
-      "amount": 0,
-      "type": "Cr",
+      "amount": 105000,
+      "type": "Dr",
       "transactions": [],
       "isGroup": false,
-      "openingBalance": ""
-    },
-    {
-      "name": "SRI SAI FOOTCARE (SWASTIK)",
-      "amount": 0,
-      "type": "Cr",
-      "transactions": [],
-      "isGroup": false,
-      "openingBalance": ""
+      "openingBalance": "-105000.00"
     },
     {
       "name": "S S BANSAL AND COMPANY",
@@ -12276,7 +13237,7 @@
         }
       ],
       "isGroup": false,
-      "openingBalance": ""
+      "openingBalance": "64210.00"
     },
     {
       "name": "S S Palymers",
@@ -12288,85 +13249,218 @@
     },
     {
       "name": "SWASTIK FOOTCARE",
-      "amount": 3397186,
+      "amount": 4059618,
       "type": "Cr",
       "transactions": [
         {
-          "date": "5-Nov-25",
+          "date": "2-Dec-25",
           "type": "Purc",
           "account": "PURCHASE@GST",
-          "amount": 67203,
+          "amount": 104793,
           "sign": "Cr"
         },
         {
-          "date": "6-Nov-25",
+          "date": "4-Dec-25",
+          "type": "Purc",
+          "account": "PURCHASE@GST",
+          "amount": 93251,
+          "sign": "Cr"
+        },
+        {
+          "date": "4-Dec-25",
+          "type": "Purc",
+          "account": "PURCHASE@GST",
+          "amount": 43525,
+          "sign": "Cr"
+        },
+        {
+          "date": "4-Dec-25",
+          "type": "Purc",
+          "account": "PURCHASE@GST",
+          "amount": 66635,
+          "sign": "Cr"
+        },
+        {
+          "date": "4-Dec-25",
+          "type": "Purc",
+          "account": "PURCHASE@GST",
+          "amount": 108882,
+          "sign": "Cr"
+        },
+        {
+          "date": "6-Dec-25",
+          "type": "Purc",
+          "account": "PURCHASE@GST",
+          "amount": 45855,
+          "sign": "Cr"
+        },
+        {
+          "date": "6-Dec-25",
+          "type": "Purc",
+          "account": "PURCHASE@GST",
+          "amount": 87081,
+          "sign": "Cr"
+        },
+        {
+          "date": "9-Dec-25",
+          "type": "Purc",
+          "account": "PURCHASE@GST",
+          "amount": 31685,
+          "sign": "Cr"
+        },
+        {
+          "date": "10-Dec-25",
+          "type": "Purc",
+          "account": "PURCHASE@GST",
+          "amount": 192213,
+          "sign": "Cr"
+        },
+        {
+          "date": "10-Dec-25",
+          "type": "Purc",
+          "account": "PURCHASE@GST",
+          "amount": 189751,
+          "sign": "Cr"
+        },
+        {
+          "date": "10-Dec-25",
+          "type": "Purc",
+          "account": "PURCHASE@GST",
+          "amount": 183941,
+          "sign": "Cr"
+        },
+        {
+          "date": "10-Dec-25",
+          "type": "Purc",
+          "account": "PURCHASE@GST",
+          "amount": 61185,
+          "sign": "Cr"
+        },
+        {
+          "date": "10-Dec-25",
+          "type": "Purc",
+          "account": "PURCHASE@GST",
+          "amount": 106253,
+          "sign": "Cr"
+        },
+        {
+          "date": "10-Dec-25",
+          "type": "Purc",
+          "account": "PURCHASE@GST",
+          "amount": 170459,
+          "sign": "Cr"
+        },
+        {
+          "date": "10-Dec-25",
+          "type": "Purc",
+          "account": "PURCHASE@GST",
+          "amount": 158924,
+          "sign": "Cr"
+        },
+        {
+          "date": "11-Dec-25",
           "type": "Pymt",
           "account": "SBI(ADB)-CC A/C",
-          "amount": 79679,
+          "amount": 41539,
           "sign": "Dr"
         },
         {
-          "date": "6-Nov-25",
+          "date": "11-Dec-25",
+          "type": "Pymt",
+          "account": "SBI(ADB)-CC A/C",
+          "amount": 49678,
+          "sign": "Dr"
+        },
+        {
+          "date": "11-Dec-25",
+          "type": "Pymt",
+          "account": "SBI(ADB)-CC A/C",
+          "amount": 29951,
+          "sign": "Dr"
+        },
+        {
+          "date": "11-Dec-25",
+          "type": "Pymt",
+          "account": "SBI(ADB)-CC A/C",
+          "amount": 29951,
+          "sign": "Dr"
+        },
+        {
+          "date": "11-Dec-25",
+          "type": "Pymt",
+          "account": "SBI(ADB)-CC A/C",
+          "amount": 28290,
+          "sign": "Dr"
+        },
+        {
+          "date": "11-Dec-25",
           "type": "Pymt",
           "account": "SBI(ADB)-CC A/C",
           "amount": 14975,
           "sign": "Dr"
         },
         {
-          "date": "6-Nov-25",
+          "date": "11-Dec-25",
           "type": "Pymt",
           "account": "SBI(ADB)-CC A/C",
-          "amount": 40074,
+          "amount": 26100,
           "sign": "Dr"
         },
         {
-          "date": "6-Nov-25",
+          "date": "11-Dec-25",
           "type": "Pymt",
           "account": "SBI(ADB)-CC A/C",
-          "amount": 67200,
+          "amount": 21950,
           "sign": "Dr"
         },
         {
-          "date": "8-Nov-25",
+          "date": "11-Dec-25",
+          "type": "Pymt",
+          "account": "SBI(ADB)-CC A/C",
+          "amount": 64843,
+          "sign": "Dr"
+        },
+        {
+          "date": "11-Dec-25",
+          "type": "Pymt",
+          "account": "SBI(ADB)-CC A/C",
+          "amount": 28180,
+          "sign": "Dr"
+        },
+        {
+          "date": "19-Dec-25",
           "type": "Purc",
           "account": "PURCHASE@GST",
-          "amount": 66312,
+          "amount": 101278,
           "sign": "Cr"
         },
         {
-          "date": "12-Nov-25",
+          "date": "20-Dec-25",
           "type": "Purc",
           "account": "PURCHASE@GST",
-          "amount": 55879,
+          "amount": 112209,
           "sign": "Cr"
         },
         {
-          "date": "17-Nov-25",
+          "date": "20-Dec-25",
           "type": "Purc",
           "account": "PURCHASE@GST",
-          "amount": 28501,
+          "amount": 31525,
           "sign": "Cr"
         },
         {
-          "date": "17-Nov-25",
-          "type": "Pymt",
-          "account": "SBI(ADB)-CC A/C",
-          "amount": 31908,
-          "sign": "Dr"
+          "date": "22-Dec-25",
+          "type": "Rcpt",
+          "account": "Cash",
+          "amount": 4000,
+          "sign": "Cr"
         },
         {
-          "date": "17-Nov-25",
-          "type": "Pymt",
-          "account": "SBI(ADB)-CC A/C",
-          "amount": 142607,
-          "sign": "Dr"
-        },
-        {
-          "date": "17-Nov-25",
-          "type": "Pymt",
-          "account": "SBI(ADB)-CC A/C",
-          "amount": 72191,
-          "sign": "Dr"
+          "date": "23-Dec-25",
+          "type": "Purc",
+          "account": "PURCHASE@GST",
+          "amount": 89821,
+          "sign": "Cr"
         }
       ],
       "isGroup": false,
@@ -12374,99 +13468,191 @@
     },
     {
       "name": "TALLY (INDIA) PRIVATE LIMITED",
-      "amount": 27934,
+      "amount": 32934,
       "type": "Dr",
-      "transactions": [],
+      "transactions": [
+        {
+          "date": "25-Dec-25",
+          "type": "Pymt",
+          "account": "SBI(ADB)-CC A/C",
+          "amount": 5000,
+          "sign": "Dr"
+        }
+      ],
       "isGroup": false,
       "openingBalance": "-33244.00"
     },
     {
       "name": "TCI FRIGHT TRANSPORT",
-      "amount": 5190,
+      "amount": 8360,
       "type": "Dr",
       "transactions": [
         {
-          "date": "17-Nov-25",
+          "date": "5-Dec-25",
           "type": "Purc",
           "account": "Transport Charges(Services)",
-          "amount": 4390,
+          "amount": 1540,
           "sign": "Cr"
         },
         {
-          "date": "17-Nov-25",
+          "date": "5-Dec-25",
           "type": "Purc",
           "account": "Transport Charges(Services)",
-          "amount": 6770,
+          "amount": 5000,
           "sign": "Cr"
         },
         {
-          "date": "17-Nov-25",
+          "date": "5-Dec-25",
           "type": "Purc",
           "account": "Transport Charges(Services)",
-          "amount": 2170,
+          "amount": 5250,
           "sign": "Cr"
         },
         {
-          "date": "17-Nov-25",
+          "date": "5-Dec-25",
           "type": "Purc",
           "account": "Transport Charges(Services)",
-          "amount": 3020,
+          "amount": 7200,
           "sign": "Cr"
         },
         {
-          "date": "17-Nov-25",
+          "date": "5-Dec-25",
           "type": "Purc",
           "account": "Transport Charges(Services)",
+          "amount": 3150,
+          "sign": "Cr"
+        },
+        {
+          "date": "5-Dec-25",
+          "type": "Purc",
+          "account": "Transport Charges(Services)",
+          "amount": 6200,
+          "sign": "Cr"
+        },
+        {
+          "date": "5-Dec-25",
+          "type": "Purc",
+          "account": "Transport Charges(Services)",
+          "amount": 800,
+          "sign": "Cr"
+        },
+        {
+          "date": "7-Dec-25",
+          "type": "Pymt",
+          "account": "SBI(ADB)-CC A/C",
+          "amount": 5000,
+          "sign": "Dr"
+        },
+        {
+          "date": "7-Dec-25",
+          "type": "Pymt",
+          "account": "SBI(ADB)-CC A/C",
+          "amount": 5250,
+          "sign": "Dr"
+        },
+        {
+          "date": "10-Dec-25",
+          "type": "Pymt",
+          "account": "SBI(ADB)-CC A/C",
+          "amount": 3150,
+          "sign": "Dr"
+        },
+        {
+          "date": "10-Dec-25",
+          "type": "Pymt",
+          "account": "SBI(ADB)-CC A/C",
+          "amount": 6200,
+          "sign": "Dr"
+        },
+        {
+          "date": "10-Dec-25",
+          "type": "Pymt",
+          "account": "SBI(ADB)-CC A/C",
+          "amount": 7200,
+          "sign": "Dr"
+        },
+        {
+          "date": "20-Dec-25",
+          "type": "Pymt",
+          "account": "SBI(ADB)-CC A/C",
+          "amount": 1540,
+          "sign": "Dr"
+        },
+        {
+          "date": "20-Dec-25",
+          "type": "Pymt",
+          "account": "SBI(ADB)-CC A/C",
+          "amount": 3500,
+          "sign": "Dr"
+        },
+        {
+          "date": "20-Dec-25",
+          "type": "Pymt",
+          "account": "SBI(ADB)-CC A/C",
           "amount": 1750,
-          "sign": "Cr"
+          "sign": "Dr"
         },
         {
-          "date": "17-Nov-25",
+          "date": "20-Dec-25",
+          "type": "Pymt",
+          "account": "SBI(ADB)-CC A/C",
+          "amount": 800,
+          "sign": "Dr"
+        },
+        {
+          "date": "23-Dec-25",
+          "type": "Pymt",
+          "account": "SBI(ADB)-CC A/C",
+          "amount": 620,
+          "sign": "Dr"
+        },
+        {
+          "date": "23-Dec-25",
           "type": "Purc",
           "account": "Transport Charges(Services)",
-          "amount": 3350,
+          "amount": 5000,
           "sign": "Cr"
         },
         {
-          "date": "17-Nov-25",
+          "date": "23-Dec-25",
+          "type": "Purc",
+          "account": "Transport Charges(Services)",
+          "amount": 4680,
+          "sign": "Cr"
+        },
+        {
+          "date": "23-Dec-25",
+          "type": "Purc",
+          "account": "Transport Charges(Services)",
+          "amount": 1875,
+          "sign": "Cr"
+        },
+        {
+          "date": "23-Dec-25",
+          "type": "Purc",
+          "account": "Transport Charges(Services)",
+          "amount": 620,
+          "sign": "Cr"
+        },
+        {
+          "date": "23-Dec-25",
           "type": "Pymt",
           "account": "SBI(ADB)-CC A/C",
-          "amount": 4390,
+          "amount": 1875,
           "sign": "Dr"
         },
         {
-          "date": "17-Nov-25",
+          "date": "23-Dec-25",
           "type": "Pymt",
           "account": "SBI(ADB)-CC A/C",
-          "amount": 2170,
+          "amount": 4680,
           "sign": "Dr"
         },
         {
-          "date": "17-Nov-25",
+          "date": "23-Dec-25",
           "type": "Pymt",
           "account": "SBI(ADB)-CC A/C",
-          "amount": 6770,
-          "sign": "Dr"
-        },
-        {
-          "date": "17-Nov-25",
-          "type": "Pymt",
-          "account": "SBI(ADB)-CC A/C",
-          "amount": 3020,
-          "sign": "Dr"
-        },
-        {
-          "date": "17-Nov-25",
-          "type": "Pymt",
-          "account": "SBI(ADB)-CC A/C",
-          "amount": 3350,
-          "sign": "Dr"
-        },
-        {
-          "date": "17-Nov-25",
-          "type": "Pymt",
-          "account": "SBI(ADB)-CC A/C",
-          "amount": 1750,
+          "amount": 5000,
           "sign": "Dr"
         }
       ],
@@ -12475,14 +13661,21 @@
     },
     {
       "name": "TEUZ FOOTWAER INDUTRIES , BAHADURGARH",
-      "amount": 20449,
+      "amount": 14976,
       "type": "Cr",
       "transactions": [
         {
-          "date": "26-Sep-25",
+          "date": "19-Dec-25",
+          "type": "Pymt",
+          "account": "SBI(ADB)-CC A/C",
+          "amount": 20449,
+          "sign": "Dr"
+        },
+        {
+          "date": "22-Dec-25",
           "type": "Purc",
           "account": "PURCHASE@GST",
-          "amount": 20449,
+          "amount": 14976,
           "sign": "Cr"
         }
       ],
@@ -12507,11 +13700,11 @@
     },
     {
       "name": "Tristar Software & Solutions Pvt Ltd",
-      "amount": 0,
+      "amount": 29248,
       "type": "Cr",
       "transactions": [],
       "isGroup": false,
-      "openingBalance": ""
+      "openingBalance": "29248.00"
     },
     {
       "name": "UAM FOOTWEAR PVT LTD",
@@ -12531,22 +13724,15 @@
     },
     {
       "name": "VAISHNO PLASTIC, DELHI",
-      "amount": 134652,
+      "amount": 140713,
       "type": "Cr",
       "transactions": [
         {
-          "date": "14-Nov-25",
+          "date": "11-Dec-25",
           "type": "Pymt",
           "account": "SBI(ADB)-CC A/C",
           "amount": 30000,
           "sign": "Dr"
-        },
-        {
-          "date": "18-Nov-25",
-          "type": "Purc",
-          "account": "PURCHASE@GST",
-          "amount": 91202,
-          "sign": "Cr"
         }
       ],
       "isGroup": false,
@@ -12602,21 +13788,14 @@
     },
     {
       "name": "YASH FOOTWEAR(R.K TREDERS)",
-      "amount": 21485,
+      "amount": 65147,
       "type": "Cr",
       "transactions": [
         {
-          "date": "21-Sep-25",
-          "type": "Purc",
-          "account": "PURCHASE@GST",
-          "amount": 21485,
-          "sign": "Cr"
-        },
-        {
-          "date": "26-Sep-25",
+          "date": "10-Dec-25",
           "type": "Pymt",
           "account": "SBI(ADB)-CC A/C",
-          "amount": 19197,
+          "amount": 21485,
           "sign": "Dr"
         }
       ],
